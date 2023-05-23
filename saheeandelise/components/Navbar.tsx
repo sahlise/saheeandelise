@@ -4,7 +4,7 @@ import Link from "next/link";
 const Navbar = () => {
     return (
         
-        <nav className="fixed w-full h-24 shadow-xl bg-white">
+        <nav className="fixed w-full h-24 shadow-xl bg-white dark:text-black">
             <div className="flex justify-between items-center h-full w-full px-4 2xl:px-16">
                 <Link href='/wedding'>
                     <div>Logo Placeholder</div>
