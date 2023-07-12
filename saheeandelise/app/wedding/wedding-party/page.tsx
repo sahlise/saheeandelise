@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function Page() { return (
   <div>
-    <h1>My Venue</h1>
+    <h1>Wedding Party</h1>
   </div>
 )
 };
