@@ -14,7 +14,7 @@ const Navbar = () => {
     
     return (
         
-        <nav className="fixed w-full h-24 shadow-xl bg-white dark:text-black">
+        <nav className="w-full h-24 shadow-xl bg-white dark:text-black z-10">
             <div className="flex justify-between items-center h-full w-full px-4 2xl:px-16">
                 <Link href='/wedding'>
                     <div>Logo Placeholder</div>
@@ -35,8 +35,8 @@ const Navbar = () => {
             </div>
             <div className={
                 menuOpen 
-                ? "fixed left-0 top-0 w-[65%] sm:hidden h-screen bg-[#ecf0f3] p10 ease-in duration-500"
-                : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
+                ? "fixed left-0 top-0 w-[65%] sm:hidden h-screen bg-[#ecf0f3] p10 ease-in duration-500 z-10"
+                : "fixed left-[-100%] top-0 p-10 ease-in duration-500 z-10"
                 }
             >
                 <div className="flex w-full items-center justify-end">

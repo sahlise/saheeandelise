@@ -1,0 +1,16 @@
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Since the images are duplicated */
+  }
+}
+
+.continuous-slide {
+  animation: scroll 30s linear infinite; /* Adjust this duration as needed */
+}
+
+.swiper-wrapper {
+  transition-timing-function: linear;
+}
