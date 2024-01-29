@@ -30,3 +30,33 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* styles/globals.css */
+.parallax-container {
+  perspective: 1px;
+  height: calc(100vh - 6rem); /* Adjust this height as needed */
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative
+}
+
+.background-image {
+  /* Set your background image */
+  background: url('/images/sky.jpg') no-repeat center center;
+  background-size: 100% 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0; /* Makes the image cover the entire parent height */
+  transform: translateZ(-3px) scale(7);
+  z-index: -1;
+}
+
+.text-content {
+  /* Position your text content */
+  position: relative;
+  z-index: 1;
+  /* Additional styling for text content */
+}

@@ -30,6 +30,10 @@ const Carousel: React.FC = () => {
     { id: 15, src: '/images/collages/15.jpg', alt: 'Image 1 Description' },
     { id: 16, src: '/images/collages/16.jpg', alt: 'Image 1 Description' },
     { id: 17, src: '/images/collages/17.jpg', alt: 'Image 1 Description' },
+    { id: 18, src: '/images/collages/18.jpg', alt: 'Image 1 Description' },
+    { id: 19, src: '/images/collages/19.jpg', alt: 'Image 1 Description' },
+    { id: 20, src: '/images/collages/20.jpg', alt: 'Image 1 Description' },
+    { id: 21, src: '/images/collages/21.jpg', alt: 'Image 1 Description' },
   ];
 
   const [loadedImagesCount, setLoadedImagesCount] = useState(false);
