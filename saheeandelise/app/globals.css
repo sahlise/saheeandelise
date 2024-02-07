@@ -60,3 +60,39 @@ body {
   z-index: 1;
   /* Additional styling for text content */
 }
+
+@font-face {
+  font-family: 'Bookinsanity';
+  src: url('/fonts/bookinsanity.woff2') format('woff2'), /* adjust the path to your font file */
+       url('/fonts/bookinsanity.woff') format('woff'); /* adjust the path to your font file */
+  font-weight: normal; /* specify the font weight */
+  font-style: normal; /* specify the font style */
+}
+
+@font-face {
+  font-family: 'Bookinsanity';
+  src: url('/fonts/bookinsanity_bold.woff2') format('woff2'), /* adjust the path to your font file */
+       url('/fonts/bookinsanity_bold.woff') format('woff'); /* adjust the path to your font file */
+  font-weight: bold; /* specify the font weight */
+  font-style: normal; /* specify the font style */
+}
+
+@font-face {
+  font-family: 'Bookinsanity';
+  src: url('/fonts/bookinsanity_italic.woff2') format('woff2'), /* adjust the path to your font file */
+       url('/fonts/bookinsanity_italic.woff') format('woff'); /* adjust the path to your font file */
+  font-weight: normal; /* specify the font weight */
+  font-style: italic; /* specify the font style */
+}
+
+@font-face {
+  font-family: 'Bookinsanity';
+  src: url('/fonts/bookinsanity_bold_italic.woff2') format('woff2'), /* adjust the path to your font file */
+       url('/fonts/bookinsanity_bold_italic.woff') format('woff'); /* adjust the path to your font file */
+  font-weight: bold; /* specify the font weight */
+  font-style: italic; /* specify the font style */
+}
+
+html, body {
+  font-family: 'Bookinsanity', sans-serif; /* Set the custom font as default */
+}

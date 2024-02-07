@@ -39,12 +39,12 @@ const Navbar = () => {
                 : "fixed left-[-100%] top-0 p-10 ease-in duration-500 z-10"
                 }
             >
-                <div className="flex w-full items-center justify-end">
+                <div className="flex w-full items-center justify-end p-4">
                     <div onClick={handleNav} className="cursor-pointer">
                         <AiOutlineClose size={25} />
                     </div>
                 </div>
-                <div className="flex-col py-4">
+                <div className="flex-col py-4 px-4">
                     <ul>
                         <Link href="/wedding">
                             <li
