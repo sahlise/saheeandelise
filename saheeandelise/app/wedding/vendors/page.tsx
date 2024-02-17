@@ -4,7 +4,8 @@ import React from 'react';
 
 export default function Page() { return (
   <div>
-    <h1>Venue</h1>
+    <h1>Vendors</h1>
+    
   </div>
 )
 };

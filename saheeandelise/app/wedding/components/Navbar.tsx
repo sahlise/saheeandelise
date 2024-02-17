@@ -27,6 +27,12 @@ const Navbar = () => {
                         <Link href='/wedding/venue'>
                             <li className="ml-10 uppercase hover:border-b text-xl">Venue</li>
                         </Link>
+                        <Link href='/wedding/our-story'>
+                            <li className="ml-10 uppercase hover:border-b text-xl">Our Story</li>
+                        </Link>
+                        <Link href='/wedding/rsvp'>
+                            <li className="ml-10 uppercase hover:border-b text-xl">RSVP</li>
+                        </Link>
                     </ul>
                 </div>
                 <div onClick={handleNav} className="md:hidden cursor-pointer pl-24">
@@ -59,12 +65,28 @@ const Navbar = () => {
                             className="py-4 cursor-pointer">
                                 Wedding Party
                             </li>
+
+                            
                         </Link>
                         <Link href="/wedding/venue">
                             <li
                             onClick={() => setMenuOpen(false)}
                             className="py-4 cursor-pointer">
                                 Venue
+                            </li>
+                        </Link>
+                        <Link href="/wedding/our-story">
+                            <li
+                            onClick={() => setMenuOpen(false)}
+                            className="py-4 cursor-pointer">
+                                Our Story
+                            </li>
+                        </Link>
+                        <Link href="/wedding/rsvp">
+                            <li
+                            onClick={() => setMenuOpen(false)}
+                            className="py-4 cursor-pointer">
+                                RSVP
                             </li>
                         </Link>
                     </ul>

@@ -1,10 +1,13 @@
 // pages/index.js
 import React from 'react';
-//import Link from 'next/link';
 
 export default function Page() { return (
   <div>
-    <h1>Venue</h1>
+    <h1>Our Story</h1>
+    <div>
+
+    </div>
+    
   </div>
 )
 };

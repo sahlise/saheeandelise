@@ -4,7 +4,9 @@ import React from 'react';
 
 export default function Page() { return (
   <div>
-    <h1>Venue</h1>
+    <h1>Registry</h1>
+    
+    
   </div>
 )
 };
