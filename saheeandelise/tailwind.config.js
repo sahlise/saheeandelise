@@ -12,6 +12,13 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        weddingIvory: '#FFFFF0',
+        weddingTan: '#E0C2A9',
+        weddingMaroon: '#570034',
+        weddingFern: '#638a45',
+        weddingGold: '#D4AF37'
+      }
       // animation: {
       //   scroll: 'scroll 40s linear infinite',
       // },

@@ -9,8 +9,10 @@ export default function WeddingLayout({
     <section>
       <div className="flex flex-col h-screen">
         <div className="h-24"><Navbar/></div>
-        <div style={{ height: 'calc(100vh - 24px)'}} className="bg-orange-50">{children}</div>
+        <div className="bg-weddingIvory">{children}</div>
       </div>
     </section>
   );
 }
+
+// style={{ height: 'calc(100vh - 24px)'}}
