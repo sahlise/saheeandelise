@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Carousel from './components/Carousel/Carousel';
 import CountdownTimer from './components/Countdown';
-import Link from "next/link";
+import Footer from './components/Footer';
 
 export default function Page() {
 
@@ -21,8 +21,8 @@ export default function Page() {
             <div className="background-image">
             </div>
             <div className="text-content">
-                <div className="relative">
-                    <div className="opacity-60">
+                <div className="relative bg-white">
+                    <div className="opacity-80">
                         <Carousel></Carousel>
                     </div>
 
@@ -32,22 +32,20 @@ export default function Page() {
                 </div>
 
                 <div className=" my-5 bg-white">
-                    <div className="p-5">
+                    <div className="p-5 md:text-xl">
                     Welcome, dear traveler, to our humble wedding website. 
                     We've crafted this site as a portal into our story, sprinkling it with delightful 
                     details and fun facts for you to discover and enjoy. Within these pages, 
                     you'll find everything you need to know about our special day—from the enchanting 
                     venue to the day's schedule, and more. If you have any troubles with our site, please 
-                    don't hesitate to reach out to us using the contact information provided. 
+                    don't hesitate to reach out to us using the Contact Us page provided. 
                     We're eagerly anticipating the joy of embarking on this journey with you.
                     </div>
+                    {/* <img src={"/images/branch-divider.png"}/> */}
                 </div>
-                <br></br>
-                <div>
-                    <Link href='/wedding/contact-us'>
-                        <li className="ml-10 uppercase hover:border-b text-xl">Contact us</li>
-                    </Link>
-                </div>
+
+                
+
 
                 <div className="relative">
                     <div className="opacity-100">
@@ -58,6 +56,8 @@ export default function Page() {
                         <CountdownTimer targetDate="2024-06-08" onInitialized={handleComponentLoaded} />
                     </div>
                 </div>
+
+                <div className="h-24"><Footer/></div>
 
 
             </div>

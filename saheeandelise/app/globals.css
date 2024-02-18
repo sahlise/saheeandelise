@@ -42,9 +42,9 @@ body {
 
 .background-image {
   /* Set your background image */
-  background: url('/images/sky.jpg') no-repeat center center;
-  background-size: 100% 100%;
-  width: 100%;
+  background: url('/images/forest-branches.png') no-repeat center center;
+  /*background-size: 100% 100%;*/
+  /*width: 100%;*/
   position: absolute;
   top: 0;
   right: 0;
