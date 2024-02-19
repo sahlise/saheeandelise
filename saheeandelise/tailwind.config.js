@@ -16,7 +16,7 @@ module.exports = {
         weddingIvory: '#FFFFF0',
         weddingTan: '#E0C2A9',
         weddingMaroon: '#570034',
-        weddingFern: '#638a45',
+        weddingGreen: '#638a45',
         weddingGold: '#D4AF37'
       }
       // animation: {

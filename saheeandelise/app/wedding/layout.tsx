@@ -9,7 +9,7 @@ export default function WeddingLayout({
     <section>
       <div className="flex flex-col h-screen">
         <div className="h-24"><Navbar/></div>
-        <div className="bg-weddingIvory">{children}</div>
+        <div className="bg-white">{children}</div>
       </div>
     </section>
   );
