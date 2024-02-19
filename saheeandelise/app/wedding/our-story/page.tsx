@@ -21,7 +21,7 @@ export default function Page() {
       {/* Quick facts */}
       <div className="bg-weddingGreen m-5 p-1 rounded-lg">
         <div className="flex justify-center items-center">
-          <h1 className="text-white text-4xl sm:text-5xl">Quick facts</h1>
+          <h1 className="text-white text-4xl sm:text-5xl text-center">A Couple of Couple Quirks</h1>
         </div>
         
         <div className="bg-white m-3 rounded-lg">
