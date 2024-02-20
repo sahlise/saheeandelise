@@ -1,0 +1,61 @@
+.logo-container {
+    position: relative;
+    width: 140px;
+    height: 140px;
+}
+
+.logo-text {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 32px;
+    font-weight: 500;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    color: black;
+}
+.circle-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-out; /* Smooth transition for the rotation */
+    transform-origin: center;
+    transform: rotate(0deg); /* Initial state */
+}
+
+.logo-container:hover .circle-svg #c1 {
+    transition: transform 0.5s ease-in; /* Adjust for smoother start */
+    transform: rotate(180deg); /* Example rotation on hover */
+}
+
+
+/* Initial state of the circles with a potential for reverse animation */
+.circle-svg #c1 {
+    transform-origin: center; /* Ensure rotation is around the SVG center */
+    transition: transform 0.5s ease-out; /* Smooth transition for returning to the initial state */
+}
+
+.logo-container:hover .circle-svg #c2 {
+    transition: transform 0.6s ease-in; /* Adjust for smoother start */
+    transform: rotate(210deg); /* Example rotation on hover */
+}
+
+
+/* Initial state of the circles with a potential for reverse animation */
+.circle-svg #c2 {
+    transform-origin: center; /* Ensure rotation is around the SVG center */
+    transition: transform 0.6s ease-out; /* Smooth transition for returning to the initial state */
+}
+
+.logo-container:hover .circle-svg #c3 {
+    transition: transform 0.7s ease-in; /* Adjust for smoother start */
+    transform: rotate(180deg); /* Example rotation on hover */
+}
+
+
+/* Initial state of the circles with a potential for reverse animation */
+.circle-svg #c3 {
+    transform-origin: center; /* Ensure rotation is around the SVG center */
+    transition: transform 0.7s ease-out; /* Smooth transition for returning to the initial state */
+}

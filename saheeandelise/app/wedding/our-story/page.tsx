@@ -145,7 +145,7 @@ export default function Page() {
 
       {/* First date */}
       <div className="m-5 bg-lime-100 rounded-lg">
-        <div className="text-4xl flex justify-center items-center bg-weddingGreen rounded-lg">
+        <div className="text-4xl flex justify-center items-center bg-weddingGreen rounded-t-lg">
           <h1 className="text-white text-4xl sm:text-5xl">Our First Date</h1>
         </div>
 
@@ -168,8 +168,8 @@ export default function Page() {
       </div>
 
       {/* Proposal */}
-      <div className="m-5 bg-lime-100 rounded-lg">
-        <div className="text-4xl flex justify-center items-center bg-weddingGreen rounded-lg">
+      <div className="mx-5 mt-5 bg-lime-100 rounded-t-lg">
+        <div className="text-4xl flex justify-center items-center bg-weddingGreen rounded-t-lg">
           <h1 className="text-white text-4xl sm:text-5xl">The Proposal</h1>
         </div>
         
@@ -207,7 +207,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className=" mx-5 mb-5 text-4xl flex justify-center items-center bg-weddingGreen rounded-lg">&nbsp;</div>
+      <div className=" mx-5 mb-5 text-4xl flex justify-center items-center bg-weddingGreen rounded-b-lg">&nbsp;</div>
 
     </div>
   )

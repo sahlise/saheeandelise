@@ -93,6 +93,22 @@ body {
   font-style: italic; /* specify the font style */
 }
 
+@font-face {
+  font-family: 'Cinzel Decorative';
+  src: url('/fonts/CinzelDecorative-Regular.woff2') format('woff2'), /* adjust the path to your font file */
+       url('/fonts/CinzelDecorative-Regular.woff') format('woff'); /* adjust the path to your font file */
+  font-weight: normal; /* specify the font weight */
+  font-style: normal; /* specify the font style */
+}
+
+@font-face {
+  font-family: 'Cinzel Decorative';
+  src: url('/fonts/CinzelDecorative-Bold.woff2') format('woff2'), /* adjust the path to your font file */
+       url('/fonts/CinzelDecorative-Bold.woff') format('woff'); /* adjust the path to your font file */
+  font-weight: bold; /* specify the font weight */
+  font-style: normal; /* specify the font style */
+}
+
 html, body {
   font-family: 'Bookinsanity', sans-serif; /* Set the custom font as default */
 }
