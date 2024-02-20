@@ -96,3 +96,12 @@ body {
 html, body {
   font-family: 'Bookinsanity', sans-serif; /* Set the custom font as default */
 }
+
+:root {
+  --swiper-navigation-color: #FFFFFF;
+  --swiper-pagination-color: #FFFFFF; 
+}
+
+.swiper-pagination-bullet {
+  background: var(--swiper-pagination-color);
+}
