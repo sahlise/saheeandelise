@@ -1,6 +1,7 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import React, {useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import { FaArrowAltCircleRight } from "react-icons/fa";
 
@@ -30,7 +31,7 @@ const PhotoTextFlipCard: React.FC<PhotoFlippedProps> = ({ imagePath, wording }) 
 
       <div onClick={handleClick}>
         <div className="p-3" style={{ width: '100%', height: 'auto' }}>
-          <img src={imagePath}></img>
+          <Image src={imagePath} alt="Image that goes along with side A" fill={true}/>
           <div className="flex justify-end items-center p-1"><FaArrowAltCircleRight /></div>
         </div>
         

@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from "swiper"
 import 'swiper/css';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
+import Image from 'next/image';
 
 const paragraph = " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
@@ -50,14 +51,25 @@ const ImageTextSwiper = () => {
                     <div className="col-span-2 row-span-1">
                         {/* Content */}
                         <div className="outline h-full">
-                            <img className="h-full" src={selectedImage.gif} alt="Selected" />
+                            <Image 
+                                className="h-full" 
+                                src={selectedImage.gif} 
+                                alt="Selected" 
+                                width={500}
+                                height={300}
+                            />
                         </div>
                     </div>
 
                     {/* First Row, Second Column (Taking up 1/3 width) */}
                     <div className="col-span-1">
                         {/* Content */}
-                        <img src={selectedImage.src} alt="Selected" />
+                        <Image 
+                            src={selectedImage.src} 
+                            alt="Selected" 
+                            width={500}
+                            height={300}
+                        />
                     </div>
 
                     {/* Second Row, Full-width */}
@@ -89,7 +101,11 @@ const ImageTextSwiper = () => {
                             }}>
                             {images.map((image, index) => (
                                 <SwiperSlide key={index} onClick={() => selectImage(image)}>
-                                    <img src={image.src} alt={`Slide ${index}`} />
+                                    <Image 
+                                        src={image.src} 
+                                        alt={`Slide ${index}`} 
+                                        width={500}
+                                        height={300}/>
                                 </SwiperSlide>
                             ))}
                         </Swiper>

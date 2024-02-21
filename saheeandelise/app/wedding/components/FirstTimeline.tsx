@@ -8,12 +8,7 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
-import { GiDiamondRing } from "react-icons/gi";
-import { FaCocktail } from "react-icons/fa";
-import { IoMdPizza } from "react-icons/io";
-import { PiForkKnifeFill } from "react-icons/pi";
-import { IoMusicalNotes } from "react-icons/io5";
-import { IoMusicalNoteSharp } from "react-icons/io5";
+import Image from 'next/image';
 
 
 
@@ -46,7 +41,12 @@ export default function FirstTimeline() {
         <TimelineContent>
             <div className="bg-lime-100 rounded-lg p-3 border-weddingGreen border-2">
               <p className="text-center">First summer apart</p>
-              <img src="/images/our-story/first-summer-apart.jpg"></img>
+              <Image 
+                src="/images/our-story/first-summer-apart.jpg" 
+                alt="Elise and Sahee on Facetime" 
+                width={500}
+                height={300}
+              />
             </div>
         </TimelineContent>
       </TimelineItem>
@@ -61,7 +61,12 @@ export default function FirstTimeline() {
         <TimelineContent>
           <div className="bg-lime-100 rounded-lg p-3 border-weddingGreen border-2">
             <p className="text-center">First solo trip</p>
-            <img src="/images/our-story/first-solo-trip.jpg"></img>
+            <Image 
+              src="/images/our-story/first-solo-trip.jpg" 
+              alt="Elise and Sahee at House on the Rock" 
+              width={500}
+              height={300}
+            />
           </div>
         </TimelineContent>
       </TimelineItem>
@@ -76,7 +81,12 @@ export default function FirstTimeline() {
         <TimelineContent>
           <div className="bg-lime-100 rounded-lg p-3 border-weddingGreen border-2">
             <p className="text-center">Graduated from UWL</p>
-            <img src="/images/our-story/graduation.jpg"></img>
+            <Image 
+              src="/images/our-story/graduation.jpg" 
+              alt="Sahee and Elise graduation"
+              width={500}
+              height={300}
+            />
           </div>
         </TimelineContent>
       </TimelineItem>
@@ -90,7 +100,12 @@ export default function FirstTimeline() {
         <TimelineContent>
           <div className="bg-lime-100 rounded-lg p-3 border-weddingGreen border-2">
             <p className="text-center">First apartment</p>
-            <img src="/images/our-story/first-apartment.jpg"></img>
+            <Image 
+              src="/images/our-story/first-apartment.jpg" 
+              alt="Sahee sitting in front of our first apartment" 
+              width={500}
+              height={300}
+            />
           </div>
         </TimelineContent>
       </TimelineItem>
@@ -105,7 +120,12 @@ export default function FirstTimeline() {
         <TimelineContent>
           <div className="bg-lime-100 rounded-lg p-3 border-weddingGreen border-2">
             <p className="text-center">First international trip</p>
-            <img src="/images/our-story/first-international.jpg"></img>
+            <Image 
+              src="/images/our-story/first-international.jpg" 
+              alt="Sahee and Elise in Italy" 
+              width={500}
+              height={300}
+            />
           </div>
         </TimelineContent>
       </TimelineItem>

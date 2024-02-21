@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Carousel from './components/Carousel/Carousel';
 import CountdownTimer from './components/Countdown';
 import Footer from './components/Footer';
+import Image from 'next/image';
 
 export default function Page() {
 
@@ -34,12 +35,12 @@ export default function Page() {
                 <div className=" my-5 bg-white">
                     <div className="p-5 md:text-xl">
                     Welcome, dear traveler, to our humble wedding website. 
-                    We've crafted this site as a portal into our story, sprinkling it with delightful 
+                    We&apos;ve crafted this site as a portal into our story, sprinkling it with delightful 
                     details and fun facts for you to discover and enjoy. Within these pages, 
-                    you'll find everything you need to know about our special day—from the enchanting 
-                    venue to the day's schedule, and more. If you have any troubles with our site, please 
-                    don't hesitate to reach out to us using the Contact Us page provided. 
-                    We're eagerly anticipating the joy of embarking on this journey with you.
+                    you&apos;ll find everything you need to know about our special day—from the enchanting 
+                    venue to the day&apos;s schedule, and more. If you have any troubles with our site, please 
+                    don&apos;t hesitate to reach out to us using the Contact Us page provided. 
+                    We&apos;re eagerly anticipating the joy of embarking on this journey with you.
                     </div>
                     {/* <img src={"/images/branch-divider.png"}/> */}
                 </div>
@@ -49,7 +50,12 @@ export default function Page() {
 
                 <div className="relative">
                     <div className="opacity-100">
-                        <img src={"/images/poster_image.jpg"} alt={"Countdown"} className="w-full md:w-3/4 md:mx-auto" /> {/* Tailwind class for width */}
+                        <Image 
+                            src={"/images/poster_image.jpg"} 
+                            alt={"Countdown"} 
+                            className="w-full md:w-3/4 md:mx-auto"
+                            width={500}
+                            height={300} /> {/* Tailwind class for width */}
                     </div>
 
                     <div className="absolute inset-x-0 bottom-10 md:bottom-20 md:text-2xl flex justify-center">

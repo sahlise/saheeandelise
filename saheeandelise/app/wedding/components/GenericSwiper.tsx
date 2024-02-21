@@ -7,6 +7,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import Image from 'next/image';
 
 interface Image {
   src: string, 
@@ -40,7 +41,12 @@ const GenericSwiper: React.FC<SwiperProps> = ({ images }) => {
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
-            <img src={image.src} alt={image.alt} style={{ width: '100%', height: 'auto' }} />
+            <Image 
+              src={image.src} 
+              alt={image.alt}
+              width={500}
+              height={300} 
+            />
           </SwiperSlide>
         ))}
       </Swiper>

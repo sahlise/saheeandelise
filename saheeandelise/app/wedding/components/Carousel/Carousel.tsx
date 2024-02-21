@@ -7,6 +7,7 @@ import { Autoplay } from 'swiper/modules'
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import './Carousel.css'
+import Image from 'next/image';
 
 SwiperCore.use([Autoplay]);
 const Carousel: React.FC = () => {
@@ -66,7 +67,12 @@ const handleImageLoaded = () => {
             .sort(() => Math.random() - 0.5) // Randomize the order
             .map((image, index) => (
             <SwiperSlide key={index} >
-              <img src={image.src} alt={image.alt} className="w-full" />
+              <Image 
+                src={image.src} 
+                alt={image.alt}  
+                className="w-full"
+                width={500}
+                height={300} />
               
             </SwiperSlide>
           ))}
