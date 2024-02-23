@@ -1,0 +1,12 @@
+/* Mobile view: White arrows */
+.swiper-button-next, .swiper-button-prev {
+    color: white;
+  }
+  
+  /* Desktop view: Black arrows */
+  @media (min-width: 768px) { /* Adjust 768px based on your breakpoint for desktop */
+    .swiper-button-next, .swiper-button-prev {
+      color: #638a45
+    }
+  }
+  

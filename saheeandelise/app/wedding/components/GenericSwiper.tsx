@@ -8,14 +8,15 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Image from 'next/image';
+import './GenericSwiper.css'
 
 interface Image {
-  src: string, 
+  src: string,
   alt: string
 }
 
 interface SwiperProps {
-  images: Image[]; 
+  images: Image[];
 }
 
 const GenericSwiper: React.FC<SwiperProps> = ({ images }) => {
@@ -29,7 +30,7 @@ const GenericSwiper: React.FC<SwiperProps> = ({ images }) => {
   };
 
   return (
-    <div className=  {loadedImagesCount ? 'visible overflow-hidden' : 'collapse'}>
+    <div className={loadedImagesCount ? 'visible overflow-hidden' : 'collapse'}>
       <Swiper
         modules={[Navigation, Pagination]}
         onSlidesLengthChange={handleImageLoaded}
@@ -41,12 +42,18 @@ const GenericSwiper: React.FC<SwiperProps> = ({ images }) => {
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
-            <Image 
-              src={image.src} 
-              alt={image.alt}
-              width={500}
-              height={300} 
-            />
+
+            <div className="flex justify-center items-center">
+              <div className="md:w-1/2">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={500}
+                  height={300}
+                />
+              </div>
+            </div>
+
           </SwiperSlide>
         ))}
       </Swiper>
