@@ -5,6 +5,7 @@ import Carousel from './components/Carousel/Carousel';
 import CountdownTimer from './components/Countdown';
 import Footer from './components/Footer';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Page() {
 
@@ -41,12 +42,14 @@ export default function Page() {
                     venue to the day&apos;s schedule, and more. If you have any troubles with our site, please 
                     don&apos;t hesitate to reach out to us using the Contact Us page provided. 
                     We&apos;re eagerly anticipating the joy of embarking on this journey with you.
+
+                        <div>
+                            <Link href="/wedding/schedule">
+                                Link to Day-of Schedule
+                            </Link>
+                        </div>
                     </div>
-                    {/* <img src={"/images/branch-divider.png"}/> */}
                 </div>
-
-                
-
 
                 <div className="relative">
                     <div className="opacity-100">

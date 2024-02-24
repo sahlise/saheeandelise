@@ -13,21 +13,19 @@ import GenericSwiper from '../components/GenericSwiper';
 
 export default function Page() {
   return (
-    <div>
+    <div className="bg-white">
       <div className="relative bg-black w-full flex justify-center">
         <div className="flex justify-center items-center bg-black md:w-full">
-        <div className="flex justify-center items-center">
-              <div className="md:w-3/4">
+          <div className="flex justify-center items-center">
+            <div className="md:w-3/4">
               <Image src="../../images/our-story/s-e.jpg"
-            alt="Image of Sahee shaped like an S, Elise shaped like an E"
-            width={1000}
-            height={1000}
-            priority={true}
-          />
-              </div>
+                alt="Image of Sahee shaped like an S, Elise shaped like an E"
+                width={1000}
+                height={1000}
+                priority={true}
+              />
             </div>
-          
-
+          </div>
         </div>
 
         <div className="h-full w-full bg-black opacity-30 absolute inset-0 flex"></div>

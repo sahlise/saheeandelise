@@ -28,7 +28,7 @@ const PhotoTextFlipCard: React.FC<PhotoFlippedProps> = ({ imagePath, wording }) 
           <p>{wording}</p>
           <div className="flex flex-col justify-center items-center p-1">
             <HiArrowUturnLeft />
-            <p>Flip me!</p>
+            <p>Click me!</p>
           </div>
         </div>
 
@@ -37,8 +37,7 @@ const PhotoTextFlipCard: React.FC<PhotoFlippedProps> = ({ imagePath, wording }) 
       <div onClick={handleClick}>
         <div className="p-3" style={{ width: '100%', height: 'auto' }}>
           <div className="flex justify-center items-center">
-            <div className="w-1/2">
-
+            <div className="md:w-1/2">
               <Image
                 src={imagePath}
                 alt="Image associate with front side"
@@ -46,12 +45,11 @@ const PhotoTextFlipCard: React.FC<PhotoFlippedProps> = ({ imagePath, wording }) 
                 height={300}
                 priority={true}
               />
-
             </div>
           </div>
           <div className="flex flex-col justify-center items-center p-1">
             <HiArrowUturnLeft />
-            <p>Flip me!</p>
+            <p>Click me!</p>
           </div>
         </div>
 
