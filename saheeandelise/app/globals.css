@@ -1,6 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Uncial+Antiqua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Imperial+Script&family=Uncial+Antiqua&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.almendra-regular-italic {
+  font-family: "Almendra", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.imperial-script-regular {
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -109,6 +127,14 @@ body {
   font-style: normal; /* specify the font style */
 }
 
+@font-face {
+  font-family: 'Uncial Antiqua';
+  src: url('/fonts/UncialAntiqua-Regular.woff2') format('woff2'), /* adjust the path to your font file */
+       url('/fonts/UncialAntiqua-Regular.woff') format('woff'); /* adjust the path to your font file */
+  font-weight: normal; /* specify the font weight */
+  font-style: normal; /* specify the font style */
+}
+
 html, body {
   font-family: 'Bookinsanity', sans-serif; /* Set the custom font as default */
 }
@@ -121,3 +147,4 @@ html, body {
 .swiper-pagination-bullet {
   background: var(--swiper-pagination-color);
 }
+
