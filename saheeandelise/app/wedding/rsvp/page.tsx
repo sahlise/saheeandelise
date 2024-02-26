@@ -4,7 +4,7 @@ import React, { useState, FormEvent } from 'react'
 import { useForm } from "react-hook-form";
 import FindNameForm from '../components/RsvpFindNameForm';
 import { get as levenshteinDistance } from 'fast-levenshtein';
-import { guests } from '../guestList';
+import { guests } from '../data/guestList';
 import { Group } from '../models/Group';
 import { Person } from '../models/Person';
 import Link from 'next/link';
@@ -35,6 +35,10 @@ export default function Page(this: any) {
   }
 
   function performSearchForLastAndFirst(name: string): any {
+    if(!name) {
+      //empty string, don't return anything
+      return [];
+    }
     const searchResults =  guests.filter(group => {
       return group.people.some(person => (person.firstName + ' ' + person.lastName).includes(name))
     });

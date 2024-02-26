@@ -1,4 +1,4 @@
-import { Group } from "./models/Group";
+import { Group } from "../models/Group";
 
 export const guests: Group[] = [
     {

@@ -9,6 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "react-icons": "^4.10.1"
+    "react-icons": "^4.10.1",
+    "vara": "^1.4.1"
+  },
+  "devDependencies": {
+    "@types/vara": "^1.1.4"
   }
 }
