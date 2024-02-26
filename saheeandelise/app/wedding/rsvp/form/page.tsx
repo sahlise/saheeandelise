@@ -4,6 +4,7 @@ import { redirect, useSearchParams } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { RsvpForm } from '../../models/RsvpForm';
 import TablePreferences from '../../components/TableSelect';
+import Link from 'next/link';
 
 const defaultForm: RsvpForm = {
   groupId: '',
@@ -21,26 +22,37 @@ export default function Page() {
 
   const searchParams = useSearchParams()
   const groupId = searchParams.get('groupid')
-
   if (!groupId) {
     redirect('/wedding/rsvp')
   }
-  
+
   const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+
   const { register, handleSubmit, watch, reset, setValue, formState: { errors } } = useForm<RsvpForm>();
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true)
+      setHasError(false)
       try {
-        const response = await fetch('/api/getRsvp');
+        const response = await fetch('/api/rsvp');
+
+        if (response.status != 200) {
+          throw new Error('Api error');
+        }
+
         let jsonData = await response.json();
 
         reset(jsonData);
-        setIsLoading(false)
+
 
       } catch (error) {
         console.error('Error fetching mock data:', error);
+        setHasError(true);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -67,6 +79,17 @@ export default function Page() {
 
   return (
     <div className="bg-white">
+      
+            {/* Error message */}
+      <div className={`${hasError ? 'visible' : 'hidden'}`}>
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+          <strong className="font-bold">Oh no!&nbsp;</strong>
+          <span className="block sm:inline">An error has occurred. Please try again, or if the error persists:&nbsp;</span>
+          <Link className="hover:underline font-bold" href="/wedding/contact-us">Contact us</Link>
+        </div>        
+      </div>
+      
+      {/* Loading Icon */}
       <div className={`w-full flex flex-col justify-center items-center ${isLoading ? 'visible mt-20' : 'hidden'}`} role="status">
         <svg aria-hidden="true" className="inline w-20 h-20 text-gray-200 animate-spin dark:text-gray-600 fill-weddingMaroon" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
@@ -75,7 +98,7 @@ export default function Page() {
         <span className="sr-only">Loading...</span>
       </div>
 
-      <div className={`flex flex-col justify-center items-center ${isLoading ? 'hidden' : 'visible'}`}>
+      <div className={`flex flex-col justify-center items-center ${isLoading || hasError ? 'hidden' : 'visible'}`}>
         <div className="text-5xl text-weddingMaroon mt-6">RSVP</div>
         <form className="m-4 flex flex-col justify-center items-center" onSubmit={handleSubmit(onSubmit)}>
           {peopleValues?.map((person, index) => (
