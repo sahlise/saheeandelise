@@ -108,7 +108,7 @@ export default function Page(this: any) {
                 {searchResults.map(group => (
                   <div key={group.groupId}
                     className="md:mt-4">
-                    <Link href={`/wedding/rsvp/response?groupid=${group.groupId}`}>
+                    <Link href={`/wedding/rsvp/form?groupid=${group.groupId}`}>
                       <h2 className="text-lg md:text-4xl pt-2 md:pt-4 almendra-regular-italic">{formatGroupNames(group.people)}</h2>
                       <h2 className="text-md md:text-2xlalmendra-regular-italic">{formatExtraNames(group.people)}</h2>
                       <h2 className="font-bold md:text-lg pb-2 md:pb-4 font-italized almendra-regular-italic underline">RSVP</h2>

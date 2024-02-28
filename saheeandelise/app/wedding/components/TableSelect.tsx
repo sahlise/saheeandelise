@@ -77,10 +77,6 @@ const TablePreferences: React.FC<TablePreferencesProps> = ({ updatePreferences }
             setSelected(selectedOptions);
             updatePreferences(selectedOptions.map(option => option.value))
         } 
-        
-
-        //console.log(selectedOptions.map(option => option.id)); 
-        // Perform additional actions based on selected options and actionMeta
     };
 
     return (
