@@ -3,9 +3,11 @@
 import React, { useState } from 'react';
 import Carousel from './components/Carousel/Carousel';
 import CountdownTimer from './components/Countdown';
+import MainParallax from './components/Parallax'
 import Footer from './components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 export default function Page() {
 
@@ -19,36 +21,27 @@ export default function Page() {
     const allComponentsLoaded = loadedComponentsCount === totalComponents;
 
     return (
-        <div className="parallax-container">
-            <div className="background-image">
-            </div>
-            <div className="text-content">
+        
+        <div className="bg-white">
+            <ParallaxProvider>
+      
+            <div className="">
                 <div className="relative bg-white">
-                    <div className="opacity-80">
+                    <div className="opacity-90">
                         <Carousel></Carousel>
                     </div>
 
+                    <div className="h-full w-full bg-black opacity-30 absolute inset-0 flex"></div>
+
                     <div className="absolute inset-0 flex justify-center items-center">
-                        <p className="text-6xl sm:text-9xl">Welcome</p>
+                        <p className="text-6xl sm:text-9xl text-white">Welcome</p>
                     </div>
                 </div>
+                
+                <MainParallax></MainParallax>
 
                 <div className=" my-5 bg-white">
-                    <div className="p-5 md:text-xl">
-                    Welcome, dear traveler, to our humble wedding website. 
-                    We&apos;ve crafted this site as a portal into our story, sprinkling it with delightful 
-                    details and fun facts for you to discover and enjoy. Within these pages, 
-                    you&apos;ll find everything you need to know about our special day—from the enchanting 
-                    venue to the day&apos;s schedule, and more. If you have any troubles with our site, please 
-                    don&apos;t hesitate to reach out to us using the Contact Us page provided. 
-                    We&apos;re eagerly anticipating the joy of embarking on this journey with you.
-
-                        <div>
-                            <Link href="/wedding/schedule">
-                                Link to Day-of Schedule
-                            </Link>
-                        </div>
-                    </div>
+                    
                 </div>
 
                 <div className="relative">
@@ -70,6 +63,8 @@ export default function Page() {
 
 
             </div>
+
+            </ParallaxProvider>
 
         </div>
 

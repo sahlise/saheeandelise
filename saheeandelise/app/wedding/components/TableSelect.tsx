@@ -13,6 +13,7 @@ interface GuestDropDownProp {
 
 interface TablePreferencesProps {
     updatePreferences: (preferences: string[]) => void;
+    currentGroupId: string;
 }
 
 const customStyles = {
@@ -24,12 +25,19 @@ const customStyles = {
         ...provided,
         borderColor: state.menuIsOpen ? '#570034' : '#d1d5db',
         boxShadow: state.menuIsOpen ? '#570034' : '#d1d5db',
-      })
+      }),
+    menuList: (styles: any) => {
+        console.log('menuList:', styles);
+        return {
+          ...styles,
+          maxHeight: 136
+        };
+      }
   };
 
   const MAX_SELECTION = 6; 
 
-const TablePreferences: React.FC<TablePreferencesProps> = ({ updatePreferences }) => {
+const TablePreferences: React.FC<TablePreferencesProps> = ({ updatePreferences, currentGroupId }) => {
 
     const [selected, setSelected] = useState<MultiValue<GuestDropDownProp>>([]);
 
@@ -38,6 +46,11 @@ const TablePreferences: React.FC<TablePreferencesProps> = ({ updatePreferences }
         guests.forEach(guest => {
             var label = "";
             const people = guest.people;
+
+            if(guest.groupId == currentGroupId) {
+                //we are on the current group, skip them so they are not in the list
+                return;
+            }
             
             if(people.length > 2) {
                 //we only want to use the first two names in the list with a ...

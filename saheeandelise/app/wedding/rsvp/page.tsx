@@ -40,7 +40,7 @@ export default function Page(this: any) {
       return [];
     }
     const searchResults =  guests.filter(group => {
-      return group.people.some(person => (person.firstName + ' ' + person.lastName).includes(name))
+      return group.people.some(person => (person.firstName.toLowerCase() + ' ' + person.lastName.toLowerCase()).includes(name.toLowerCase()))
     });
 
     return searchResults
