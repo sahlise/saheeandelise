@@ -26,7 +26,7 @@ export default function Page() {
           </div>
         </div>
         <h1 className="text-5xl mt-3 text-weddingMaroon">Registry</h1>
-        <div className="w-3/4 md:w-1/2 text-xl text-center mt-3">Your presence at our wedding surpasses any present. If you're wishing to give more, we&apos;ve created some online registries for inspiration.</div>
+        <div className="w-3/4 md:w-1/2 text-xl text-center mt-3">Your presence at our wedding surpasses any present. If you&apos;re wishing to give more, we&apos;ve created some online registries for inspiration.</div>
         <div className="grid md:grid-cols-2 md:gap-3 mx-3 my-5 w-1/2">
           <div className="m-4">
             <Link 
