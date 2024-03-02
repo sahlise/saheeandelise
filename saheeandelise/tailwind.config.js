@@ -17,7 +17,8 @@ module.exports = {
         weddingTan: '#E0C2A9',
         weddingMaroon: '#570034',
         weddingGreen: '#638a45',
-        weddingGold: '#D4AF37'
+        weddingGold: '#D4AF37',
+        weddingMaroonHover: '#f7cde6'
       }
       // animation: {
       //   scroll: 'scroll 40s linear infinite',
