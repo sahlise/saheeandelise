@@ -58,7 +58,7 @@ export default function Page() {
             </div>
 
             <div className="pt-4">
-              Enchanted by the Swan Barn Door's rustic indoor charm and beautiful outdoor space, we knew it was the perfect place to start our journey together. We liked its unique indoor balcony that offers guests a serene retreat, allowing them to remain connected to the celebration while enjoying a tranquil overlook of the venue.
+              Enchanted by the Swan Barn Door&apos;s rustic indoor charm and beautiful outdoor space, we knew it was the perfect place to start our journey together. We liked its unique indoor balcony that offers guests a serene retreat, allowing them to remain connected to the celebration while enjoying a tranquil overlook of the venue.
               For more information, please visit the Swan Barn Door
               <Link className="underline pl-1 text-weddingGreen" href="https://theswanbarndoor.com/">official website.</Link>
             </div>
@@ -153,7 +153,7 @@ export default function Page() {
             </div>
 
             <div className="">
-              The Wisconsin Dells is a classic tourist spot, known for being the “Waterpark capital of the World". There are a variety of casual eateries, amusement parks and vibrant local attractions to check out in the Dells and surrounding areas.
+              The Wisconsin Dells is a classic tourist spot, known for being the &quot;Waterpark capital of the World&quot;. There are a variety of casual eateries, amusement parks and vibrant local attractions to check out in the Dells and surrounding areas.
               For more information about the Dells and things to do, visit their
               <Link className="underline pl-1 text-weddingGreen" href="https://www.wisdells.com/">website.</Link>
             </div>
@@ -170,8 +170,8 @@ export default function Page() {
                   : A quiet and secluded escape just 1.5 miles from Wisconsin Dells, surrounded by pines and sandstone bluffs.
                 </li>
                 <li>
-                  <Link className="underline pl-1 text-weddingGreen" href="https://dnr.wisconsin.gov/topic/parks/devilslake">Devil's Lake</Link>
-                  : Wisconsin's largest state park offers magnificent views from 500-foot Quartzite bluffs overlooking a 360-acre lake.
+                  <Link className="underline pl-1 text-weddingGreen" href="https://dnr.wisconsin.gov/topic/parks/devilslake">Devil&apos;s Lake</Link>
+                  : Wisconsin&apos;s largest state park offers magnificent views from 500-foot Quartzite bluffs overlooking a 360-acre lake.
                 </li>
               </ul>
             </div>

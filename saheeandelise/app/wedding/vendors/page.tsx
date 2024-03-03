@@ -76,7 +76,7 @@ export default function Page() {
         <div className="bg-weddingMaroon text-white px-4 py-3 rounded flex flex-col justify-center items-center">
           <p className="py-1"><FaUserTie /></p>
           <p className="text-center font-bold">Suit</p>
-          <p className="text-center">Men's Warehouse</p>
+          <p className="text-center">Men&apos;s Warehouse</p>
         </div>
 
         <div className="bg-weddingMaroon text-white px-4 py-3 rounded flex flex-col justify-center items-center">
