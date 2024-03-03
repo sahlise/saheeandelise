@@ -142,4 +142,4 @@ function transformRow(groupName: string, members: Member[]): DynamoDBRow {
 }
 
 // Call the function with the path to your CSV file
-processCSV('input-test.csv');
+processCSV('input.csv');
