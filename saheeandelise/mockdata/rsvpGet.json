@@ -1,30 +1,35 @@
 {
-    "tablePreference": [
-        "groupid1",
-        "groupid2"
-    ],
+    "tablePreference": ["lmno"],
     "specialAccommodations": "specialAccommodations",
     "songRequest": "songRequest",
     "groupId": "default_group_id",
     "lastModified": "2024-02-21T12:00:00Z",
     "people": [
         {
-            "firstName": "Billy",
-            "lastName": "Bob",
-            "id": "person1_id",
+            "name": "Billy",
+            "index": "0",
             "mealPreference": "adult",
             "willAttend": "false"
         },
         {
-            "firstName": "firstname2",
-            "lastName": "lastname2",
-            "id": "person2_id",
-            "mealPreference": "adult",
+            "name": "Joe",
+            "index": "1",
+            "mealPreference": "child",
             "willAttend": "true"
         }
     ],
     "noteToCouple": "noteToCouple",
-    "dietaryRestrictions": "dietaryRestrictions",
     "email": "default@gmail.com",
-    "confirmEmail": "default"
+    "confirmEmail": "default",
+    "hasAdditionalGuests": "true",
+    "additionalGuests": [
+        {
+            "name": "Sally",
+            "mealPreference": "none"
+        },
+        {
+            "name": "Molly",
+            "mealPreference": "child"
+        }
+    ]
 }

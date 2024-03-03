@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Select, { ActionMeta, MultiValue } from 'react-select';
 import makeAnimated from 'react-select/animated';
@@ -14,6 +14,7 @@ interface GuestDropDownProp {
 interface TablePreferencesProps {
     updatePreferences: (preferences: string[]) => void;
     currentGroupId: string;
+    selectedGroupIds: string[];
 }
 
 const customStyles = {
@@ -21,13 +22,15 @@ const customStyles = {
       ...provided,//#570034
       backgroundColor: state.isFocused ? '#f7cde6' : '#ffffff',
     }),
-    control: (provided: any, state: { menuIsOpen: any; }) => ({
+    control: (provided: any, state: { menuIsOpen: any; isFocused: any; }) => ({
         ...provided,
-        borderColor: state.menuIsOpen ? '#570034' : '#d1d5db',
-        boxShadow: state.menuIsOpen ? '#570034' : '#d1d5db',
+        borderColor: state.menuIsOpen || state.isFocused ? '#570034' : '#d1d5db',
+        boxShadow: state.menuIsOpen || state.isFocused ? '#570034' : '#d1d5db',
+        '&:hover': {
+      borderColor: state.isFocused ? '#570034' : '#d1d5db', // Changes the border color on hover
+    },
       }),
     menuList: (styles: any) => {
-        console.log('menuList:', styles);
         return {
           ...styles,
           maxHeight: 136
@@ -37,45 +40,38 @@ const customStyles = {
 
   const MAX_SELECTION = 6; 
 
-const TablePreferences: React.FC<TablePreferencesProps> = ({ updatePreferences, currentGroupId }) => {
+const TablePreferences: React.FC<TablePreferencesProps> = ({ updatePreferences, currentGroupId, selectedGroupIds }) => {
 
-    const [selected, setSelected] = useState<MultiValue<GuestDropDownProp>>([]);
+    const mapIdToGuestDropDownProp = (): GuestDropDownProp[] => {
+        const selectGroups: GuestDropDownProp[] = []
+
+        if(selectedGroupIds) {
+            selectedGroupIds.forEach(groupId => {
+                let selectedGroup = guests.find(guest => guest.groupId === groupId)
+                if(selectedGroup) {
+                    selectGroups.push({ label: selectedGroup.groupName, value: selectedGroup.groupId });
+                }
+                
+            })
+        }
+
+        return selectGroups;
+    }
+    
+    const [selected, setSelected] = useState<MultiValue<GuestDropDownProp>>(mapIdToGuestDropDownProp());
+
+    useEffect(() => {
+        setSelected(mapIdToGuestDropDownProp());
+      }, [selectedGroupIds]);
 
     const getGuestData = () => {
         const selectGuestList: GuestDropDownProp[] = []
         guests.forEach(guest => {
-            var label = "";
-            const people = guest.people;
-
-            if(guest.groupId == currentGroupId) {
+            if(guest.groupId != currentGroupId) {
                 //we are on the current group, skip them so they are not in the list
-                return;
+                selectGuestList.push({ label: guest.groupName, value: guest.groupId })
             }
             
-            if(people.length > 2) {
-                //we only want to use the first two names in the list with a ...
-                const firstPerson = people[0];
-                const secondPerson = people[1];
-                label = firstPerson.firstName + " " + firstPerson.lastName + " and " + secondPerson.firstName + " " + secondPerson.lastName + "..."
-                
-            } else if (people.length > 1) {
-                //we only want to use the first two names in the list
-                const firstPerson = people[0];
-                const secondPerson = people[1];
-                label = firstPerson.firstName + " " + firstPerson.lastName + " and " + secondPerson.firstName + " " + secondPerson.lastName
-                
-            } 
-            else if (people.length > 0) {
-                //we will just use the only name in the list
-                const firstPerson = people[0];
-                label = firstPerson.firstName + " " + firstPerson.lastName
-                
-            } else {
-                //we have no people? just skip them
-                return;
-            }
-            
-            selectGuestList.push({ label: label, value: guest.groupId })
         })
 
 

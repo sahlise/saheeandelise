@@ -23,61 +23,20 @@ export default function Page(this: any) {
     setSearchResults(performSearchForLastAndFirst(name));
   };
 
-  function performLevenshtienDistance(name: string): any {
-    const calculatedSearchResults = guests.map(group => {
-      const score = Math.min(...group.people.map(person =>
-        levenshteinDistance(name.toLowerCase(), person.firstName.toLowerCase() + ' ' + person.lastName.toLowerCase())
-      ));
-      return { ...group, score }; // Append the score to each group
-    }).sort((a, b) => a.score - b.score)  // Sort groups by score in ascending order
-      .slice(0, 4); // Get first 5 elements
-      return calculatedSearchResults
-  }
-
   function performSearchForLastAndFirst(name: string): any {
     if(!name) {
       //empty string, don't return anything
       return [];
     }
     const searchResults =  guests.filter(group => {
-      return group.people.some(person => (person.firstName.toLowerCase() + ' ' + person.lastName.toLowerCase()).includes(name.toLowerCase()))
+      return group.people.some(person => (person.name.toLowerCase()).includes(name.toLowerCase())) || group.groupName.toLowerCase().includes(name.toLowerCase())
     });
 
     return searchResults
   }
 
-  function formatGroupNames(people: Person[]): string {
-    const names = people.map(person => `${person.firstName} ${person.lastName}`);
-
-    if (names.length > 2) {
-      //Only do the first name, the rest of them will be small underneith
-      return `Party of ${names[0]},`;
-    }
-    if (names.length === 2) {
-      // Join all but the last name with a comma, and the last two names with "and"
-      const lastTwoNames = names.slice(-2).join(' and ');
-      const commaSeparated = names.slice(0, -2).join(', ');
-      const formattedNames = [commaSeparated, lastTwoNames].filter(n => n).join(', ');
-      return `Party of ${formattedNames}`;
-    } else if (names.length === 1) {
-      // Only one name, so just return it followed by "'s Party"
-      return `Party of ${names[0]}`;
-    } else {
-      // No names, return an empty string or a placeholder text
-      return "No one's Party";
-    }
-  }
-
-  function formatExtraNames(people: Person[]): string {
-    const names = people.map(person => `${person.firstName}`);
-    if(names.length > 2) {
-      //concat the names of the rest of the people
-      const lastTwoNames = names.slice(-2).join(' and ');
-      const commaSeparated = names.slice(1, -2).join(', ');
-      const formattedNames = [commaSeparated, lastTwoNames].filter(n => n).join(', ');
-      return `${formattedNames}`;
-    }
-    return "";
+  function formatNames(people: Person[]): string {
+    return people.length > 1 ? people.map(person => person.name).join(', ') : '';
   }
 
   return (
@@ -109,8 +68,8 @@ export default function Page(this: any) {
                   <div key={group.groupId}
                     className="md:mt-4">
                     <Link href={`/wedding/rsvp/${group.groupId}`}>
-                      <h2 className="text-lg md:text-4xl pt-2 md:pt-4 almendra-regular-italic">{formatGroupNames(group.people)}</h2>
-                      <h2 className="text-md md:text-2xlalmendra-regular-italic">{formatExtraNames(group.people)}</h2>
+                      <h2 className="text-lg md:text-4xl pt-2 md:pt-4 almendra-regular-italic">{group.groupName}</h2>
+                      <h2 className="text-md md:text-2xlalmendra-regular-italic">{formatNames(group.people)}</h2>
                       <h2 className="font-bold md:text-lg pb-2 md:pb-4 font-italized almendra-regular-italic underline">RSVP</h2>
                     </Link>
                   </div>

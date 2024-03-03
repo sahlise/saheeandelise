@@ -19,7 +19,7 @@ export default function Page() {
 
       <div className="flex flex-col items-center">
 
-        <Image src="../../images/flower-divider-color.png"
+        <Image className="w-3/4 md:w-2/3" src="../../images/flower-divider-color.png"
           alt="Flower divider"
           width={1000}
           height={1000}
