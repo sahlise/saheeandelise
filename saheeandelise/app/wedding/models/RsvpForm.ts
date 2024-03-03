@@ -8,7 +8,6 @@ interface RsvpPerson extends Person {
 
 export interface RsvpForm {
     groupId: string;
-    lastModified: string;
     email: string;
     confirmEmail: string; //honeypot
     noteToCouple: string;

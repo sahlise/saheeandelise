@@ -28,6 +28,8 @@ export default function Page({
   const [isSubmitLoading, setIsSubmitLoading] = useState(false);
   const [isSubmitSuccess, setIsSubmitSuccess] = useState(false);
 
+  const [lastModified, setLastModified] = useState("");
+
 
   const { register, handleSubmit, watch, reset, setValue, getValues, control, formState: { errors } } = useForm<RsvpForm>(
     {
@@ -60,6 +62,9 @@ export default function Page({
 
         let jsonData = await response.json();
         reset(jsonData);
+        if(jsonData.lastModified) {
+          setLastModified(jsonData.lastModified);
+        }
 
 
       } catch (error) {
@@ -83,6 +88,9 @@ export default function Page({
 
   const onSubmit: SubmitHandler<RsvpForm> = async (data: RsvpForm) => {
     setIsSubmitLoading(true)
+    setHasError(false)
+    setSubmitError(false)
+
 
     
     if(!data.hasAdditionalGuests || data.hasAdditionalGuests === 'false') {
@@ -92,12 +100,9 @@ export default function Page({
     }
 
     data.groupId = params.groupId;
-    if (!data.confirmEmail) {
-      data.confirmEmail = "";
-    }
+    data.confirmEmail = "";
 
     
-    setHasError(false)
     try {
 
       const settings = {
@@ -117,6 +122,7 @@ export default function Page({
       console.log(data)
 
       if (response.status != 200) {
+        console.log(response);
         throw new Error('Api error');
       }
 
@@ -125,7 +131,7 @@ export default function Page({
       //router.push('wedding/rsvp/success')
 
     } catch (error) {
-      console.error('Error fetching mock data:', error);
+      console.error('More details', error);
       setSubmitError(true);
     } finally {
       setIsSubmitLoading(false);
@@ -164,15 +170,7 @@ export default function Page({
       </div>
 
       <div className="mt-4">
-              <label className="py-2 text-lg text-weddingMaroon" htmlFor='lastModified'>
-                Last modified
-              </label>
-              <input
-                id='lastModified'
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                type="text" placeholder="Not modified"
-                {...register("lastModified")}
-              />
+         <div>{lastModified}</div>
             </div>
 
       <div className={`flex flex-col justify-center items-center ${isLoading || hasError ? 'hidden' : 'visible'}`}>
