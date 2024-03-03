@@ -12,10 +12,26 @@ const paragraph = " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
 
 const ImageTextSwiper = () => {
     const images = [
-        { src: '/images/anna.jpg', text: 'Anna' + paragraph, gif: '/images/mary.gif' },
-        { src: '/images/javit.jpg', text: 'Javit' + paragraph, gif: '/images/mary.gif' },
-        { src: '/images/mary.jpg', text: 'Mary' + paragraph, gif: '/images/mary.gif' },
-        { src: '/images/kinji.jpg', text: 'Kinji' + paragraph, gif: '/images/mary.gif' },
+        { 
+            src: '/images/anna.jpg', 
+            text: "Anna is Elise's best older sister, but not older by much (we are almost irish twins!). Because of this, we were a pair of little ruffians growing up, always getting into trouble but giggling along the way. Now-a-days when she isn't experimenting with new cooking recipes, you can find Anna reading thriller or mystery books while hanging out with her cat Nea. Anna and her husband Connor also love to travel to fun and wacky places around the US. If you have a chance, ask them about their adventures to US National Parks.",
+            gif: '/images/mary.gif' 
+        },
+        { 
+            src: '/images/javit.jpg', 
+            text: 'Javit' + paragraph,
+            gif: '/images/mary.gif' 
+        },
+        { 
+            src: '/images/mary.jpg', 
+            text: "Mary is Elise's best younger sister, and Elise's favorite buddy to play with toys when we were growing up. We would play Polly Pockets and Littlest Pet Shop for hours! These days you can catch Mary baking bread and sweet treats, reading boatloads of books, or putting together legos (sometimes all at the same time 🙂) . Mary also loves crafting - crochet, book binding, cricutting, you name it! If you see Mary around feel free to ask her what craft project she is currently working on!", 
+            gif: '/images/mary.gif' 
+        },
+        { 
+            src: '/images/kinji.jpg', 
+            text: 'Kinji' + paragraph, 
+            gif: '/images/mary.gif' 
+        },
     ];
 
     const [selectedImage, setSelectedImage] = useState(images[0]);

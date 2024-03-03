@@ -17,7 +17,7 @@ export default function Page() {
   return (
     <div className="bg-white">
 
-      <div className=" flex flex-col items-center">
+      <div className="flex flex-col items-center">
 
         <Image src="../../images/flower-divider-color.png"
           alt="Flower divider"

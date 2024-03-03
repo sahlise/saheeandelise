@@ -16,4 +16,6 @@ export interface RsvpForm {
     songRequest: string;
     specialAccommodations: string;
     tablePreference: string[]; //list of groupIds
+    hasAdditionalGuests: string;
+    additionalGuests: RsvpPerson[];
 };

@@ -2,15 +2,14 @@ import { Group } from "../models/Group";
 
 export const guests: Group[] = [
     {
-      groupId: 'id1', people: [
+      groupId: '1', people: [
         { firstName: 'Sahee', lastName: 'Thao' }, 
-        { firstName: 'Elise', lastName: 'Baumgartner' }
+        { firstName: 'Elise', lastName: 'B' }
       ]
     },
     {
-      groupId: 'id2', people: [
-        { firstName: 'Alice', lastName: 'Test' }, 
-        { firstName: 'Bob', lastName: 'Test' }
+      groupId: '2', people: [
+        { firstName: 'John', lastName: 'Doe' }, 
       ]
     },
     {

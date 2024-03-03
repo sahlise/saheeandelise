@@ -1,22 +1,21 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import { redirect, useSearchParams, useRouter } from 'next/navigation';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { SubmitHandler, useForm, useFieldArray, Controller } from 'react-hook-form';
 import { RsvpForm } from '../../models/RsvpForm';
 import TablePreferences from '../../components/TableSelect';
 import Link from 'next/link';
+import { IoMdAddCircleOutline } from "react-icons/io";
+
 
 export default function Page({
   params
 }: {
-  params: { groupid: string }
+  params: { groupId: string }
 }) {
-  //const searchParams = useSearchParams()
-  //const groupId = searchParams.get('groupid')
-  const groupId = params.groupid;
 
 
-  if (!groupId) {
+  if (!params.groupId) {
     redirect('/wedding/rsvp')
   }
 
@@ -28,19 +27,32 @@ export default function Page({
   const [isSubmitSuccess, setIsSubmitSuccess] = useState(false);
 
 
-  const { register, handleSubmit, watch, reset, setValue, formState: { errors } } = useForm<RsvpForm>();
+  const { register, handleSubmit, watch, reset, setValue, control, formState: { errors } } = useForm<RsvpForm>(
+    {
+      defaultValues: {
+        additionalGuests: [],
+      },
+    }
+  );
+
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "additionalGuests", // The key in the form values that holds the array
+  });
 
   //use this only for debugging
   const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-  
+
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true)
       setHasError(false)
       try {
-        const response = await fetch('/api/rsvp');
+        //const url = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/rsvp?groupId=' + params.groupId;
+        const url = '/api/rsvp'
+        const response = await fetch(url);
         //https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/rsvp?groupId=default_group_id
 
         if (response.status != 200) {
@@ -69,15 +81,24 @@ export default function Page({
   }
 
   const peopleValues = watch("people");
+  const hasAdditionalGuestsValue = watch("hasAdditionalGuests")
 
   const onSubmit: SubmitHandler<RsvpForm> = async (data: RsvpForm) => {
     setIsSubmitLoading(true)
 
-    data.groupId = groupId;
+    
+    if(!data.hasAdditionalGuests || data.hasAdditionalGuests === 'false') {
+      //no additional guestss, let's reset the array
+      data.additionalGuests = [];
+      reset(data);
+    }
+
+    data.groupId = params.groupId;
     if (!data.confirmEmail) {
       data.confirmEmail = "";
     }
-    console.log(data)
+
+    
     setHasError(false)
     try {
 
@@ -94,7 +115,9 @@ export default function Page({
       //https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/rsvp
 
       //TODO take this out obvi
-      await sleep(3000);
+      //await sleep(3000);
+
+      console.log(data)
 
       if (response.status != 200) {
         throw new Error('Api error');
@@ -145,11 +168,10 @@ export default function Page({
         <span className="sr-only">Loading...</span>
       </div>
 
-
-
       <div className={`flex flex-col justify-center items-center ${isLoading || hasError ? 'hidden' : 'visible'}`}>
         <div className="text-5xl text-weddingMaroon mt-6">RSVP</div>
         <form className="m-4 flex flex-col justify-center items-center" onSubmit={handleSubmit(onSubmit)}>
+          {/* Person data */}
           {peopleValues?.map((person, index) => (
             <div key={person.id} className="w-full md:w-3/4 my-4 border border-gray-300 rounded-lg p-4">
               <div className="">
@@ -213,12 +235,132 @@ export default function Page({
             </div>
           ))}
 
+          {/* Has Additional Guests */}
+          <div className="border border-gray-300 rounded-lg p-4 w-full md:w-3/4 my-4">
+            <div className="text-weddingMaroon text-2xl md:text-xl font-semibold">Additional Guests</div>
+            <div className="">
+              <div className="mb-2 text-lg text-weddingMaroon">{"Would you like to bring additional guests such as children or other relatives?"}</div>
+              <ul className="grid w-full gap-6 md:grid-cols-2 mb-2">
+                <li>
+                  <input id="additional-guests-yes" className="hidden peer" {...register(`hasAdditionalGuests`)} type="radio" value="true" />
+                  <label htmlFor="additional-guests-yes" className="inline-flex items-center justify-between w-full p-2 text-gray-500 border border-gray-200 rounded-lg cursor-pointer peer-checked:border-weddingMaroon peer-checked:text-weddingMaroon hover:text-gray-600 hover:bg-gray-100">
+                    <div className="block">
+                      <div className="w-full font-semibold">Yes</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <input id="additional-guests-no" className="hidden peer" {...register(`hasAdditionalGuests`)} type="radio" value="false" defaultChecked={true} />
+                  <label htmlFor="additional-guests-no" className="inline-flex items-center justify-between w-full p-2 text-gray-500 border border-gray-200 rounded-lg cursor-pointer peer-checked:border-weddingMaroon peer-checked:text-weddingMaroon hover:text-gray-600 hover:bg-gray-100">
+                    <div className="block">
+                      <div className="w-full font-semibold">No</div>
+                    </div>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+
+          </div>
+
+          {/* Additional Guests */}
+
+          {hasAdditionalGuestsValue && hasAdditionalGuestsValue === 'true' && (
+            <div className="w-full flex flex-col justify-center items-center">
+              {fields.map((field, index) => (
+                <div key={field.id} className="w-full md:w-3/4 my-4 border border-gray-300 rounded-lg p-4">
+                  <Controller
+                    control={control}
+                    name={`additionalGuests.${index}.firstName`}
+                    rules={{ required: "Name is required." }}
+                    render={({ field, fieldState }) => (
+                      <div className="w-full">
+                        <label className="py-2 text-lg text-weddingMaroon" htmlFor={'name-' + index}>
+                          Name
+                        </label>
+                        <input id={'name-' + index} {...field} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          type="text" placeholder="e.g. Aurora Rose" />
+                        {fieldState.error && (
+                          <p className="text-red-500 text-xs mt-1">{fieldState.error.message}</p> // Displaying the error message
+                        )}
+                      </div>
+                    )}
+                  />
+                  <Controller
+                    control={control}
+                    name={`additionalGuests.${index}.mealPreference`}
+                    rules={{ required: "Meal choice is required." }}
+                    render={({ field, fieldState }) => (
+                      <div>
+                        <div className="mt-4">
+                          <div className="mb-2 text-lg text-weddingMaroon">{"What kind of meal for this guest?"}</div>
+                          <ul className="grid w-full gap-6 md:grid-cols-3">
+                            <li>
+                              <input id={"meal-adult-" + index} className="hidden peer" {...field} type="radio" value="adult" />
+                              <label htmlFor={"meal-adult-" + index} className="h-full inline-flex justify-between w-full p-2 text-gray-500 border border-gray-200 rounded-lg cursor-pointer peer-checked:border-weddingMaroon peer-checked:text-weddingMaroon hover:text-gray-600 hover:bg-gray-100">
+                                <div className="block">
+                                  <div className="w-full font-semibold">Adult</div>
+                                  <div className="w-full">Buffet-styled</div>
+                                </div>
+                              </label>
+                            </li>
+                            <li>
+                              <input id={"meal-child-" + index} className="hidden peer" {...field} type="radio" value="child" />
+                              <label htmlFor={"meal-child-" + index} className="inline-flex items-center justify-between w-full p-2 text-gray-500 border border-gray-200 rounded-lg cursor-pointer peer-checked:border-weddingMaroon peer-checked:text-weddingMaroon hover:text-gray-600 hover:bg-gray-100">
+                                <div className="block">
+                                  <div className="w-full font-semibold">Child</div>
+                                  <div className="w-full">Includes chicken nuggets, mac and cheese, and applesauce</div>
+                                </div>
+                              </label>
+                            </li>
+                            <li>
+                              <input id={"meal-none-" + index} className="hidden peer" {...field} type="radio" value="none" />
+                              <label htmlFor={"meal-none-" + index} className="inline-flex justify-between w-full h-full p-2 text-gray-500 border border-gray-200 rounded-lg cursor-pointer peer-checked:border-weddingMaroon peer-checked:text-weddingMaroon hover:text-gray-600 hover:bg-gray-100">
+                                <div className="block">
+                                  <div className="w-full font-semibold">No meal</div>
+                                  <div className="w-full">Ex: This guest is a baby</div>
+                                </div>
+                              </label>
+                            </li>
+                          </ul>
+
+                          {fieldState.error && (
+                            <p className="text-red-500 text-xs mt-1">{fieldState.error.message}</p> // Displaying the error message
+                          )}
+
+                        </div>
+                      </div>
+
+                    )}
+                  />
+
+                  <button className="bg-weddingMaroon hover:opacity-75
+                              rounded text-white
+                              focus:outline-none focus:shadow-outline
+                              border-solid border-2 border-weddingMaroon mt-3 p-1" type="button" onClick={() => remove(index)}>Remove Guest</button>
+                </div>
+              ))}
+
+              <button className="w-1/3 p-1 flex justify-center items-center rounded border-solid border-2 border-weddingMaroon hover:bg-weddingMaroonHover" type="button" onClick={() => append({ firstName: '', id: '', mealPreference: '', willAttend: 'true', lastName: '' })}>
+                <IoMdAddCircleOutline className="pr-1" />
+                Add Guest
+              </button>
+
+            </div>
+          )}
+
+
+
+
+
+
+
           {/* Table preferences */}
           <div className="border border-gray-300 rounded-lg p-4 w-full md:w-3/4 my-4">
             <div className="text-weddingMaroon text-2xl md:text-xl font-semibold">Table Preference</div>
             <div className="">We would like to give guests the opportunity to choose who they sit by. We will do our best to align table preferences but it is not guarenteed.</div>
             <div className="my-2">
-              <TablePreferences updatePreferences={updateTablePreferences} currentGroupId={groupId} />
+              <TablePreferences updatePreferences={updateTablePreferences} currentGroupId={params.groupId} />
             </div>
 
           </div>
