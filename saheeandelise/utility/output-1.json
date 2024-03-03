@@ -1,0 +1,340 @@
+{
+  "rsvp-table": [
+    {
+      "PutRequest": {
+        "Item": {
+          "groupId": {
+            "S": "TcDzJK"
+          },
+          "lastModified": {
+            "S": "2024-01-01T00:00:00Z"
+          },
+          "email": {
+            "S": ""
+          },
+          "noteToCouple": {
+            "S": ""
+          },
+          "groupName": {
+            "S": "Alice and Bob"
+          },
+          "people": {
+            "L": [
+              {
+                "M": {
+                  "name": {
+                    "S": "Alice"
+                  },
+                  "index": {
+                    "S": "0"
+                  },
+                  "mealPreference": {
+                    "S": "adult"
+                  },
+                  "willAttend": {
+                    "S": "false"
+                  }
+                }
+              },
+              {
+                "M": {
+                  "name": {
+                    "S": "Bob"
+                  },
+                  "index": {
+                    "S": "1"
+                  },
+                  "mealPreference": {
+                    "S": "adult"
+                  },
+                  "willAttend": {
+                    "S": "false"
+                  }
+                }
+              }
+            ]
+          },
+          "songRequest": {
+            "S": ""
+          },
+          "specialAccommodations": {
+            "S": ""
+          },
+          "tablePreference": {
+            "L": [
+              {
+                "S": ""
+              }
+            ]
+          },
+          "additionalGuests": {
+            "L": []
+          },
+          "hasAdditionalGuests": {
+            "S": "false"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "groupId": {
+            "S": "KaenXt"
+          },
+          "lastModified": {
+            "S": "2024-01-01T00:00:00Z"
+          },
+          "email": {
+            "S": ""
+          },
+          "noteToCouple": {
+            "S": ""
+          },
+          "groupName": {
+            "S": "The Green Family"
+          },
+          "people": {
+            "L": [
+              {
+                "M": {
+                  "name": {
+                    "S": "Mitch"
+                  },
+                  "index": {
+                    "S": "0"
+                  },
+                  "mealPreference": {
+                    "S": "adult"
+                  },
+                  "willAttend": {
+                    "S": "false"
+                  }
+                }
+              },
+              {
+                "M": {
+                  "name": {
+                    "S": "Witch"
+                  },
+                  "index": {
+                    "S": "1"
+                  },
+                  "mealPreference": {
+                    "S": "adult"
+                  },
+                  "willAttend": {
+                    "S": "false"
+                  }
+                }
+              },
+              {
+                "M": {
+                  "name": {
+                    "S": "Lich"
+                  },
+                  "index": {
+                    "S": "2"
+                  },
+                  "mealPreference": {
+                    "S": "adult"
+                  },
+                  "willAttend": {
+                    "S": "false"
+                  }
+                }
+              }
+            ]
+          },
+          "songRequest": {
+            "S": ""
+          },
+          "specialAccommodations": {
+            "S": ""
+          },
+          "tablePreference": {
+            "L": [
+              {
+                "S": ""
+              }
+            ]
+          },
+          "additionalGuests": {
+            "L": []
+          },
+          "hasAdditionalGuests": {
+            "S": "false"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "groupId": {
+            "S": "cTUQPf"
+          },
+          "lastModified": {
+            "S": "2024-01-01T00:00:00Z"
+          },
+          "email": {
+            "S": ""
+          },
+          "noteToCouple": {
+            "S": ""
+          },
+          "groupName": {
+            "S": "The Brown Family"
+          },
+          "people": {
+            "L": [
+              {
+                "M": {
+                  "name": {
+                    "S": "Ryan"
+                  },
+                  "index": {
+                    "S": "0"
+                  },
+                  "mealPreference": {
+                    "S": "adult"
+                  },
+                  "willAttend": {
+                    "S": "false"
+                  }
+                }
+              },
+              {
+                "M": {
+                  "name": {
+                    "S": "Dryan"
+                  },
+                  "index": {
+                    "S": "1"
+                  },
+                  "mealPreference": {
+                    "S": "adult"
+                  },
+                  "willAttend": {
+                    "S": "false"
+                  }
+                }
+              },
+              {
+                "M": {
+                  "name": {
+                    "S": "Cryan"
+                  },
+                  "index": {
+                    "S": "2"
+                  },
+                  "mealPreference": {
+                    "S": "adult"
+                  },
+                  "willAttend": {
+                    "S": "false"
+                  }
+                }
+              }
+            ]
+          },
+          "songRequest": {
+            "S": ""
+          },
+          "specialAccommodations": {
+            "S": ""
+          },
+          "tablePreference": {
+            "L": [
+              {
+                "S": ""
+              }
+            ]
+          },
+          "additionalGuests": {
+            "L": []
+          },
+          "hasAdditionalGuests": {
+            "S": "false"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "groupId": {
+            "S": "SiqSjk"
+          },
+          "lastModified": {
+            "S": "2024-01-01T00:00:00Z"
+          },
+          "email": {
+            "S": ""
+          },
+          "noteToCouple": {
+            "S": ""
+          },
+          "groupName": {
+            "S": "Charlie and Dave"
+          },
+          "people": {
+            "L": [
+              {
+                "M": {
+                  "name": {
+                    "S": "Charlie"
+                  },
+                  "index": {
+                    "S": "0"
+                  },
+                  "mealPreference": {
+                    "S": "adult"
+                  },
+                  "willAttend": {
+                    "S": "false"
+                  }
+                }
+              },
+              {
+                "M": {
+                  "name": {
+                    "S": "Dave"
+                  },
+                  "index": {
+                    "S": "1"
+                  },
+                  "mealPreference": {
+                    "S": "adult"
+                  },
+                  "willAttend": {
+                    "S": "false"
+                  }
+                }
+              }
+            ]
+          },
+          "songRequest": {
+            "S": ""
+          },
+          "specialAccommodations": {
+            "S": ""
+          },
+          "tablePreference": {
+            "L": [
+              {
+                "S": ""
+              }
+            ]
+          },
+          "additionalGuests": {
+            "L": []
+          },
+          "hasAdditionalGuests": {
+            "S": "false"
+          }
+        }
+      }
+    }
+  ]
+}

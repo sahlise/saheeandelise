@@ -1,0 +1,218 @@
+{
+  "RequestItems": {
+    "rsvp-table": [
+      {
+        "PutRequest": {
+          "Item": {
+            "groupId": {
+              "S": "OhGUuz"
+            },
+            "lastModified": {
+              "S": "2024-01-01T00:00:00Z"
+            },
+            "email": {
+              "S": ""
+            },
+            "noteToCouple": {
+              "S": ""
+            },
+            "groupName": {
+              "S": "Chong Ying Xiong"
+            },
+            "people": {
+              "L": [
+                {
+                  "M": {
+                    "name": {
+                      "S": "Chong Ying"
+                    },
+                    "index": {
+                      "S": "0"
+                    },
+                    "mealPreference": {
+                      "S": "adult"
+                    },
+                    "willAttend": {
+                      "BOOL": false
+                    }
+                  }
+                }
+              ]
+            },
+            "songRequest": {
+              "S": ""
+            },
+            "specialAccommodations": {
+              "S": ""
+            },
+            "tablePreference": {
+              "L": [
+                {
+                  "S": ""
+                }
+              ]
+            },
+            "additionalGuests": {
+              "L": []
+            },
+            "hasAdditionalGuests": {
+              "BOOL": false
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "groupId": {
+              "S": "sxyABN"
+            },
+            "lastModified": {
+              "S": "2024-01-01T00:00:00Z"
+            },
+            "email": {
+              "S": ""
+            },
+            "noteToCouple": {
+              "S": ""
+            },
+            "groupName": {
+              "S": "Lee Yia and Amy Vang"
+            },
+            "people": {
+              "L": [
+                {
+                  "M": {
+                    "name": {
+                      "S": "Lee"
+                    },
+                    "index": {
+                      "S": "0"
+                    },
+                    "mealPreference": {
+                      "S": "adult"
+                    },
+                    "willAttend": {
+                      "BOOL": false
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "name": {
+                      "S": "Amy"
+                    },
+                    "index": {
+                      "S": "1"
+                    },
+                    "mealPreference": {
+                      "S": "adult"
+                    },
+                    "willAttend": {
+                      "BOOL": false
+                    }
+                  }
+                }
+              ]
+            },
+            "songRequest": {
+              "S": ""
+            },
+            "specialAccommodations": {
+              "S": ""
+            },
+            "tablePreference": {
+              "L": [
+                {
+                  "S": ""
+                }
+              ]
+            },
+            "additionalGuests": {
+              "L": []
+            },
+            "hasAdditionalGuests": {
+              "BOOL": false
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "groupId": {
+              "S": "yXxtrE"
+            },
+            "lastModified": {
+              "S": "2024-01-01T00:00:00Z"
+            },
+            "email": {
+              "S": ""
+            },
+            "noteToCouple": {
+              "S": ""
+            },
+            "groupName": {
+              "S": "Chia Thao and Young Son Park"
+            },
+            "people": {
+              "L": [
+                {
+                  "M": {
+                    "name": {
+                      "S": "Chia"
+                    },
+                    "index": {
+                      "S": "0"
+                    },
+                    "mealPreference": {
+                      "S": "adult"
+                    },
+                    "willAttend": {
+                      "BOOL": false
+                    }
+                  }
+                },
+                {
+                  "M": {
+                    "name": {
+                      "S": "Yong Son"
+                    },
+                    "index": {
+                      "S": "1"
+                    },
+                    "mealPreference": {
+                      "S": "adult"
+                    },
+                    "willAttend": {
+                      "BOOL": false
+                    }
+                  }
+                }
+              ]
+            },
+            "songRequest": {
+              "S": ""
+            },
+            "specialAccommodations": {
+              "S": ""
+            },
+            "tablePreference": {
+              "L": [
+                {
+                  "S": ""
+                }
+              ]
+            },
+            "additionalGuests": {
+              "L": []
+            },
+            "hasAdditionalGuests": {
+              "BOOL": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}
