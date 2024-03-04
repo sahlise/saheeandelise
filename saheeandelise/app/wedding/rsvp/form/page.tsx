@@ -10,14 +10,13 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 const baseUrl = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/rsvp';
 //const baseUrl = '/api/rsvp'
 
-export default function Page({
-  params
-}: {
-  params: { groupId: string }
-}) {
+export default function Page() {
 
-
-  if (!params.groupId) {
+  const searchParams = useSearchParams()
+  const groupId = searchParams.get('groupid')
+  console.log(groupId);
+  if (!groupId) {
+    
     redirect('/wedding/rsvp')
   }
 
@@ -50,11 +49,15 @@ export default function Page({
 
 
   useEffect(() => {
+    if(!groupId){
+      return
+    }
+    
     const fetchData = async () => {
       setIsLoading(true)
       setHasError(false)
       try {
-        const response = await fetch(baseUrl + '?groupId=' + params.groupId);
+        const response = await fetch(baseUrl + '?groupId=' + groupId);
 
         if (response.status != 200) {
           throw new Error('Api error');
@@ -99,7 +102,7 @@ export default function Page({
       reset(data);
     }
 
-    data.groupId = params.groupId;
+    data.groupId = groupId;
     data.confirmEmail = "";
 
     
@@ -365,7 +368,7 @@ export default function Page({
             <div className="text-weddingMaroon text-2xl md:text-xl font-semibold">Table Preference</div>
             <div className="">We would like to give guests the opportunity to choose who they sit by. We will do our best to align table preferences but it is not guarenteed.</div>
             <div className="my-2">
-              <TablePreferences updatePreferences={updateTablePreferences} currentGroupId={params.groupId} selectedGroupIds={getValues("tablePreference")} />
+              <TablePreferences updatePreferences={updateTablePreferences} currentGroupId={groupId} selectedGroupIds={getValues("tablePreference")} />
             </div>
 
           </div>

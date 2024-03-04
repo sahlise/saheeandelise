@@ -57,7 +57,7 @@ export const guests: Group[] = [
   },
   {
     "groupId": "SuMGEh",
-    "groupName": "Allie and Jess Hillesta",
+    "groupName": "Allie and Jess Hillestad",
     "people": [
       {
         "name": "Allie"
@@ -705,7 +705,7 @@ export const guests: Group[] = [
         "name": "Xong"
       },
       {
-        "name": "Benjamin"
+        "name": "Ben"
       },
       {
         "name": "Alex"
