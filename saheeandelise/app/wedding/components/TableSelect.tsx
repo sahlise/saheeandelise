@@ -42,25 +42,28 @@ const customStyles = {
 
 const TablePreferences: React.FC<TablePreferencesProps> = ({ updatePreferences, currentGroupId, selectedGroupIds }) => {
 
-    const mapIdToGuestDropDownProp = (): GuestDropDownProp[] => {
-        const selectGroups: GuestDropDownProp[] = []
-
-        if(selectedGroupIds) {
-            selectedGroupIds.forEach(groupId => {
-                let selectedGroup = guests.find(guest => guest.groupId === groupId)
-                if(selectedGroup) {
-                    selectGroups.push({ label: selectedGroup.groupName, value: selectedGroup.groupId });
-                }
-                
-            })
-        }
-
-        return selectGroups;
-    }
     
-    const [selected, setSelected] = useState<MultiValue<GuestDropDownProp>>(mapIdToGuestDropDownProp());
+    
+    const [selected, setSelected] = useState<MultiValue<GuestDropDownProp>>([]);
 
     useEffect(() => {
+        
+        const mapIdToGuestDropDownProp = (): GuestDropDownProp[] => {
+            const selectGroups: GuestDropDownProp[] = []
+    
+            if(selectedGroupIds) {
+                selectedGroupIds.forEach(groupId => {
+                    let selectedGroup = guests.find(guest => guest.groupId === groupId)
+                    if(selectedGroup) {
+                        selectGroups.push({ label: selectedGroup.groupName, value: selectedGroup.groupId });
+                    }
+                    
+                })
+            }
+    
+            return selectGroups;
+        }
+        
         setSelected(mapIdToGuestDropDownProp());
       }, [selectedGroupIds]);
 

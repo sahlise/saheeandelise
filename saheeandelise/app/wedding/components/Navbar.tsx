@@ -27,19 +27,13 @@ const Navbar = () => {
                         <span className="logo-text">S&E</span>
                     </div>
                 </Link>
-                <div className="hidden sm:flex">
-                    <ul className="hidden sm:flex">
-                        <Link href='/wedding/wedding-party'>
-                            <li className="ml-10 uppercase hover:border-b text-xl">Wedding Party</li>
-                        </Link>
+                <div className="hidden md:flex">
+                    <ul className="hidden md:flex">
                         <Link href='/wedding/venue'>
                             <li className="ml-10 uppercase hover:border-b text-xl">Venue</li>
                         </Link>
                         <Link href='/wedding/schedule'>
                             <li className="ml-10 uppercase hover:border-b text-xl">Schedule</li>
-                        </Link>
-                        <Link href='/wedding/our-story'>
-                            <li className="ml-10 uppercase hover:border-b text-xl">Our Story</li>
                         </Link>
                         <Link href='/wedding/rsvp'>
                             <li className="ml-10 uppercase hover:border-b text-xl">RSVP</li>
@@ -49,13 +43,13 @@ const Navbar = () => {
                         </Link>
                     </ul>
                 </div>
-                <div onClick={handleNav} className="md:hidden cursor-pointer pl-24">
+                <div onClick={handleNav} className="block md:hidden cursor-pointer pl-24">
                     <AiOutlineMenu size={25} />
                 </div>
             </div>
             <div className={
                 menuOpen
-                    ? "fixed left-0 top-0 w-[65%] sm:hidden h-screen bg-[#ecf0f3] p10 ease-in duration-500 z-10"
+                    ? "fixed left-0 top-0 w-[65%] h-screen bg-[#ecf0f3] p10 ease-in duration-500 z-10"
                     : "fixed left-[-100%] top-0 p-10 ease-in duration-500 z-10"
             }
             >
@@ -73,27 +67,11 @@ const Navbar = () => {
                                 Home
                             </li>
                         </Link>
-                        <Link href="/wedding/wedding-party">
-                            <li
-                                onClick={() => setMenuOpen(false)}
-                                className="py-4 cursor-pointer">
-                                Wedding Party
-                            </li>
-
-
-                        </Link>
                         <Link href="/wedding/venue">
                             <li
                                 onClick={() => setMenuOpen(false)}
                                 className="py-4 cursor-pointer">
                                 Venue
-                            </li>
-                        </Link>
-                        <Link href="/wedding/our-story">
-                            <li
-                                onClick={() => setMenuOpen(false)}
-                                className="py-4 cursor-pointer">
-                                Our Story
                             </li>
                         </Link>
                         <Link href="/wedding/rsvp">
@@ -115,6 +93,22 @@ const Navbar = () => {
                                 onClick={() => setMenuOpen(false)}
                                 className="py-4 cursor-pointer">
                                 Schedule
+                            </li>
+                        </Link>
+
+                        <Link href="/wedding/our-story">
+                            <li
+                                onClick={() => setMenuOpen(false)}
+                                className="py-4 cursor-pointer">
+                                Our Story
+                            </li>
+                        </Link>
+
+                        <Link href="/wedding/wedding-party">
+                            <li
+                                onClick={() => setMenuOpen(false)}
+                                className="py-4 cursor-pointer">
+                                Wedding Party
                             </li>
                         </Link>
                     </ul>

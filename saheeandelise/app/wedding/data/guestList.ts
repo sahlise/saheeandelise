@@ -4,6 +4,7 @@ export const guests: Group[] = [
   {
     "groupId": "JCFwHU",
     "groupName": "Sahee and Elise",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Sahee"
@@ -16,6 +17,7 @@ export const guests: Group[] = [
   {
     "groupId": "bQbnEQ",
     "groupName": "The Frees Family",
+    "groupAltNames": ["Mitchell", "Mitchell Frees", "Amber Frees", "Mitch Frees"],
     "people": [
       {
         "name": "Mitch"
@@ -31,6 +33,7 @@ export const guests: Group[] = [
   {
     "groupId": "kusSbG",
     "groupName": "The Fisher Family",
+    "groupAltNames": ["Logan Fisher", "Molly Fisher", "Maisie Fisher"],
     "people": [
       {
         "name": "Logan"
@@ -46,6 +49,7 @@ export const guests: Group[] = [
   {
     "groupId": "MOuZxI",
     "groupName": "Alec and Elise",
+    "groupAltNames": ["Fieck", "Alec Fieck", "Elizabeth", "Primrose"],
     "people": [
       {
         "name": "Alec"
@@ -58,6 +62,7 @@ export const guests: Group[] = [
   {
     "groupId": "SuMGEh",
     "groupName": "Allie and Jess Hillestad",
+    "groupAltNames": ["Allie Hillestad", "Jess Hillestad"],
     "people": [
       {
         "name": "Allie"
@@ -70,6 +75,7 @@ export const guests: Group[] = [
   {
     "groupId": "vAwPKq",
     "groupName": "The Lenski Family",
+    "groupAltNames": ["Chelsea Lenski", "Nick Lenski"],
     "people": [
       {
         "name": "Chelsea"
@@ -88,6 +94,7 @@ export const guests: Group[] = [
   {
     "groupId": "XNFqrB",
     "groupName": "Anna and Connor",
+    "groupAltNames": ["Baumgartner", "Claus", "Anna Baumgartner", "Connor Claus"],
     "people": [
       {
         "name": "Anna"
@@ -100,6 +107,7 @@ export const guests: Group[] = [
   {
     "groupId": "XmaRSJ",
     "groupName": "Colin Kerrigan",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Colin"
@@ -112,6 +120,7 @@ export const guests: Group[] = [
   {
     "groupId": "bLMizZ",
     "groupName": "Luke and Kayli",
+    "groupAltNames": ["Zangl", "Mikkelson", "Luke Zangl", "Kayli Mikkelson"],
     "people": [
       {
         "name": "Luke"
@@ -124,6 +133,7 @@ export const guests: Group[] = [
   {
     "groupId": "HZERHu",
     "groupName": "Nate and Sadie",
+    "groupAltNames": ["Kiraly", "Hobbs", "Nathan", "Nate Kiraly", "Sadie Hobbs", "Nathan Kiraly"],
     "people": [
       {
         "name": "Nate"
@@ -136,6 +146,7 @@ export const guests: Group[] = [
   {
     "groupId": "ZHGUSa",
     "groupName": "Alex and Danielle",
+    "groupAltNames": ["Coates", "Alex Coates", "Danielle Hawi", "Hawi"],
     "people": [
       {
         "name": "Alex"
@@ -148,6 +159,7 @@ export const guests: Group[] = [
   {
     "groupId": "wNPhWN",
     "groupName": "Ryan Brown",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Ryan"
@@ -160,6 +172,7 @@ export const guests: Group[] = [
   {
     "groupId": "bxhsbp",
     "groupName": "Kyle and Whitney",
+    "groupAltNames": ["Reese", "Kyle Reese"],
     "people": [
       {
         "name": "Kyle"
@@ -172,6 +185,7 @@ export const guests: Group[] = [
   {
     "groupId": "ZkbnAl",
     "groupName": "Cassie Last",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Cassie"
@@ -184,6 +198,7 @@ export const guests: Group[] = [
   {
     "groupId": "aaIEFz",
     "groupName": "Aliza Hitz",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Aliza"
@@ -196,6 +211,7 @@ export const guests: Group[] = [
   {
     "groupId": "vTcIZT",
     "groupName": "Taylor and Hugo",
+    "groupAltNames": ["Taylor Stoll", "Stoll"],
     "people": [
       {
         "name": "Taylor"
@@ -208,6 +224,7 @@ export const guests: Group[] = [
   {
     "groupId": "HevyNM",
     "groupName": "The Mattie Family",
+    "groupAltNames": ["Auntie Dawn", "Uncle Gary"],
     "people": [
       {
         "name": "Dawn"
@@ -226,6 +243,7 @@ export const guests: Group[] = [
   {
     "groupId": "vBwMtS",
     "groupName": "The Regan Family",
+    "groupAltNames": ["Lisa Regan", "Gina Regan"],
     "people": [
       {
         "name": "Lisa"
@@ -238,6 +256,7 @@ export const guests: Group[] = [
   {
     "groupId": "LtYqsn",
     "groupName": "The Barker Family",
+    "groupAltNames": ["Sue Barker", "Don Barker"],
     "people": [
       {
         "name": "Sue"
@@ -256,6 +275,7 @@ export const guests: Group[] = [
   {
     "groupId": "yTdOFh",
     "groupName": "Gregg and Lynne Krause",
+    "groupAltNames": ["Gregg Krause", "Lynne Krause"],
     "people": [
       {
         "name": "Gregg"
@@ -268,6 +288,7 @@ export const guests: Group[] = [
   {
     "groupId": "cUFAJK",
     "groupName": "Kelly Krause",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Kelly"
@@ -280,6 +301,7 @@ export const guests: Group[] = [
   {
     "groupId": "fIcOpe",
     "groupName": "The Huettl Family",
+    "groupAltNames": ["Nick Huettl", "Alecia Huettl"],
     "people": [
       {
         "name": "Nick"
@@ -304,6 +326,7 @@ export const guests: Group[] = [
   {
     "groupId": "tZCfZF",
     "groupName": "The Sayas Family",
+    "groupAltNames": ["Megan Sayas", "Scott"],
     "people": [
       {
         "name": "Megan"
@@ -322,6 +345,7 @@ export const guests: Group[] = [
   {
     "groupId": "fDTGfL",
     "groupName": "The Schatz Family",
+    "groupAltNames": ["Angie Schatz", "Andy Schatz"],
     "people": [
       {
         "name": "Andy"
@@ -340,6 +364,7 @@ export const guests: Group[] = [
   {
     "groupId": "JSaMiF",
     "groupName": "Joe and Jill Biden",
+    "groupAltNames": ["President Biden", "Dr Biden", "First Lady", "Joe Biden", "Jill Biden"],
     "people": [
       {
         "name": "Joe"
@@ -352,6 +377,7 @@ export const guests: Group[] = [
   {
     "groupId": "uiHQbh",
     "groupName": "Tony and Kathy Evers",
+    "groupAltNames": ["Governor", "Tony Evers", "Kathy Evers"],
     "people": [
       {
         "name": "Tony"
@@ -364,6 +390,7 @@ export const guests: Group[] = [
   {
     "groupId": "GunPUS",
     "groupName": "Mickey and Minnie Mouse",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Mickey"
@@ -376,6 +403,7 @@ export const guests: Group[] = [
   {
     "groupId": "NjZIgL",
     "groupName": "Larry and Susie Bonier",
+    "groupAltNames": ["Larry Bonier" ,"Susie Bonier"],
     "people": [
       {
         "name": "Larry"
@@ -388,6 +416,7 @@ export const guests: Group[] = [
   {
     "groupId": "aMjSuV",
     "groupName": "Eric and Olga",
+    "groupAltNames": ["Eric Corbett", "Corbett", "Cruz", "Olga Cruz"],
     "people": [
       {
         "name": "Eric"
@@ -400,6 +429,7 @@ export const guests: Group[] = [
   {
     "groupId": "xHqfYv",
     "groupName": "Alyssa Brewer",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Alyssa"
@@ -412,6 +442,7 @@ export const guests: Group[] = [
   {
     "groupId": "pSXTWk",
     "groupName": "Nathan Diedrick",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Nathan"
@@ -424,6 +455,7 @@ export const guests: Group[] = [
   {
     "groupId": "xwCwEs",
     "groupName": "Kelly Gross",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Kelly"
@@ -436,6 +468,7 @@ export const guests: Group[] = [
   {
     "groupId": "pacAZh",
     "groupName": "Russ Westeren",
+    "groupAltNames": ["Russel"],
     "people": [
       {
         "name": "Russ"
@@ -448,6 +481,7 @@ export const guests: Group[] = [
   {
     "groupId": "vbXjyM",
     "groupName": "Colette Johnson",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Colette"
@@ -460,6 +494,7 @@ export const guests: Group[] = [
   {
     "groupId": "KfuRZV",
     "groupName": "The Claus Family",
+    "groupAltNames": ["Carrie Claus", "Bob Claus", "Blake Claus"],
     "people": [
       {
         "name": "Bob"
@@ -475,6 +510,7 @@ export const guests: Group[] = [
   {
     "groupId": "PgBdFb",
     "groupName": "Lindsey Labeau",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Lindsey"
@@ -487,6 +523,7 @@ export const guests: Group[] = [
   {
     "groupId": "IHAFLy",
     "groupName": "Renee and Lenny Labeau",
+    "groupAltNames": ["Auntie Nana", "Renee Labeau", "Lenny Labeau"],
     "people": [
       {
         "name": "Renee"
@@ -499,6 +536,7 @@ export const guests: Group[] = [
   {
     "groupId": "csYpPG",
     "groupName": "Devon and Marianna Tryggestad",
+    "groupAltNames": ["Devon Tryggestad", "Marianna Tryggestad"],
     "people": [
       {
         "name": "Devon"
@@ -511,6 +549,7 @@ export const guests: Group[] = [
   {
     "groupId": "PJTVnY",
     "groupName": "Kim Tryggestad",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Kim"
@@ -520,6 +559,7 @@ export const guests: Group[] = [
   {
     "groupId": "iQsdOd",
     "groupName": "Chris and Rick Spangenberger",
+    "groupAltNames": ["Auntie Chrissy", "Uncle Rick", "Chrissy", "Chris Spangenberger", "Rick Spangenberger"],
     "people": [
       {
         "name": "Chris"
@@ -532,6 +572,7 @@ export const guests: Group[] = [
   {
     "groupId": "foEHYd",
     "groupName": "Jody and Riley",
+    "groupAltNames": ["Olinger", "Auntie Jojo", "Jojo"],
     "people": [
       {
         "name": "Jody"
@@ -544,6 +585,7 @@ export const guests: Group[] = [
   {
     "groupId": "HHpgmV",
     "groupName": "The Krueger Family",
+    "groupAltNames": ["Megan Krueger", "Robert Krueger"],
     "people": [
       {
         "name": "Megan"
@@ -562,6 +604,7 @@ export const guests: Group[] = [
   {
     "groupId": "ZGYfWU",
     "groupName": "The Schwei Family",
+    "groupAltNames": ["Rebecca Schwei", "Kevin Schwei"],
     "people": [
       {
         "name": "Rebecca"
@@ -577,6 +620,7 @@ export const guests: Group[] = [
   {
     "groupId": "xWkJyC",
     "groupName": "Brian and Jackie Parker",
+    "groupAltNames": ["Brian Parker", "Jackie Parker"],
     "people": [
       {
         "name": "Brian"
@@ -589,6 +633,7 @@ export const guests: Group[] = [
   {
     "groupId": "cHAGwo",
     "groupName": "Tami and Tom Hillestad",
+    "groupAltNames": ["Tami Hillestad", "Tom Hillestad"],
     "people": [
       {
         "name": "Tami"
@@ -601,6 +646,7 @@ export const guests: Group[] = [
   {
     "groupId": "HkXNts",
     "groupName": "Jake and Kaylin Hillestad",
+    "groupAltNames": ["Jake Hillestad", "Kaylin Hillestad"],
     "people": [
       {
         "name": "Jake"
@@ -616,6 +662,7 @@ export const guests: Group[] = [
   {
     "groupId": "qVuuRZ",
     "groupName": "Pat Wehr",
+    "groupAltNames": ["Patti", "Patty", "Auntie Patty", "Auntie Patti"],
     "people": [
       {
         "name": "Pat"
@@ -625,6 +672,7 @@ export const guests: Group[] = [
   {
     "groupId": "zWPCgg",
     "groupName": "Tina and Richard Baumgartner",
+    "groupAltNames": ["Mom", "Dad", "Tina Baumgartner", "Richard Baumgartner"],
     "people": [
       {
         "name": "Richard"
@@ -637,6 +685,7 @@ export const guests: Group[] = [
   {
     "groupId": "JKxVXE",
     "groupName": "Mary Baumgartner",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Mary"
@@ -649,6 +698,7 @@ export const guests: Group[] = [
   {
     "groupId": "iHNSko",
     "groupName": "The Thao Family",
+    "groupAltNames": ["Xiong", "Houa Xiong", "Bee Thao", "Kinji Thao"],
     "people": [
       {
         "name": "Bee"
@@ -667,6 +717,7 @@ export const guests: Group[] = [
   {
     "groupId": "zRkXbo",
     "groupName": "Javit and Pangnra",
+    "groupAltNames": ["Javit Thao", "Pangnra Vang"],
     "people": [
       {
         "name": "Javit"
@@ -678,13 +729,14 @@ export const guests: Group[] = [
   },
   {
     "groupId": "oWpbka",
-    "groupName": "Pao Vang and Doua Xiong",
+    "groupName": "Pao Vang and Choua Xiong",
+    "groupAltNames": ["Doua", "Dude"],
     "people": [
       {
         "name": "Pao"
       },
       {
-        "name": "Doua"
+        "name": "Choua"
       },
       {
         "name": "Tub Yue"
@@ -700,6 +752,7 @@ export const guests: Group[] = [
   {
     "groupId": "kcWbWh",
     "groupName": "Xong Vang and Family",
+    "groupAltNames": ["Auntie Xong", "Benjamin", "Chris", "Alexander"],
     "people": [
       {
         "name": "Xong"
@@ -718,6 +771,7 @@ export const guests: Group[] = [
   {
     "groupId": "DcCTrD",
     "groupName": "Xiong Family",
+    "groupAltNames": ["Boney"],
     "people": [
       {
         "name": "Xiong"
@@ -739,6 +793,7 @@ export const guests: Group[] = [
   {
     "groupId": "DpcFiP",
     "groupName": "Xee Xiong",
+    "groupAltNames": ["Uncle Xee"],
     "people": [
       {
         "name": "Xee"
@@ -751,6 +806,7 @@ export const guests: Group[] = [
   {
     "groupId": "OXDQkB",
     "groupName": "Xiong Family",
+    "groupAltNames": ["Kong", "Abigail", "Max"],
     "people": [
       {
         "name": "David"
@@ -769,6 +825,7 @@ export const guests: Group[] = [
   {
     "groupId": "irQTTH",
     "groupName": "Xiong Family",
+    "groupAltNames": ["Sear", "Vang"],
     "people": [
       {
         "name": "Bob"
@@ -790,6 +847,7 @@ export const guests: Group[] = [
   {
     "groupId": "sjUrtg",
     "groupName": "Sony Thao",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Sony"
@@ -817,6 +875,7 @@ export const guests: Group[] = [
   {
     "groupId": "uuoXrM",
     "groupName": "Albra and Liz Thao",
+    "groupAltNames": ["Albra Thao", "Liz Thao"],
     "people": [
       {
         "name": "Albra"
@@ -838,6 +897,7 @@ export const guests: Group[] = [
   {
     "groupId": "pzUOxn",
     "groupName": "Amos Thao and Shoua Vang",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Amos"
@@ -862,6 +922,7 @@ export const guests: Group[] = [
   {
     "groupId": "hyjHuf",
     "groupName": "John Yang and Npib Vang",
+    "groupAltNames": ["Mai moua", "Kalia"],
     "people": [
       {
         "name": "John"
@@ -874,6 +935,7 @@ export const guests: Group[] = [
   {
     "groupId": "yXUfKV",
     "groupName": "Tub Hlau and Kim",
+    "groupAltNames": ["Ironboy", "Iron boy", "Batman"],
     "people": [
       {
         "name": "Tub Hlau"
@@ -886,6 +948,7 @@ export const guests: Group[] = [
   {
     "groupId": "haueGr",
     "groupName": "Seng Xiong and Bao-Bao Vang",
+    "groupAltNames": ["Kabao"],
     "people": [
       {
         "name": "Bao-Bao"
@@ -898,6 +961,7 @@ export const guests: Group[] = [
   {
     "groupId": "NSWLQl",
     "groupName": "Thong Thao and Joua Vang",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Thong"
@@ -910,6 +974,7 @@ export const guests: Group[] = [
   {
     "groupId": "cBjBPH",
     "groupName": "Lor Thao and Mai Ta Vang",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Lor"
@@ -922,6 +987,7 @@ export const guests: Group[] = [
   {
     "groupId": "rXzKCF",
     "groupName": "Lee Chao Vang & Cindy Lee",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Lee Chao"
@@ -934,6 +1000,7 @@ export const guests: Group[] = [
   {
     "groupId": "bujrOx",
     "groupName": "Yawg Cha Thao",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Yawg Cha"
@@ -943,6 +1010,7 @@ export const guests: Group[] = [
   {
     "groupId": "tMfwPR",
     "groupName": "Vang Xiong",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Vang"
@@ -952,6 +1020,7 @@ export const guests: Group[] = [
   {
     "groupId": "wdYCte",
     "groupName": "Lex  Xiong",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Lex"
@@ -964,6 +1033,7 @@ export const guests: Group[] = [
   {
     "groupId": "htnEcH",
     "groupName": "Tong Xiong",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Tong"
@@ -976,6 +1046,7 @@ export const guests: Group[] = [
   {
     "groupId": "qYdxul",
     "groupName": "Nyiaj Tsav Thao",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Nyiaj Tsav"
@@ -985,6 +1056,7 @@ export const guests: Group[] = [
   {
     "groupId": "CRRVeF",
     "groupName": "Lang Xiong and Poua Moua",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Lang"
@@ -997,6 +1069,7 @@ export const guests: Group[] = [
   {
     "groupId": "lBXiyb",
     "groupName": "Kong Meng Xiong and Di Ma",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Kong Meng"
@@ -1009,6 +1082,7 @@ export const guests: Group[] = [
   {
     "groupId": "DeXbxX",
     "groupName": "Rudy Gonzalez",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Rudy"
@@ -1018,6 +1092,7 @@ export const guests: Group[] = [
   {
     "groupId": "nUsnkB",
     "groupName": "Cher and Nadisha Vang",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Cher"
@@ -1030,6 +1105,7 @@ export const guests: Group[] = [
   {
     "groupId": "AYQKke",
     "groupName": "Chong Ying Xiong",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Chong Ying"
@@ -1039,6 +1115,7 @@ export const guests: Group[] = [
   {
     "groupId": "DdtFAX",
     "groupName": "Lee Yia and Amy Vang",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Lee"
@@ -1051,6 +1128,7 @@ export const guests: Group[] = [
   {
     "groupId": "vlBuqC",
     "groupName": "Chia Thao and Young Son Park",
+    "groupAltNames": [],
     "people": [
       {
         "name": "Chia"

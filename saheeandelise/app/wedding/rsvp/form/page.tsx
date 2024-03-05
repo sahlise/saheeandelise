@@ -7,8 +7,8 @@ import TablePreferences from '../../components/TableSelect';
 import Link from 'next/link';
 import { IoMdAddCircleOutline } from "react-icons/io";
 
-const baseUrl = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/rsvp';
-//const baseUrl = '/api/rsvp'
+//const baseUrl = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/rsvp';
+const baseUrl = '/api/rsvp'
 
 export default function Page() {
 
@@ -16,7 +16,7 @@ export default function Page() {
   const groupId = searchParams.get('groupid')
   console.log(groupId);
   if (!groupId) {
-    
+
     redirect('/wedding/rsvp')
   }
 
@@ -49,10 +49,10 @@ export default function Page() {
 
 
   useEffect(() => {
-    if(!groupId){
+    if (!groupId) {
       return
     }
-    
+
     const fetchData = async () => {
       setIsLoading(true)
       setHasError(false)
@@ -65,8 +65,21 @@ export default function Page() {
 
         let jsonData = await response.json();
         reset(jsonData);
-        if(jsonData.lastModified) {
-          setLastModified(jsonData.lastModified);
+        if (jsonData.lastModified) {
+          const date = new Date(jsonData.lastModified);
+          const options: Intl.DateTimeFormatOptions = {
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          };
+          const formatter = new Intl.DateTimeFormat('default', options);
+          if (date.toUTCString() == new Date('2024-01-01T00:00:00Z').toUTCString()) {
+            setLastModified('');
+          } else {
+            setLastModified(`Last modified: ${formatter.format(date)}`);
+          }
         }
 
 
@@ -94,9 +107,7 @@ export default function Page() {
     setHasError(false)
     setSubmitError(false)
 
-
-    
-    if(!data.hasAdditionalGuests || data.hasAdditionalGuests === 'false') {
+    if (!data.hasAdditionalGuests || data.hasAdditionalGuests === 'false') {
       //no additional guestss, let's reset the array
       data.additionalGuests = [];
       reset(data);
@@ -105,7 +116,7 @@ export default function Page() {
     data.groupId = groupId;
     data.confirmEmail = "";
 
-    
+
     try {
 
       const settings = {
@@ -172,16 +183,15 @@ export default function Page() {
         <span className="sr-only">Loading...</span>
       </div>
 
-      <div className="mt-4">
-         <div>{lastModified}</div>
-            </div>
-
       <div className={`flex flex-col justify-center items-center ${isLoading || hasError ? 'hidden' : 'visible'}`}>
         <div className="text-5xl text-weddingMaroon mt-6">RSVP</div>
         <form className="m-4 flex flex-col justify-center items-center" onSubmit={handleSubmit(onSubmit)}>
+          <div className="w-full md:w-3/4 ">
+            <div className="text-gray-400">{lastModified}</div>
+          </div>
           {/* Person data */}
           {peopleValues?.map((person, index) => (
-            <div key={person.index} className="w-full md:w-3/4 my-4 border border-gray-300 rounded-lg p-4">
+            <div key={person.index} className="w-full md:w-3/4 mb-4 border border-gray-300 rounded-lg p-4">
               <div className="">
                 <div className="mb-2 text-lg text-weddingMaroon">{"Will " + person.name + " be attending?"}</div>
                 <ul className="grid w-full gap-6 md:grid-cols-2 mb-2">
@@ -226,7 +236,7 @@ export default function Page() {
                         </label>
                       </li>
                       <li>
-                        <input id={"meal-none-" + person.index} className="hidden peer" {...register(`people.${index}.mealPreference`, { required: true })} type="radio" value="none"  />
+                        <input id={"meal-none-" + person.index} className="hidden peer" {...register(`people.${index}.mealPreference`, { required: true })} type="radio" value="none" />
                         <label htmlFor={"meal-none-" + person.index} className="inline-flex justify-between w-full h-full p-2 text-gray-500 border border-gray-200 rounded-lg cursor-pointer peer-checked:border-weddingMaroon peer-checked:text-weddingMaroon hover:text-gray-600 hover:bg-gray-100">
                           <div className="block">
                             <div className="w-full font-semibold">No meal</div>
@@ -250,7 +260,7 @@ export default function Page() {
               <div className="mb-2 text-lg text-weddingMaroon">{"Would you like to bring additional guests such as children or other relatives?"}</div>
               <ul className="grid w-full gap-6 md:grid-cols-2 mb-2">
                 <li>
-                <input id="additional-guests-yes" className="hidden peer" {...register(`hasAdditionalGuests`)} type="radio" value="true" />
+                  <input id="additional-guests-yes" className="hidden peer" {...register(`hasAdditionalGuests`)} type="radio" value="true" />
                   <label htmlFor="additional-guests-yes" className="inline-flex items-center justify-between w-full p-2 text-gray-500 border border-gray-200 rounded-lg cursor-pointer peer-checked:border-weddingMaroon peer-checked:text-weddingMaroon hover:text-gray-600 hover:bg-gray-100">
                     <div className="block">
                       <div className="w-full font-semibold">Yes</div>
@@ -304,7 +314,7 @@ export default function Page() {
                           <div className="mb-2 text-lg text-weddingMaroon">{"What kind of meal for this guest?"}</div>
                           <ul className="grid w-full gap-6 md:grid-cols-3">
                             <li>
-                              <input id={"additional-meal-adult-" + index} className="hidden peer" {...field} type="radio" value="adult" checked={field.value === 'adult'}/>
+                              <input id={"additional-meal-adult-" + index} className="hidden peer" {...field} type="radio" value="adult" checked={field.value === 'adult'} />
                               <label htmlFor={"additional-meal-adult-" + index} className="h-full inline-flex justify-between w-full p-2 text-gray-500 border border-gray-200 rounded-lg cursor-pointer peer-checked:border-weddingMaroon peer-checked:text-weddingMaroon hover:text-gray-600 hover:bg-gray-100">
                                 <div className="block">
                                   <div className="w-full font-semibold">Adult</div>
@@ -313,7 +323,7 @@ export default function Page() {
                               </label>
                             </li>
                             <li>
-                              <input id={"additional-meal-child-" + index} className="hidden peer" {...field} type="radio" value="child" checked={field.value === 'child'}/>
+                              <input id={"additional-meal-child-" + index} className="hidden peer" {...field} type="radio" value="child" checked={field.value === 'child'} />
                               <label htmlFor={"additional-meal-child-" + index} className="inline-flex items-center justify-between w-full p-2 text-gray-500 border border-gray-200 rounded-lg cursor-pointer peer-checked:border-weddingMaroon peer-checked:text-weddingMaroon hover:text-gray-600 hover:bg-gray-100">
                                 <div className="block">
                                   <div className="w-full font-semibold">Child</div>
@@ -322,7 +332,7 @@ export default function Page() {
                               </label>
                             </li>
                             <li>
-                              <input id={"additional-meal-none-" + index} className="hidden peer" {...field} type="radio" value="none" checked={field.value === 'none'}/>
+                              <input id={"additional-meal-none-" + index} className="hidden peer" {...field} type="radio" value="none" checked={field.value === 'none'} />
                               <label htmlFor={"additional-meal-none-" + index} className="inline-flex justify-between w-full h-full p-2 text-gray-500 border border-gray-200 rounded-lg cursor-pointer peer-checked:border-weddingMaroon peer-checked:text-weddingMaroon hover:text-gray-600 hover:bg-gray-100">
                                 <div className="block">
                                   <div className="w-full font-semibold">No meal</div>
@@ -349,7 +359,7 @@ export default function Page() {
                 </div>
               ))}
 
-              <button className="w-1/3 p-1 flex justify-center items-center rounded border-solid border-2 border-weddingMaroon hover:bg-weddingMaroonHover" type="button" onClick={() => append({ name: '', index: '', mealPreference: '', willAttend: 'true'})}>
+              <button className="w-1/3 p-1 flex justify-center items-center rounded border-solid border-2 border-weddingMaroon hover:bg-weddingMaroonHover" type="button" onClick={() => append({ name: '', index: '', mealPreference: '', willAttend: 'true' })}>
                 <IoMdAddCircleOutline className="pr-1" />
                 Add Guest
               </button>
