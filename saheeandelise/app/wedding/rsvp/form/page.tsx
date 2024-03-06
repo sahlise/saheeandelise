@@ -296,7 +296,7 @@ export default function Page() {
                         <label className="py-2 text-lg text-weddingMaroon" htmlFor={'name-' + index}>
                           Name
                         </label>
-                        <input id={'name-' + index} {...field} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        <input id={'name-' + index} {...field} maxLength={32} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                           type="text" placeholder="e.g. Aurora Rose" />
                         {fieldState.error && (
                           <p className="text-red-500 text-xs mt-1">{fieldState.error.message}</p> // Displaying the error message
@@ -394,9 +394,10 @@ export default function Page() {
               </label>
               <input
                 id='email'
+                maxLength={255}
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 type="text" placeholder="e.g. email@email.com"
-                {...register("email", { maxLength: 100, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i })}
+                {...register("email", { maxLength: 255, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i })}
               />
               {errors.email?.type == 'maxLength' && <div className="text-red-600">Too long!</div>}
               {errors.email?.type == 'pattern' && <div className="text-red-600">Invalid format</div>}
@@ -409,9 +410,10 @@ export default function Page() {
               </label>
               <input
                 id='speicalAccommodations'
+                maxLength={255}
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 type="text" placeholder="e.g. Wheelchair access needed"
-                {...register("specialAccommodations", { maxLength: 100 })}
+                {...register("specialAccommodations", { maxLength: 255 })}
               />
               {errors.email?.type == 'maxLength' && <div className="text-red-600">Charater limit exceeded (100)</div>}
             </div>
@@ -423,9 +425,10 @@ export default function Page() {
               </label>
               <input
                 id='songRequest'
+                maxLength={255}
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 type="text" placeholder="e.g. Lovely Day by Bill Withers"
-                {...register("songRequest", { maxLength: 100 })}
+                {...register("songRequest", { maxLength: 255 })}
               />
               {errors.email?.type == 'maxLength' && <div className="text-red-600">Too long!</div>}
             </div>
@@ -437,9 +440,10 @@ export default function Page() {
               </label>
               <textarea
                 id='noteToCouple'
+                maxLength={1024}
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 placeholder="e.g. Yahoo!"
-                {...register("noteToCouple", { maxLength: 256 })}
+                {...register("noteToCouple", { maxLength: 1024 })}
               />
               {errors.email?.type == 'maxLength' && <div className="text-red-600">Too long!</div>}
             </div>

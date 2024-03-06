@@ -19,6 +19,12 @@ module.exports = {
         weddingGreen: '#638a45',
         weddingGold: '#D4AF37',
         weddingMaroonHover: '#f7cde6'
+      },
+      blur: {
+        xs: '2px',
+      },
+      height: {
+        '128': '32rem',
       }
       // animation: {
       //   scroll: 'scroll 40s linear infinite',

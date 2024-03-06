@@ -44,8 +44,8 @@ export default function AlternateReverseTimeline() {
             <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>
-            <p>Ceremony</p>
-            <p>3:30pm</p>
+            <p className="text-lg md:text-xl">Ceremony</p>
+            <p className="md:text-lg">3:30pm</p>
         </TimelineContent>
       </TimelineItem>
       
@@ -57,8 +57,8 @@ export default function AlternateReverseTimeline() {
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>
-            <p>Cocktail Hour</p>
-            <p>4:00pm</p>
+            <p className="text-lg md:text-xl">Cocktail Hour</p>
+            <p className="md:text-lg">4:00pm</p>
         </TimelineContent>
       </TimelineItem>
 
@@ -70,8 +70,8 @@ export default function AlternateReverseTimeline() {
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>
-            <p>Reception</p>
-            <p>5:30pm</p>
+            <p className="text-lg md:text-xl">Reception</p>
+            <p className="md:text-lg">5:30pm</p>
         </TimelineContent>
       </TimelineItem>
 
@@ -83,8 +83,8 @@ export default function AlternateReverseTimeline() {
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>
-            <p>First Dance</p>
-            <p>8:00pm</p>
+            <p className="text-lg md:text-xl">First Dance</p>
+            <p className="md:text-lg">8:00pm</p>
         </TimelineContent>
       </TimelineItem>
 
@@ -96,8 +96,8 @@ export default function AlternateReverseTimeline() {
             <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>
-            <p>Late Night Snack</p>
-            <p>10:00pm</p>
+            <p className="text-lg md:text-xl">Late Night Snack</p>
+            <p className="md:text-lg">10:00pm</p>
         </TimelineContent>
       </TimelineItem>
 
@@ -109,8 +109,8 @@ export default function AlternateReverseTimeline() {
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>
-            <p>Last Dance</p>
-            <p>11:30pm</p>
+            <p className="text-lg md:text-xl">Last Dance</p>
+            <p className="md:text-lg">11:30pm</p>
         </TimelineContent>
       </TimelineItem>
 

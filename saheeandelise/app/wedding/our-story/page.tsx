@@ -297,7 +297,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className=" mx-5 mb-5 text-4xl flex justify-center items-center bg-weddingGreen rounded-b-lg">&nbsp;</div>
+      <div className="mx-5 mb-5 text-4xl bg-weddingGreen rounded-b-lg">&nbsp;</div>
 
     </div>
   )

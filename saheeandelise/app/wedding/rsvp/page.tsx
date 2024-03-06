@@ -1,6 +1,5 @@
 "use client";
-import { IoMdArrowRoundDown } from "react-icons/io";
-import { IoMdArrowRoundUp } from "react-icons/io";
+import { GiPaperArrow } from "react-icons/gi";
 import React, { useState, FormEvent } from 'react'
 import FindNameForm from '../components/RsvpFindNameForm';
 import { guests } from '../data/guestList';
@@ -99,7 +98,7 @@ export default function Page(this: any) {
               <div className="absolute left-1/2 transform -translate-x-1/2 top-20 md:translate-y-20">
               <div className={`${curSearchIndex == 0 ? 'invisible' : 'visible'} flex justify-center items-center p-1`}>
               <div className="flex justify-center items-center h-6 w-6 md:h-12 md:w-12" onClick={() => getPrevResults()}>
-                <IoMdArrowRoundUp className="h-full w-full"/>
+                <GiPaperArrow className="h-full w-full" style={{transform: 'rotate(-135deg)' }}/>
               </div>
               </div>
               <div className="">
@@ -117,7 +116,7 @@ export default function Page(this: any) {
 
                 <div className={`${curSearchIndex + scrollAmount >= searchResults.length ? 'invisible' : 'visible'} flex justify-center items-center p-1`}>
                 <div className="flex justify-center items-center h-6 w-6 md:h-12 md:w-12" onClick={() => getNextResults()}>
-                  <IoMdArrowRoundDown className="h-full w-full"/>
+                  <GiPaperArrow className="h-full w-full" style={{transform: 'rotate(45deg)' }}/>
                 </div>
                 </div>
 
