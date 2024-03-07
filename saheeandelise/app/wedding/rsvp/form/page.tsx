@@ -8,8 +8,8 @@ import Link from 'next/link';
 import { IoMdAddCircleOutline } from "react-icons/io";
 import Image from 'next/image';
 
-//const baseUrl = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/rsvp';
-const baseUrl = '/api/rsvp'
+const baseUrl = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/rsvp';
+//const baseUrl = '/api/rsvp'
 
 export default function Page() {
 

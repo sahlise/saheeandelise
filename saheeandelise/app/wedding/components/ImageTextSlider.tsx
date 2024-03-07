@@ -14,7 +14,7 @@ const ImageTextSwiper = () => {
             src: '/images/Anna.png',
             srcCrop: '/images/Anna-crop.png',
             iconSrc: '/images/Anna-icon.png',
-            text: "Anna is Elise's best older sister, but not older by much (we are almost irish twins!). Because of this, we were a pair of little ruffians growing up, always getting into trouble but giggling along the way. Now-a-days when she isn't experimenting with new cooking recipes, you can find Anna reading thriller or mystery books while hanging out with her cat Nea. Anna and her husband Connor also love to travel to fun and wacky places around the US. If you have a chance, ask them about their adventures to US National Parks.",
+            text: "Anna is Elise's best older sister, but not older by much (we are almost Irish twins!). Because of this, we were a pair of little ruffians growing up, always getting into trouble but giggling along the way. Now-a-days when she isn't trying out a new recipe from one of her cookbooks, you can find Anna reading thriller or mystery books while hanging out with her cat Nea. Anna and her husband Connor also love to travel to fun and wacky places around the US. If you have a chance, ask them about their adventures to US National Parks.",
             title: 'Anna Baumgartner'
         },
         {

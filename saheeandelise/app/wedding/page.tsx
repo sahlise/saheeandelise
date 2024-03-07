@@ -8,6 +8,8 @@ import Footer from './components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import { VaraText } from './components/MyVaraText';
+import CircleButton from './components/ClipPathButton';
 
 export default function Page() {
 
@@ -34,13 +36,13 @@ export default function Page() {
                     <div className="h-full w-full bg-black opacity-30 absolute inset-0 flex"></div>
 
                     <div className="absolute inset-0 flex justify-center items-center">
-                        <p className="text-6xl sm:text-9xl text-white">Welcome</p>
+                        <VaraText text="Welcome!" />
                     </div>
                 </div>
                 
                 <MainParallax></MainParallax>
 
-                <div className=" my-5 bg-white">
+                <div className="my-5 bg-white">
                     
                 </div>
 
@@ -57,6 +59,26 @@ export default function Page() {
                     <div className="absolute inset-x-0 bottom-10 md:bottom-20 md:text-2xl flex justify-center">
                         <CountdownTimer targetDate="2024-06-08" onInitialized={handleComponentLoaded} />
                     </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative h-px-200 mt-4 bg-[url(https://www.filterforge.com/filters/1319.jpg)]" style={{
+            borderImage: 'https://www.filterforge.com/filters/6903.jpg'
+        }}>
+                    <div className="flex justify-center items-center w-full">
+                        <Link className="w-full flex justify-center items-center" href='/wedding/wedding-party'>
+                            <CircleButton label="Wedding Party" number={0} />
+                        </Link>
+                        
+                    </div>
+                    <div className="flex justify-center items-center w-full">
+                        <Link className="w-full flex justify-center items-center" href='/wedding/our-story'>
+                            <CircleButton label="Our Story" number={1} />
+                        </Link>
+                    </div>
+                    <div className="h-60 hidden md:block"></div>
+                    <div className="h-60 hidden md:block"></div>
+                    <div className="h-60 hidden md:block"></div>
+                    
+                    
                 </div>
 
                 <div className="h-24"><Footer/></div>

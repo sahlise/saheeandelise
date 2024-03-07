@@ -882,15 +882,6 @@ export const guests: Group[] = [
       },
       {
         "name": "Liz"
-      },
-      {
-        "name": "Sheyee"
-      },
-      {
-        "name": "Shiva"
-      },
-      {
-        "name": "Summer"
       }
     ]
   },

@@ -1,8 +1,6 @@
 // pages/index.js
 "use client";
 import React from 'react';
-import { VaraText } from '../components/Varatext';
-import AnimatedMulti from '../components/TableSelect';
 import Link from 'next/link';
 import useDevice from '../hook/useDevice';
 import Image from 'next/image';
