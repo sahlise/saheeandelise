@@ -6,6 +6,7 @@ import { RsvpForm } from '../../models/RsvpForm';
 import TablePreferences from '../../components/TableSelect';
 import Link from 'next/link';
 import { IoMdAddCircleOutline } from "react-icons/io";
+import Image from 'next/image';
 
 //const baseUrl = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/rsvp';
 const baseUrl = '/api/rsvp'
@@ -184,7 +185,23 @@ export default function Page() {
       </div>
 
       <div className={`flex flex-col justify-center items-center ${isLoading || hasError ? 'hidden' : 'visible'}`}>
-        <div className="text-5xl text-weddingMaroon mt-6">RSVP</div>
+        <div className="grid grid-cols-3 md:grid-cols-3 mt-4 md:w-1/2">
+        <div className="flex justify-end items-end">
+          <div className="w-1/2 md:w-1/4">
+            <Image
+              src="../../../images/flower-decoration.png"
+              alt="Image of decorative flower"
+              width={300}
+              height={200}
+            />
+          </div>
+        </div>
+        <div className="text-5xl text-weddingMaroon">RSVP</div>
+        </div>
+        <div></div>
+
+      
+        
         <form className="m-4 flex flex-col justify-center items-center" onSubmit={handleSubmit(onSubmit)}>
           <div className="w-full md:w-3/4 ">
             <div className="text-gray-400">{lastModified}</div>
@@ -480,7 +497,6 @@ export default function Page() {
               <span className="sr-only">Loading...</span>
             </div>
           </div>
-
         </form>
       </div>
     </div>

@@ -9,4 +9,10 @@
       color: #638a45
     }
   }
+
+  .swiper-wrapper {
+    display: flex;
+  align-items: center;
+  height: 100%;
+  }
   

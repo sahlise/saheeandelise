@@ -15,7 +15,7 @@ export default function Page() {
     <div className="h-full">
       <div className="w-full flex flex-col justify-center items-center">
         <div className="flex justify-center items-center mt-10">
-          <div className="w-1/2">
+          <div className="w-3/4">
             <Image
               className="bg-white bg-none"
               src="../../images/registry-flower.png"

@@ -30,7 +30,7 @@ const GenericSwiper: React.FC<SwiperProps> = ({ images }) => {
   };
 
   return (
-    <div className={loadedImagesCount ? 'visible overflow-hidden' : 'collapse'}>
+    <div className={`${loadedImagesCount ? 'visible overflow-hidden' : 'collapse'} h-full`}>
       <Swiper
         modules={[Navigation, Pagination]}
         onSlidesLengthChange={handleImageLoaded}
@@ -39,12 +39,13 @@ const GenericSwiper: React.FC<SwiperProps> = ({ images }) => {
         centeredSlides={true}
         navigation
         pagination={{ clickable: true }}
+        
       >
         {images.map((image, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide className="h-full" key={index}>
 
-            <div className="flex justify-center items-center">
-              <div className="md:w-1/2">
+            <div className="hello flex justify-center items-center content-center h-full">
+              <div className="md:w-1/2 h-full flex justify-center content-center items-center">
                 <Image
                   src={image.src}
                   alt={image.alt}

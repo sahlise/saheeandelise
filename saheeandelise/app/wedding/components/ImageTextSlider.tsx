@@ -6,8 +6,6 @@ import 'swiper/css';
 import { GiImbricatedArrows } from "react-icons/gi";
 import Image from 'next/image';
 
-const paragraph = " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
 
 
 const ImageTextSwiper = () => {
@@ -23,7 +21,7 @@ const ImageTextSwiper = () => {
             src: '/images/javit.jpg',
             srcCrop: '/images/javit-crop.jpg',
             iconSrc: '/images/javit-icon.jpg',
-            text: 'Javit' + paragraph,
+            text: "For five years, Sahee enjoyed the life of an only child, a reign that ended with the arrival of his brother, Javit. This brought a new companion into Sahee's world, one with whom he could share his love for trains and cars. As they grew, their toy battles evolved into virtual competitions, particularly in Super Smash Bros, where Sahee initially dominated. However, time has a way of changing dynamics, and nowadays, it's Javit who holds the title of master, with Sahee proudly taking on the role of the apprentice. When Javit isn't immersed in his medical school studies, you're likely to find him engrossed in deck-building and roguelike games, honing his artistic skills through drawing, enjoying music, or keeping up with the latest anime.",
             title: 'Javit Thao'
         },
         {
@@ -37,7 +35,7 @@ const ImageTextSwiper = () => {
             src: '/images/kinji.jpg',
             srcCrop: '/images/kinji-crop.jpg',
             iconSrc: '/images/kinji-icon.jpg',
-            text: 'Kinji' + paragraph,
+            text: "Kinji, Sahee's youngest brother, has always held a special place in Sahee's world, despite the eight-year age gap. Yet, this gap never truly separated them; Sahee cherished every moment with Kinji by his side, whether it was watching shows or YouTube together, or Kinji watching Sahee play video games. Today, Kinji loves playing instruments (he is currently into guitar and ukulele), gaming on his PC, and experimenting with new recipes and flavors in the kitchen.",
             title: 'Kinji Thao'
         },
     ];
