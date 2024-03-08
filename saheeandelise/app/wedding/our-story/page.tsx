@@ -314,9 +314,7 @@ export default function Page() {
             { src: "/images/engagement-photos/4.jpg", alt: "Elise and Sahee looking into each other's eyes" },
             { src: "/images/engagement-photos/5.jpg", alt: "Elise and Sahee among trees" },
             { src: "/images/engagement-photos/6.jpg", alt: "Elise and Sahee dancing in a field" },
-          ]}>
-
-          </GenericSwiper>
+          ]}/>
         </div>
       </div>
 

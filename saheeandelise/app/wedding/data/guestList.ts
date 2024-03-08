@@ -542,7 +542,7 @@ export const guests: Group[] = [
         "name": "Devon"
       },
       {
-        "name": "Mariana"
+        "name": "Marianna"
       }
     ]
   },

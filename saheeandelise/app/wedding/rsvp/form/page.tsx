@@ -185,23 +185,45 @@ export default function Page() {
       </div>
 
       <div className={`flex flex-col justify-center items-center ${isLoading || hasError ? 'hidden' : 'visible'}`}>
-        <div className="grid grid-cols-3 md:grid-cols-3 mt-4 md:w-1/2">
-        <div className="flex justify-end items-end">
-          <div className="w-1/2 md:w-1/4">
-            <Image
-              src="../../../images/flower-decoration.png"
-              alt="Image of decorative flower"
-              width={300}
-              height={200}
-            />
+        {/* <div className="grid grid-cols-3 md:grid-cols-3 mt-4 md:w-1/2">
+          <div className="flex justify-end items-end">
+            <div className="w-1/2 md:w-1/4">
+              <Image
+                src="../../../images/flower-decoration.png"
+                alt="Image of decorative flower"
+                width={300}
+                height={200}
+              />
+            </div>
           </div>
-        </div>
-        <div className="text-5xl text-weddingMaroon">RSVP</div>
-        </div>
-        <div></div>
+          <div className="text-5xl text-weddingMaroon">RSVP</div>
+        </div> */}
 
-      
-        
+
+        <div className="flex items-center md:mb-4">
+              <div className="h-[2em] md:h-[6em] flex items-center">
+                <Image
+                  src="../../../images/flower-decoration-long-left.png"
+                  alt="Description of Image"
+                  width={100}
+                  height={100}
+                  style={{ height: '100%', width: 'auto' }}
+                />
+              </div>
+              <div className="text-4xl md:text-5xl text-weddingMaroon px-3">RSVP</div>
+              <div className="h-[2em] md:h-[6em] flex items-center">
+                <Image
+                  src="../../../images/flower-decoration-long.png"
+                  alt="Description of Image"
+                  width={100}
+                  height={100}
+                  style={{ height: '100%', width: 'auto' }}
+                />
+              </div>
+            </div>
+
+
+
         <form className="m-4 flex flex-col justify-center items-center" onSubmit={handleSubmit(onSubmit)}>
           <div className="w-full md:w-3/4 ">
             <div className="text-gray-400">{lastModified}</div>
