@@ -27,27 +27,32 @@ export default function Page() {
 
           {/* Travel */}
           <div className="md:w-2/3 px-4 flex flex-col justify-center items-center">
-            <div className="flex items-center md:mb-4">
-              <div className="h-[2em] md:h-[6em] flex items-center">
-                <Image
-                  src="../../images/vine.png"
-                  alt="Description of Image"
-                  width={100}
-                  height={100}
-                  style={{ height: '100%', width: 'auto' }}
-                />
+
+            <div className="grid grid-cols-3 md:grid-cols-3 mt-4 md:w-2/3">
+              <div className="flex justify-end items-center">
+                <div className="">
+                  <Image
+                    src="../../images/vine.png"
+                    alt="Image of a vine"
+                    width={1000}
+                    height={1000}
+                  />
+                </div>
               </div>
-              <h1 className="text-4xl md:text-5xl text-weddingGreen">Travel</h1>
-              <div className="h-[2em] md:h-[6em] flex items-center">
-                <Image
-                  src="../../images/vine-right.png"
-                  alt="Description of Image"
-                  width={100}
-                  height={100}
-                  style={{ height: '100%', width: 'auto' }}
-                />
+              <div className="text-4xl md:text-5xl text-weddingGreen text-center">Travel</div>
+              <div className="flex justify-start items-center">
+                <div className="">
+                  <Image
+                    src="../../images/vine-right.png"
+                    alt="Image of a vine"
+                    width={1000}
+                    height={1000}
+                  />
+                </div>
               </div>
             </div>
+
+
 
             <div className="">The ceremony and reception will be taking place at the Swan Barn Door. There is parking at the venue. The address is
               {!isIOS && <Link className="underline pl-1 text-weddingGreen" href="http://maps.google.com/?q=swan+barn+door">4161 River Rd, Wisconsin Dells, WI 53965</Link>}
@@ -62,40 +67,40 @@ export default function Page() {
             </div>
 
             <div className="w-full flex flex-col justify-left items-left">
-            <div className="pt-4">
-              Curious what vendors we are using for the wedding? Find out
-              <Link className="underline pl-1 text-weddingGreen" href="/wedding/vendors">here</Link>
-              !
-            </div>
+              <div className="pt-4">
+                Curious what vendors we are using for the wedding? Find out
+                <Link className="underline pl-1 text-weddingGreen" href="/wedding/vendors">here</Link>
+                !
+              </div>
             </div>
 
-            
+
           </div>
 
           {/* Accommodations */}
           <div className="md:w-2/3 px-4 flex flex-col justify-center items-center">
 
-            <div className="flex items-center mt-6 mb-4">
-              <div className="h-[2em] md:h-[6em] flex items-center">
-                <Image
-                  src="../../images/vine.png"
-                  alt="Decorative vine"
-                  width={50}
-                  height={50}
-                  style={{ height: '100%', width: 'auto' }}
-                />
+            <div className="grid grid-cols-4 md:grid-cols-3 mt-4">
+              <div className="flex justify-end items-center">
+                <div className="">
+                  <Image
+                    src="../../images/vine.png"
+                    alt="Image of a vine"
+                    width={1000}
+                    height={1000}
+                  />
+                </div>
               </div>
-              <h1 className="text-4xl md:text-5xl text-weddingGreen">
-                Lodging
-              </h1>
-              <div className="h-[2em] md:h-[6em] flex items-center">
-                <Image
-                  src="../../images/vine-right.png"
-                  alt="Decorative vine"
-                  width={50}
-                  height={50}
-                  style={{ height: '100%', width: 'auto' }}
-                />
+              <div className="md:pt-3 text-4xl md:text-5xl text-weddingGreen text-center col-span-2 md:col-span-1">Lodging</div>
+              <div className="flex justify-start items-center">
+                <div className="">
+                  <Image
+                    src="../../images/vine-right.png"
+                    alt="Image of a vine"
+                    width={1000}
+                    height={1000}
+                  />
+                </div>
               </div>
             </div>
 
@@ -126,27 +131,27 @@ export default function Page() {
           {/* Things to do */}
           <div className="md:w-2/3 px-4 flex flex-col justify-center items-center">
 
-            <div className="flex items-center mt-6 mb-4">
-              <div className="h-[2em] md:h-[6em] flex items-center">
-                <Image
-                  src="../../images/vine.png"
-                  alt="Decorative vine"
-                  width={50}
-                  height={50}
-                  style={{ height: '100%', width: 'auto' }}
-                />
+          <div className="grid grid-cols-4 md:grid-cols-3 mt-4">
+              <div className="flex justify-end items-center">
+                <div className="">
+                  <Image
+                    src="../../images/vine.png"
+                    alt="Image of a vine"
+                    width={1000}
+                    height={1000}
+                  />
+                </div>
               </div>
-              <h1 className="text-4xl md:text-5xl text-weddingGreen">
-                Activities
-              </h1>
-              <div className="h-[2em] md:h-[6em] flex items-center">
-                <Image
-                  src="../../images/vine-right.png"
-                  alt="Decorative vine"
-                  width={50}
-                  height={50}
-                  style={{ height: '100%', width: 'auto' }}
-                />
+              <div className="md:pt-3 text-4xl md:text-5xl text-weddingGreen text-center col-span-2 md:col-span-1">Activities</div>
+              <div className="flex justify-start items-center">
+                <div className="">
+                  <Image
+                    src="../../images/vine-right.png"
+                    alt="Image of a vine"
+                    width={1000}
+                    height={1000}
+                  />
+                </div>
               </div>
             </div>
 
@@ -179,12 +184,12 @@ export default function Page() {
 
 
         <div className="flex flex-col justify-center items-center w-full">
-        <Image className="w-3/4 md:w-1/2" src="../../images/flower-divider-color.png"
-          alt="Flower divider"
-          width={1000}
-          height={1000}
-          priority={true}
-        />
+          <Image className="w-3/4 md:w-1/2" src="../../images/flower-divider-color.png"
+            alt="Flower divider"
+            width={1000}
+            height={1000}
+            priority={true}
+          />
         </div>
 
 

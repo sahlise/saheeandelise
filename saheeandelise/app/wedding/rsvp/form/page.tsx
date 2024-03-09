@@ -200,27 +200,50 @@ export default function Page() {
         </div> */}
 
 
-        <div className="flex items-center md:mb-4">
-              <div className="h-[2em] md:h-[6em] flex items-center">
-                <Image
-                  src="../../../images/flower-decoration-long-left.png"
-                  alt="Description of Image"
-                  width={100}
-                  height={100}
-                  style={{ height: '100%', width: 'auto' }}
-                />
-              </div>
-              <div className="text-4xl md:text-5xl text-weddingMaroon px-3">RSVP</div>
-              <div className="h-[2em] md:h-[6em] flex items-center">
-                <Image
-                  src="../../../images/flower-decoration-long.png"
-                  alt="Description of Image"
-                  width={100}
-                  height={100}
-                  style={{ height: '100%', width: 'auto' }}
-                />
-              </div>
+        <div className="grid grid-cols-3 md:grid-cols-3 mt-4 md:w-1/2">
+          <div className="flex justify-end items-center">
+            <div className="">
+              <Image
+                src="../../../images/flower-decoration-long-left.png"
+                alt="Image of decorative flower"
+                width={1000}
+                height={1000}
+              />
             </div>
+          </div>
+          <div className="text-4xl md:text-5xl text-weddingMaroon text-center">RSVP</div>
+          <div className="flex justify-start items-center">
+            <div className="">
+              <Image
+                src="../../../images/flower-decoration-long.png"
+                alt="Image of decorative flower"
+                width={1000}
+                height={1000}
+              />
+            </div>
+          </div>
+        </div>
+
+
+        {/* <div className="flex items-center md:mb-4">
+          <div className=" relative h-[2em] md:h-[6em] flex items-center">
+            <Image
+              src="../../../images/flower-decoration-long-left.png"
+              alt="Description of Image"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+          <div className="text-4xl md:text-5xl text-weddingMaroon px-3">RSVP</div>
+          <div className=" relative h-[2em] md:h-[6em] flex items-center">
+            <Image
+              src="../../../images/flower-decoration-long.png"
+              alt="Description of Image"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+        </div> */}
 
 
 

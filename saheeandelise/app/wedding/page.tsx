@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { VaraText } from './components/MyVaraText';
 import CircleButton from './components/ClipPathButton';
+import LongClipPath from './components/LongClipPath';
 
 export default function Page() {
 
@@ -63,6 +64,9 @@ export default function Page() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative h-px-200 mt-4 bg-[url(https://www.filterforge.com/filters/1319.jpg)]" style={{
             borderImage: 'https://www.filterforge.com/filters/6903.jpg'
         }}>
+                    <div className="md:col-span-4">
+                        <LongClipPath label={'QUEST BOARD'}/>
+                    </div>
                     <div className="flex justify-center items-center w-full">
                         <Link className="w-full flex justify-center items-center" href='/wedding/wedding-party'>
                             <CircleButton label="Wedding Party" number={0} />

@@ -17,17 +17,61 @@ function getDegree(): string {
   return `${finalD.toFixed(0)}deg`;
 }
 
+function generateWord(length: number): string {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  let result = '';
+
+  for ( let i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
+
+function generateRandomWords(): string {
+  const limit = 20;
+  let result = [];
+  const x = Math.round(Math.random() * 3);
+  const diff = x * (Math.round(Math.random()) == 1 ? 1 : -1)
+  const realLimit = limit + diff;
+
+  for ( let i = 0; i < realLimit; i++ ) {
+    const wordLength = Math.round(Math.random() * 5) + 1;
+    result.push(generateWord(wordLength));
+  }
+
+  return result.join(' ');
+}
+
 const CircleButton: React.FC<ButtonProps> = ({ label, number }) => {
+  const [degree, setDegree] = React.useState('');
+  const [text, setText] = React.useState('');
+  
+  React.useEffect(() => {
+    setDegree(getDegree());
+    setText(generateRandomWords())
+}, []);
+
+if (!degree || !text) {
+    // Returns null on first render, so the client and server match
+    return null;
+}
+
   return (
     <div className="w-1/2 md:w-3/4">
       <div
-        className="bg-center my-4 w-full bg-[url('https://as2.ftcdn.net/v2/jpg/00/67/89/29/1000_F_67892955_kbvL7bB4vtteVhyPsgPhDqEMkRXxizRI.jpg')] h-60 w-1/6 bg-blue-500 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transform transition hover:bg-blue-700 hover:scale-105 clip-polygon pt-2 pb-8"
+        className="bg-center almendra-regular-italic flex flex-col justify-center items-center my-4 w-full bg-[url('https://as2.ftcdn.net/v2/jpg/00/67/89/29/1000_F_67892955_kbvL7bB4vtteVhyPsgPhDqEMkRXxizRI.jpg')] h-60 w-1/6 bg-blue-500 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transform transition hover:bg-blue-700 hover:scale-105 clip-polygon pt-2 pb-8"
         style={{
-            transform: `rotate(${getDegree()})`, 
-            clipPath: clipPaths[number],
+          transform: `rotate(${degree})`,
+          clipPath: clipPaths[number],
         }}
       >
-        {label}
+        <div className="text-2xl">
+          {label}
+        </div>
+        <div className="daedra-regular">
+          {text}
+        </div>
+
       </div>
     </div>
   );
