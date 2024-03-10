@@ -303,19 +303,17 @@ export default function Page() {
       <div className="text-4xl flex justify-center items-center bg-weddingGreen rounded-t-lg m-5">
         <h1 className="text-white text-4xl sm:text-5xl py-1 text-center">Engagement Pictures</h1>
       </div>
-      <div className="w-full flex justify-center items-center">
-        <div className="md:w-3/4 flex justify-center items-center">
+      <div className="m-2">
 
-          <GenericSwiper images={[
-            { src: "/images/engagement-photos/3.jpg", alt: "Elise and Sahee among flowers" },
-            { src: "/images/engagement-photos/0.jpg", alt: "Elise and Sahee holding hands" },
-            { src: "/images/engagement-photos/1.jpg", alt: "Elise and Sahee facing each other" },
-            { src: "/images/engagement-photos/2.jpg", alt: "Sahee holding up a heart with Elise through it" },
-            { src: "/images/engagement-photos/4.jpg", alt: "Elise and Sahee looking into each other's eyes" },
-            { src: "/images/engagement-photos/5.jpg", alt: "Elise and Sahee among trees" },
-            { src: "/images/engagement-photos/6.jpg", alt: "Elise and Sahee dancing in a field" },
-          ]}/>
-        </div>
+        <GenericSwiper images={[
+          { src: "/images/engagement-photos/3.jpg", alt: "Elise and Sahee among flowers" },
+          { src: "/images/engagement-photos/0.jpg", alt: "Elise and Sahee holding hands" },
+          { src: "/images/engagement-photos/1.jpg", alt: "Elise and Sahee facing each other" },
+          { src: "/images/engagement-photos/2.jpg", alt: "Sahee holding up a heart with Elise through it" },
+          { src: "/images/engagement-photos/4.jpg", alt: "Elise and Sahee looking into each other's eyes" },
+          { src: "/images/engagement-photos/5.jpg", alt: "Elise and Sahee among trees" },
+          { src: "/images/engagement-photos/6.jpg", alt: "Elise and Sahee dancing in a field" },
+        ]} />
       </div>
 
 

@@ -59,7 +59,7 @@ if (!degree || !text) {
   return (
     <div className="w-1/2 md:w-3/4">
       <div
-        className="bg-center almendra-regular-italic flex flex-col justify-center items-center my-4 w-full bg-[url('https://as2.ftcdn.net/v2/jpg/00/67/89/29/1000_F_67892955_kbvL7bB4vtteVhyPsgPhDqEMkRXxizRI.jpg')] h-60 w-1/6 bg-blue-500 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transform transition hover:bg-blue-700 hover:scale-105 clip-polygon pt-2 pb-8"
+        className="bg-center bg-contain	bg-repeat almendra-regular-italic flex flex-col justify-center items-center my-4 md:my-0 w-full bg-[url('/images/paper.png')] h-60 w-1/6 text-black font-bold px-4 rounded focus:outline-none focus:shadow-outline transform transition hover:bg-blue-700 hover:scale-105 clip-polygon pt-2 pb-8"
         style={{
           transform: `rotate(${degree})`,
           clipPath: clipPaths[number],

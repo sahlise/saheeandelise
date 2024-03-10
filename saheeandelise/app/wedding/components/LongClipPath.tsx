@@ -18,9 +18,12 @@ const LongClipPath: React.FC<LongClipPathProps> = ({ label }) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <div
-        className={`bg-contain w-3/4 almendra-regular-italic flex flex-col justify-center items-center my-4 bg-[url('/images/wood.png')] h-60 w-1/6 bg-blue-500 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transform transition clip-polygon pt-2 pb-8`}
+        className={`bg-contain w-3/4 almendra-regular-italic flex flex-col justify-center items-center my-4 bg-[url('/images/woodtest1.png')] h-full text-black font-bold py-2 px-4 transform transition`}
+        style={{
+          clipPath: 'polygon(10% 0, 90% 0, 100% 20%, 100% 80%, 90% 100%, 10% 100%, 0% 80%, 0% 20%)'
+        }}
       >
-        <div className="text-6xl">
+        <div className="text-6xl text-center py-6">
           {label}
         </div>
       </div>

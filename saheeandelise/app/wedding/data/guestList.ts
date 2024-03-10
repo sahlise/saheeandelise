@@ -1128,5 +1128,18 @@ export const guests: Group[] = [
         "name": "Yong Son"
       }
     ]
+  },
+  {
+    "groupId": "gQEwSJ",
+    "groupName": "Sam Berg",
+    "groupAltNames": ["Samuel"],
+    "people": [
+      {
+        "name": "Sam"
+      },
+      {
+        "name": "Sam's Guest"
+      }
+    ]
   }
 ]
