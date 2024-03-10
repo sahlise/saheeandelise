@@ -23,7 +23,7 @@ export function VaraText({ text }: VaraTextProps) {
       [
         {
           text: text,
-          fontSize: 81,
+          fontSize: 72,
           strokeWidth: 2, // Width / Thickness of the stroke
 	        color: "white", // Color of the text
 	        duration: 2200,

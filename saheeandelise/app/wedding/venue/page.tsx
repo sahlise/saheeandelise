@@ -54,11 +54,18 @@ export default function Page() {
 
 
 
-            <div className="">The ceremony and reception will be taking place at the Swan Barn Door. There is parking at the venue. The address is
+            {/* <div className="">The ceremony and reception will be taking place at the Swan Barn Door. There is parking at the venue. The address is
               {!isIOS && <Link className="underline pl-1 text-weddingGreen" href="http://maps.google.com/?q=swan+barn+door">4161 River Rd, Wisconsin Dells, WI 53965</Link>}
               {isIOS && <Link className="underline pl-1 text-weddingGreen" href="https://maps.apple.com/?address=4161-4187%20River%20Rd,%20Wisconsin%20Dells,%20WI%2053965,%20United%20States&auid=3058409537829054152&ll=43.645691,-89.775047&lsp=9902&q=The%20Swan%20Barn%20Door&t=m">4161 River Rd, Wisconsin Dells, WI 53965</Link>}
               .
-            </div>
+            </div> */}
+
+<div className="">
+  The ceremony and reception will be taking place at the Swan Barn Door. There is parking at the venue. The address is
+  {!isIOS && <a className="underline pl-1 text-weddingGreen" target="_blank" href="http://maps.google.com/?q=swan+barn+door">4161 River Rd, Wisconsin Dells, WI 53965</a>}
+  {isIOS && <a className="underline pl-1 text-weddingGreen" target="_blank" href="https://maps.apple.com/?address=4161-4187%20River%20Rd,%20Wisconsin%20Dells,%20WI%2053965,%20United%20States&auid=3058409537829054152&ll=43.645691,-89.775047&lsp=9902&q=The%20Swan%20Barn%20Door&t=m">4161 River Rd, Wisconsin Dells, WI 53965</a>}
+  .
+</div>
 
             <div className="pt-4">
               Enchanted by the Swan Barn Door&apos;s rustic indoor charm and beautiful outdoor space, we knew it was the perfect place to start our journey together. We liked its unique indoor balcony that offers guests a serene retreat, allowing them to remain connected to the celebration while enjoying a tranquil overlook of the venue.

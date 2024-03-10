@@ -194,7 +194,7 @@ export default function Page() {
 
       {/* List of firsts */}
       <div>
-        <div className="text-4xl flex justify-center items-center bg-weddingGreen rounded-lg mx-5 mt-5">
+        <div className="text-4xl flex justify-center items-center bg-weddingGreen rounded-lg mx-1 mt-5">
           <h1 className="text-white text-4xl sm:text-5xl">Firsts Milestones</h1>
         </div>
         <FirstTimeline></FirstTimeline>

@@ -770,7 +770,7 @@ export const guests: Group[] = [
   },
   {
     "groupId": "DcCTrD",
-    "groupName": "Xiong Family",
+    "groupName": "Xiong Family (Xiong and Za)",
     "groupAltNames": ["Boney"],
     "people": [
       {
@@ -805,7 +805,7 @@ export const guests: Group[] = [
   },
   {
     "groupId": "OXDQkB",
-    "groupName": "Xiong Family",
+    "groupName": "Xiong Family (David and Mao)",
     "groupAltNames": ["Kong", "Abigail", "Max"],
     "people": [
       {
@@ -824,7 +824,7 @@ export const guests: Group[] = [
   },
   {
     "groupId": "irQTTH",
-    "groupName": "Xiong Family",
+    "groupName": "Xiong Family (Bob and Zoua)",
     "groupAltNames": ["Sear", "Vang"],
     "people": [
       {
@@ -1118,14 +1118,14 @@ export const guests: Group[] = [
   },
   {
     "groupId": "vlBuqC",
-    "groupName": "Chia Thao and Young Son Park",
+    "groupName": "Chia Thao and Young Sun Park",
     "groupAltNames": [],
     "people": [
       {
         "name": "Chia"
       },
       {
-        "name": "Yong Son"
+        "name": "Yong Sun"
       }
     ]
   },

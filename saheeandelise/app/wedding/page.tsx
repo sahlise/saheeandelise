@@ -61,7 +61,7 @@ export default function Page() {
                             <CountdownTimer targetDate="2024-06-08" onInitialized={handleComponentLoaded} />
                         </div>
                     </div>
-                    <div className="relative h-px-200 mt-4 bg-[url(https://www.filterforge.com/filters/1319.jpg)]">
+                    <div className="relative h-px-200 mt-4 bg-[url(/images/wood-background.png)]">
                         <div className="">
                             <LongClipPath label={'QUEST BOARD'} />
                         </div>
