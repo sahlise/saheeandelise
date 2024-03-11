@@ -36,6 +36,21 @@ export default function Page() {
       <div className="mt-4">
         <CustomizedTimeline></CustomizedTimeline>
       </div>
+      <div className="relative">
+        <div className="opacity-100">
+          <Image
+            src={"/images/poster_image.jpg"}
+            alt={"Countdown"}
+            className="w-full md:w-3/4 md:mx-auto"
+            width={500}
+            height={300} /> {/* Tailwind class for width */}
+        </div>
+
+        <div className="absolute inset-x-0 bottom-10 md:bottom-20 md:text-2xl flex justify-center">
+          <CountdownTimer targetDate="2024-06-08T15:30:00" onInitialized={() => { console.log("yeah") }} />
+        </div>
+      </div>
+
       <div className=""><Footer /></div>
     </div>
   )

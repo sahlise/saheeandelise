@@ -9,9 +9,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { VaraText } from './components/MyVaraText';
-import CircleButton from './components/ClipPathButton';
+import PaperButton from './components/ClipPathButton';
 import LongClipPath from './components/LongClipPath';
-
+import RPGTextBox from './components/TextBox';
 export default function Page() {
 
     const totalComponents = 2; // Total number of components to load
@@ -47,36 +47,38 @@ export default function Page() {
 
                     </div>
 
-                    <div className="relative">
-                        <div className="opacity-100">
-                            <Image
-                                src={"/images/poster_image.jpg"}
-                                alt={"Countdown"}
-                                className="w-full md:w-3/4 md:mx-auto"
-                                width={500}
-                                height={300} /> {/* Tailwind class for width */}
-                        </div>
-
-                        <div className="absolute inset-x-0 bottom-10 md:bottom-20 md:text-2xl flex justify-center">
-                            <CountdownTimer targetDate="2024-06-08" onInitialized={handleComponentLoaded} />
-                        </div>
-                    </div>
+                    
+                    <RPGTextBox/>
+                    
+                    
                     <div className="relative h-px-200 mt-4 bg-[url(/images/wood-background.png)]">
                         <div className="">
                             <LongClipPath label={'QUEST BOARD'} />
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div className="flex justify-center items-center w-full">
+                                <Link className="w-full flex justify-center items-center" href='/wedding/rsvp'>
+                                    <PaperButton label="RSVP by May 8th" number={0} />
+                                </Link>
+                            </div>
+                            <div className="flex justify-center items-center w-full">
+                                <Link className="w-full flex justify-center items-center" href='/wedding/faq'>
+                                    <PaperButton label="FAQ" number={1} />
+                                </Link>
+                            </div>
                             <div className="flex justify-center items-center w-full">
                                 <Link className="w-full flex justify-center items-center" href='/wedding/wedding-party'>
-                                    <CircleButton label="Wedding Party" number={0} />
+                                    <PaperButton label="Wedding Party" number={0} />
                                 </Link>
 
                             </div>
                             <div className="flex justify-center items-center w-full">
                                 <Link className="w-full flex justify-center items-center" href='/wedding/our-story'>
-                                    <CircleButton label="Our Story" number={1} />
+                                    <PaperButton label="Our Story" number={1} />
                                 </Link>
                             </div>
+                            
+
                             <div className="h-60 hidden md:block"></div>
                             <div className="h-60 hidden md:block"></div>
                             <div className="h-60 hidden md:block"></div>

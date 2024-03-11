@@ -7,6 +7,9 @@
 @tailwind utilities;
 
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 
 .almendra-regular-italic {
   font-family: "Almendra", serif;
