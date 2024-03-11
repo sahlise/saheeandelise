@@ -13,6 +13,7 @@ import WeatherWidget from '../components/Schedule/Weather';
 import MapWidget from '../components/Schedule/MapIframe';
 import CountdownTimer from '../components/Countdown';
 import Image from 'next/image';
+import Footer from '../components/Footer';
 
 export default function Page() {
   return (
@@ -34,7 +35,8 @@ export default function Page() {
       </div>
       <div className="mt-4">
         <CustomizedTimeline></CustomizedTimeline>
-        </div>
+      </div>
+      <div className=""><Footer /></div>
     </div>
   )
 };

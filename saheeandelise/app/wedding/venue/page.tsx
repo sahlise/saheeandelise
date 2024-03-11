@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import useDevice from '../hook/useDevice';
 import Image from 'next/image';
+import Footer from '../components/Footer';
 
 
 //import Link from 'next/link';
@@ -190,7 +191,7 @@ export default function Page() {
         </div>
 
 
-        <div className="flex flex-col justify-center items-center w-full">
+        <div className="flex flex-col justify-center items-center w-full mb-2">
           <Image className="w-3/4 md:w-1/2" src="../../images/flower-divider-color.png"
             alt="Flower divider"
             width={1000}
@@ -201,6 +202,8 @@ export default function Page() {
 
 
       </div>
+
+      <div className=""><Footer /></div>
 
     </div>
   )

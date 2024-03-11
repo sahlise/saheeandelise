@@ -7,9 +7,11 @@ import TablePreferences from '../../components/TableSelect';
 import Link from 'next/link';
 import { IoMdAddCircleOutline } from "react-icons/io";
 import Image from 'next/image';
+import Footer from '../../components/Footer';
+import 'add-to-calendar-button';
 
-const baseUrl = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/rsvp';
-//const baseUrl = '/api/rsvp'
+//const baseUrl = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/rsvp';
+const baseUrl = '/api/rsvp'
 
 export default function Page() {
 
@@ -173,6 +175,20 @@ export default function Page() {
         <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative m-3" role="alert">
           <span className="block sm:inline">Thank you for submitting the RVSP, it has been recieved! Feel free to come back to your form to edit if needed before May 8th.</span>
         </div>
+        <div>Add to calendar:
+          <add-to-calendar-button
+            name="Add the title of your event"
+            description="A nice description does not hurt"
+            startDate="2024-06-08"
+            endDate="2024-06-28"
+            startTime="15:30"
+            endTime="23:30"
+            location="The Swan Barn Door"
+            options="['Apple','Google','iCal','Microsoft365','Outlook.com','Yahoo']"
+            trigger="click"
+            inline
+            listStyle="modal"
+          /></div>
       </div>
 
       {/* Loading Icon */}
@@ -544,6 +560,7 @@ export default function Page() {
           </div>
         </form>
       </div>
+      <div className=""><Footer /></div>
     </div>
   )
 };
