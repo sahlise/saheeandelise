@@ -1,6 +1,7 @@
 // pages/index.js
 import React from 'react';
 import ImageTextSwiper from '../components/ImageTextSlider';
+import Footer from '../components/Footer';
 //import Link from 'next/link';
 
 export default function Page() { return (
@@ -10,6 +11,7 @@ export default function Page() { return (
       <ImageTextSwiper></ImageTextSwiper>
     </div>
     
+    <div className="w-full"><Footer /></div>
   </div>
 )
 };

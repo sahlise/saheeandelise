@@ -9,6 +9,7 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import PhotoTextFlipCard from '../components/PhotoTextFlipCard';
 import FirstTimeline from '../components/FirstTimeline';
 import GenericSwiper from '../components/GenericSwiper';
+import Footer from '../components/Footer';
 
 
 export default function Page() {
@@ -316,6 +317,7 @@ export default function Page() {
         ]} />
       </div>
 
+      <div className=""><Footer /></div>
 
     </div>
   )

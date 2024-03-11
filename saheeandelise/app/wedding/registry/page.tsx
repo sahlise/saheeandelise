@@ -5,6 +5,7 @@ import { SiTarget } from "react-icons/si";
 import { IoLogoAmazon } from "react-icons/io5";
 import Link from 'next/link';
 import Image from 'next/image';
+import Footer from '../components/Footer';
 
 export default function Page() {
   const iconColor = '#570034' //this is wedding maroon
@@ -61,6 +62,8 @@ export default function Page() {
         </div>
 
       </div>
+
+      <div className=""><Footer /></div>
     </div>
   )
 };

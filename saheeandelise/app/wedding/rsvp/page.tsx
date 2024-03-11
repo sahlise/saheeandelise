@@ -8,6 +8,7 @@ import { Person } from '../models/Person';
 import Link from 'next/link';
 import Image from 'next/image';
 import "./style.css"
+import Footer from "../components/Footer";
 
 
 export default function Page(this: any) {
@@ -131,7 +132,7 @@ export default function Page(this: any) {
 
         </div>
       </div>
-
+      <div className=""><Footer /></div>
     </div>
   )
 }

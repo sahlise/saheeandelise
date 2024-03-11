@@ -1,19 +1,19 @@
 import { Group } from "../models/Group";
 
 export const guests: Group[] = [
-  {
-    "groupId": "JCFwHU",
-    "groupName": "Sahee and Elise",
-    "groupAltNames": [],
-    "people": [
-      {
-        "name": "Sahee"
-      },
-      {
-        "name": "Elise"
-      }
-    ]
-  },
+  // {
+  //   "groupId": "JCFwHU",
+  //   "groupName": "Sahee and Elise",
+  //   "groupAltNames": [],
+  //   "people": [
+  //     {
+  //       "name": "Sahee"
+  //     },
+  //     {
+  //       "name": "Elise"
+  //     }
+  //   ]
+  // },
   {
     "groupId": "bQbnEQ",
     "groupName": "The Frees Family",
