@@ -89,7 +89,7 @@ export default function Page() {
 
                     </div>
 
-                    <div className="h-24"><Footer /></div>
+                    <div className=""><Footer /></div>
 
 
                 </div>
