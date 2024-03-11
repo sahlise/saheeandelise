@@ -36,7 +36,7 @@ export default function Page() {
       <div className="mt-4">
         <CustomizedTimeline></CustomizedTimeline>
       </div>
-      <div className="relative">
+      <div className="relative my-4">
         <div className="opacity-100">
           <Image
             src={"/images/poster_image.jpg"}
