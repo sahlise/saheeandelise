@@ -10,8 +10,8 @@ import Image from 'next/image';
 import Footer from '../../components/Footer';
 import 'add-to-calendar-button';
 
-//const baseUrl = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/rsvp';
-const baseUrl = '/api/rsvp'
+const baseUrl = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/rsvp';
+//const baseUrl = '/api/rsvp'
 
 export default function Page() {
 
@@ -174,21 +174,26 @@ export default function Page() {
       <div className={`${isSubmitSuccess ? 'visible' : 'hidden'}`}>
         <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative m-3" role="alert">
           <span className="block sm:inline">Thank you for submitting the RVSP, it has been recieved! Feel free to come back to your form to edit if needed before May 8th.</span>
-        </div>
-        <div>Add to calendar:
+          <div className="mt-2">
           <add-to-calendar-button
-            name="Add the title of your event"
-            description="A nice description does not hurt"
+            styleLight="--btn-background: #570034; --btn-text: #fff; --font: 'Bookinsanity', Arial, sans-serif;"
+            styleDark="--btn-background: #570034; --btn-text: #fff; --font: 'Bookinsanity', Arial, sans-serif;"
+            name="Sahee and Elise Wedding"
+            description="Sahee and Elise are getting married!"
             startDate="2024-06-08"
-            endDate="2024-06-28"
+            endDate="2024-06-08"
             startTime="15:30"
             endTime="23:30"
+            timeZone="America/Chicago"
             location="The Swan Barn Door"
             options="['Apple','Google','iCal','Microsoft365','Outlook.com','Yahoo']"
             trigger="click"
+            label="Add to Calendar"
             inline
             listStyle="modal"
           /></div>
+        </div>
+
       </div>
 
       {/* Loading Icon */}
@@ -559,8 +564,10 @@ export default function Page() {
             </div>
           </div>
         </form>
+
+        <div className="w-full"><Footer /></div>
       </div>
-      <div className=""><Footer /></div>
+
     </div>
   )
 };

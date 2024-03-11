@@ -111,6 +111,14 @@ const Navbar = () => {
                                 Wedding Party
                             </li>
                         </Link>
+
+                        <Link href="/wedding/faq">
+                            <li
+                                onClick={() => setMenuOpen(false)}
+                                className="py-4 cursor-pointer">
+                                FAQ
+                            </li>
+                        </Link>
                     </ul>
                 </div>
             </div>
