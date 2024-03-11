@@ -1,4 +1,3 @@
-// components/CircleButton.tsx
 import React from 'react';
 
 interface ButtonProps {
@@ -42,7 +41,7 @@ function generateRandomWords(): string {
   return result.join(' ');
 }
 
-const CircleButton: React.FC<ButtonProps> = ({ label, number }) => {
+const PaperButton: React.FC<ButtonProps> = ({ label, number }) => {
   const [degree, setDegree] = React.useState('');
   const [text, setText] = React.useState('');
   
@@ -77,4 +76,4 @@ if (!degree || !text) {
   );
 };
 
-export default CircleButton;
+export default PaperButton;
