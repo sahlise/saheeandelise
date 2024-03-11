@@ -37,6 +37,9 @@ export default function Accoridon() {
       <AccordionItem key="8" aria-label="Is it okay if I bring my children to the ceremony and/or reception?" title="Is it okay if I bring my children to the ceremony and/or reception?">
         Yes! We are excited to see everyone! Make sure all party members are included in the RSVP.
       </AccordionItem>
+      <AccordionItem key="8" aria-label="Is it okay if I bring my pet to the ceremony and/or reception?" title="Is it okay if I bring my pet to the ceremony and/or reception?">
+        Unfortunately the Swan Barn Door does not allow pets, so pets will have to be left at home.
+      </AccordionItem>
       <AccordionItem key="9" aria-label="What is the difference between a Child's Meal and the Buffet on the RSVP?" title="What is the difference between a Child's Meal and the Buffet on the RSVP?">
         At our wedding, we are delighted to offer a buffet as the standard dining option for our guests. This buffet will feature a variety of dishes to cater to diverse tastes and dietary needs, allowing everyone to choose what they prefer from a selection.
         In addition to the buffet, we recognize that some guests might have different preferences or dietary requirements. Therefore, we are offering a separate "Child's" meal option. This meal will be different from the buffet offerings. If you believe one of your party members would prefer this option, please let us know in the RSVP, and on the wedding day the staff will be happy to prepare and provide the child meal per requested.
