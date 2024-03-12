@@ -14,13 +14,14 @@ import MapWidget from '../components/Schedule/MapIframe';
 import CountdownTimer from '../components/Countdown';
 import Image from 'next/image';
 import Footer from '../components/Footer';
+import 'add-to-calendar-button';
 
 export default function Page() {
   return (
     <div className="bg-white">
       <div className="flex flex-col items-center w-full">
         <div className="w-full md:w-5/6 mt-4 flex flex-col items-center">
-          <div className="text-4xl sm:text-5xl">Schedule</div>
+          <div className="text-4xl md:text-5xl">Schedule</div>
         </div>
         <div className="flex justify-center items-center">
           <div className="">
@@ -31,6 +32,29 @@ export default function Page() {
               height={200}
             />
           </div>
+        </div>
+        <div className="w-full md:w-5/6 mt-4 flex flex-col items-center">
+          <div className="mt-2">
+          <add-to-calendar-button
+            styleLight="--btn-background: #638a45; --btn-text: #fff; --font: 'Bookinsanity', Arial, sans-serif;"
+            styleDark="--btn-background: #638a45; --btn-text: #fff; --font: 'Bookinsanity', Arial, sans-serif;"
+            name="Sahee and Elise Wedding"
+            description="Sahee and Elise are getting married!"
+            startDate="2024-06-08"
+            endDate="2024-06-08"
+            startTime="15:30"
+            endTime="23:30"
+            timeZone="America/Chicago"
+            location="The Swan Barn Door"
+            options="['Apple','Google','iCal','Microsoft365','Outlook.com','Yahoo']"
+            trigger="click"
+            label="Add our wedding to your calendar!"
+            inline
+            listStyle="modal"
+            // buttonsList
+            // hideTextLabelButton
+            // buttonStyle='round'
+          /></div>
         </div>
       </div>
       <div className="mt-4">

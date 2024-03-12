@@ -14,7 +14,7 @@ export default function Page() {
 
   return (
     <div className="h-full">
-      <div className="w-full flex flex-col justify-center items-center">
+      <div className="w-full h-full flex flex-col justify-center items-center">
         <div className="flex justify-center items-center mt-10">
           <div className="w-3/4">
             <Image

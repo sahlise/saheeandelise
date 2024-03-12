@@ -13,28 +13,28 @@ const MainParallax = () => {
         scale={isMobile ? [1, 1.1] : [1, 1]}
         className=""
       >
-        <img src="/images/woods-0.png" className="" />
+        <img src="/images/woods-0.png" className="w-full" />
       </ParallaxBannerLayer>
       <ParallaxBannerLayer
         speed={isMobile ? 0 : -3}
         scale={isMobile ? [1, 1.15] : [1, 1]}
         className=""
       >
-        <img src="/images/woods-1.png" className="" />
+        <img src="/images/woods-1.png" className="w-full" />
       </ParallaxBannerLayer>
       <ParallaxBannerLayer
         speed={isMobile ? 0 : -3}
         scale={isMobile ? [1, 1.15] : [1, 1]}
         className=""
       >
-        <img src="/images/woods-2.png" className="" />
+        <img src="/images/woods-2.png" className="w-full" />
       </ParallaxBannerLayer>
       <ParallaxBannerLayer
         speed={isMobile ? 0 : 0}
         scale={isMobile ? [1, 1.3] : [1, 1]}
         className=""
       >
-        <img src="/images/woods-3.png" className="" />
+        <img src="/images/woods-3.png" className="w-full" />
       </ParallaxBannerLayer>
 
       <div className="absolute inset-0 flex items-center justify-center">

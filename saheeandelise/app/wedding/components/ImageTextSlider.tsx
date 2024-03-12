@@ -85,13 +85,13 @@ const ImageTextSwiper = () => {
                                 </div>
                             </div>
                             <div className="md:col-span-2">
-                                <div className="text-white font-bold text-xl md:text-4xl my-2 h-full flex flex-col justify-center items-center">
-                                    {selectedImage.title}
+                                <div className="text-white font-bold text-xl md:text-4xl mt-2 md:mt-0 h-full w-3/4 md:w-1/2 flex flex-col justify-end">
+                                    <div className="bg-black mx-4 bg-opacity-50 px-4 py-2 rounded-t-lg">{selectedImage.title}</div>
                                 </div>
 
                             </div>
                             <div className="md:row-span-2 md:col-span-2">
-                                <p className="text-white bg-black mx-4 bg-opacity-50 p-4 my-2 rounded-lg md:text-lg">{selectedImage.text}</p>
+                                <p className="text-white bg-black mx-4 bg-opacity-50 p-4 mb-2 rounded-lg md:text-lg rounded-tl-none">{selectedImage.text}</p>
                             </div>
                         </div>
                     </div>

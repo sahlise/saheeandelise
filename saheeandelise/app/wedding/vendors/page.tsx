@@ -16,13 +16,13 @@ import Footer from '../components/Footer';
 
 export default function Page() {
   return (
-    <div className="bg-white w-full flex flex-col justify-center items-center">
+    <div className="bg-white w-full md:h-full flex flex-col justify-center items-center">
       
       <div className="block md:hidden flex flex-col justify-center items-center my-6">
           <div className="text-center flex justify-center items-center text-4xl h-full titleText">Vendors</div>
       </div>
       
-      <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4 mx-4 mb-8 md:mt-4 md:w-3/4">
+      <div className="md:h-full grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4 mx-4 mb-8 md:mt-4 md:w-3/4">
 
         <div className="bg-weddingMaroon text-white px-4 py-3 rounded flex flex-col justify-center items-center">
           <p className="py-1"><FaCamera /></p>

@@ -40,8 +40,10 @@ export default function Page() {
                             <VaraText text="Welcome!" />
                         </div>
                     </div>
-
+                    <div className="flex justify-center items-center w-full">
                     <MainParallax></MainParallax>
+                    </div>
+                    
 
                     <div className="my-5 bg-white">
 

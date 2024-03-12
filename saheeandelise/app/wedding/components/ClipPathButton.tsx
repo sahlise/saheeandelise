@@ -64,7 +64,7 @@ if (!degree || !text) {
           clipPath: clipPaths[number],
         }}
       >
-        <div className="text-2xl">
+        <div className="text-2xl font-bold">
           {label}
         </div>
         <div className="daedra-regular">
