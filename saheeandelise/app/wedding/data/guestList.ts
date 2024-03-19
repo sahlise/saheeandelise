@@ -1141,5 +1141,15 @@ export const guests: Group[] = [
         "name": "Sam's Guest"
       }
     ]
+  },
+  {
+    "groupId": "bMYenl",
+    "groupName": "Txiv Vam Yia Thao",
+    "groupAltNames": [],
+    "people": [
+      {
+        "name": "Txiv Vam Yia"
+      }
+    ]
   }
 ]
