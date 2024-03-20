@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## How to deploy
+0. npm i - get all dependencies
+1. npm run build - Build your Next.js application with next build to optimize it for production.
+2. Export your application to static HTML files using next export. This step generates the out directory containing the static files and assets of your application.
+3. npm run sync - Sync your out directory with AWS S3 using the command aws s3 sync ./out s3://www.mysite.com. This uploads your static files to your S3 bucket, making your site accessible online.
+
 ## Getting Started
 
 First, run the development server:

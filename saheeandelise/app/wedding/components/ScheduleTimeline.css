@@ -1,0 +1,15 @@
+/* Custom CSS for curvy connector */
+.curvy-connector {
+    position: relative;
+    width: 2px; /* Adjust the width as needed */
+    background-color: transparent; /* Make the background transparent */
+    height: 100%; /* Adjust based on your layout */
+}
+
+.curvy-connector::after {
+    content: '';
+    position: absolute;
+    width: 2px; /* Match the width of the connector */
+    height: 100%; /* Full height */
+    border-radius: 50%; /* This creates the curve */
+}

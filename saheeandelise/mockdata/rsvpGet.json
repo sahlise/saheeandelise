@@ -1,0 +1,35 @@
+{
+    "tablePreference": ["lmno"],
+    "specialAccommodations": "specialAccommodations",
+    "songRequest": "songRequest",
+    "groupId": "default_group_id",
+    "lastModified": "2024-01-01T00:00:00Z",
+    "people": [
+        {
+            "name": "Billy",
+            "index": "0",
+            "mealPreference": "adult",
+            "willAttend": "false"
+        },
+        {
+            "name": "Joe",
+            "index": "1",
+            "mealPreference": "child",
+            "willAttend": "true"
+        }
+    ],
+    "noteToCouple": "noteToCouple",
+    "email": "default@gmail.com",
+    "confirmEmail": "default",
+    "hasAdditionalGuests": "true",
+    "additionalGuests": [
+        {
+            "name": "Sally",
+            "mealPreference": "none"
+        },
+        {
+            "name": "Molly",
+            "mealPreference": "child"
+        }
+    ]
+}

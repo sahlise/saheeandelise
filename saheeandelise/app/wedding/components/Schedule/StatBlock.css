@@ -1,0 +1,5 @@
+.half-a-border-on-top {
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, transparent 50%, #000 50%) 100% 1;
+  }

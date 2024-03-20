@@ -1,6 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Uncial+Antiqua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Imperial+Script&family=Uncial+Antiqua&display=swap');
+@import url('https://fonts.cdnfonts.com/css/daedra');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.almendra-regular-italic {
+  font-family: "Almendra", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.imperial-script-regular {
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.daedra-regular {
+  font-family: 'Daedra', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -9,12 +39,17 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  body {
+    color-scheme: light;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color-scheme: light;
+  }
+}
+
 
 body {
   color: rgb(var(--foreground-rgb));
@@ -25,3 +60,103 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* styles/globals.css */
+.parallax-container {
+  perspective: 1px;
+  height: calc(100vh - 6rem); /* Adjust this height as needed */
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative
+}
+
+.background-image {
+  /* Set your background image */
+  background: url('/images/forest-branches.png') no-repeat center center;
+  /*background-size: 100% 100%;*/
+  /*width: 100%;*/
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0; /* Makes the image cover the entire parent height */
+  transform: translateZ(-3px) scale(7);
+  z-index: -1;
+}
+
+.text-content {
+  /* Position your text content */
+  position: relative;
+  z-index: 1;
+  /* Additional styling for text content */
+}
+
+@font-face {
+  font-family: 'Bookinsanity';
+  src: url('/fonts/bookinsanity.woff2') format('woff2'), /* adjust the path to your font file */
+       url('/fonts/bookinsanity.woff') format('woff'); /* adjust the path to your font file */
+  font-weight: normal; /* specify the font weight */
+  font-style: normal; /* specify the font style */
+}
+
+@font-face {
+  font-family: 'Bookinsanity';
+  src: url('/fonts/bookinsanity_bold.woff2') format('woff2'), /* adjust the path to your font file */
+       url('/fonts/bookinsanity_bold.woff') format('woff'); /* adjust the path to your font file */
+  font-weight: bold; /* specify the font weight */
+  font-style: normal; /* specify the font style */
+}
+
+@font-face {
+  font-family: 'Bookinsanity';
+  src: url('/fonts/bookinsanity_italic.woff2') format('woff2'), /* adjust the path to your font file */
+       url('/fonts/bookinsanity_italic.woff') format('woff'); /* adjust the path to your font file */
+  font-weight: normal; /* specify the font weight */
+  font-style: italic; /* specify the font style */
+}
+
+@font-face {
+  font-family: 'Bookinsanity';
+  src: url('/fonts/bookinsanity_bold_italic.woff2') format('woff2'), /* adjust the path to your font file */
+       url('/fonts/bookinsanity_bold_italic.woff') format('woff'); /* adjust the path to your font file */
+  font-weight: bold; /* specify the font weight */
+  font-style: italic; /* specify the font style */
+}
+
+@font-face {
+  font-family: 'Cinzel Decorative';
+  src: url('/fonts/CinzelDecorative-Regular.woff2') format('woff2'), /* adjust the path to your font file */
+       url('/fonts/CinzelDecorative-Regular.woff') format('woff'); /* adjust the path to your font file */
+  font-weight: normal; /* specify the font weight */
+  font-style: normal; /* specify the font style */
+}
+
+@font-face {
+  font-family: 'Cinzel Decorative';
+  src: url('/fonts/CinzelDecorative-Bold.woff2') format('woff2'), /* adjust the path to your font file */
+       url('/fonts/CinzelDecorative-Bold.woff') format('woff'); /* adjust the path to your font file */
+  font-weight: bold; /* specify the font weight */
+  font-style: normal; /* specify the font style */
+}
+
+@font-face {
+  font-family: 'Uncial Antiqua';
+  src: url('/fonts/UncialAntiqua-Regular.woff2') format('woff2'), /* adjust the path to your font file */
+       url('/fonts/UncialAntiqua-Regular.woff') format('woff'); /* adjust the path to your font file */
+  font-weight: normal; /* specify the font weight */
+  font-style: normal; /* specify the font style */
+}
+
+html, body {
+  font-family: 'Bookinsanity', sans-serif; /* Set the custom font as default */
+}
+
+:root {
+  --swiper-navigation-color: #FFFFFF;
+  --swiper-pagination-color: #FFFFFF; 
+}
+
+.swiper-pagination-bullet {
+  background: var(--swiper-pagination-color);
+}
+
