@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/react-dropzone": "^5.1.0",
+    "react-dropzone": "^14.2.3",
     "react-icons": "^4.10.1",
     "vara": "^1.4.1"
   },
