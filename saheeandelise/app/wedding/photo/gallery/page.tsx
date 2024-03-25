@@ -10,7 +10,8 @@ import { json } from 'stream/consumers';
 import { PhotoMetadata } from '../../models/PhotoMetadata';
 import { Photo } from '../../models/Photo';
 
-const baseUrl = ""//'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/photos';
+const baseUrl = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/photos';
+const baseFilePath = 'https://saheeandelise.com/wedding/photo-uploads/'
 
 // const initialPhotos = [
 //     { src: "https://placehold.co/600x400", width: 2400, height: 1600 },
@@ -19,8 +20,8 @@ const baseUrl = ""//'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod
 //   ];
 
 type PhotoResponse = {
-    photos: PhotoMetadata[],
-    nextCursor: string
+    items: PhotoMetadata[],
+    next_cursor: string
 }
 
 
@@ -28,7 +29,7 @@ export default function Page() {
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
-    const [key, setKey] = useState(0)
+    const [curCursor, setCurCursor] = useState("");
     const [photos, setPhotos] = useState<Photo[]>([]);
     const [name, setName] = useState<{ firstName: string; lastName: string } | null>(null);
 
@@ -44,52 +45,51 @@ export default function Page() {
         }
 
 
-        const getPhotos = async () => {
-            setIsLoading(true)
-            setHasError(false)
-            try {
-              const response = await fetch(baseUrl + "?sort=DESC");
-      
-              if (response.status != 200) {
-                throw new Error('Api error');
-              }
-      
-              let jsonData: PhotoResponse = await response.json();
-              const metaDataPhotos = jsonData.photos;
-              const tempPhotos: Photo[] = []
-              metaDataPhotos.forEach( metaDataPhoto => {
-                const imagePath = "https://" + metaDataPhoto.photoPath.replace("www.mywebsite.com", "www.saheeandelise.com")
-                console.log(imagePath)
-                const img = new Image();
-                img.src = imagePath
+        // const getInitialFiles = async () => {
+        //     setIsLoading(true)
+        //     setHasError(false)
+        //     try {
+        //         const response = await fetch(baseUrl + "?sort=DESC");
 
-                img.onload = () => {
-                    //console.log(photos.length)
-                    tempPhotos.push({ src: imagePath, width: img.width, height: img.height });
-                    console.log(tempPhotos.length)
-                    setPhotos(tempPhotos);
-                };
-                
-              });
-              
-      
-      
-            } catch (error) {
-              console.error('Error fetching mock data:', error);
-              setHasError(true);
-            } finally {
-              window.scrollTo(0, 0);
-              setIsLoading(false);
-            }
-        };
+        //         if (response.status != 200) {
+        //             throw new Error('Api error');
+        //         }
 
-        //getPhotos()
+        //         let jsonData: PhotoResponse = await response.json();
+        //         setCurCursor(jsonData.next_cursor)
+        //         const metaDataPhotos = jsonData.items;
+        //         const tempPhotos: Photo[] = []
+        //         metaDataPhotos.forEach(metaDataPhoto => {
+        //             const imagePath = baseFilePath + metaDataPhoto.photoId + "-" + metaDataPhoto.sanitizedFilename;
+        //             console.log(imagePath)
+        //             const img = new Image();
+        //             img.src = imagePath
+
+        //             img.onload = () => {
+        //                 tempPhotos.push({ src: imagePath, width: img.width, height: img.height });
+        //                 setPhotos(tempPhotos);
+        //             };
+
+        //         });
+
+
+
+        //     } catch (error) {
+        //         console.error('Error fetching mock data:', error);
+        //         setHasError(true);
+        //     } finally {
+        //         window.scrollTo(0, 0);
+        //         setIsLoading(false);
+        //     }
+        // };
+
+        getPhotos()
         setIsLoading(false);
     }, []);
 
 
     // const loadImage = (imageUrl: string) => {
-        
+
     //     img.onerror = (err) => {
     //         console.log("img error");
     //         console.error(err);
@@ -98,10 +98,66 @@ export default function Page() {
 
 
     // Function to add a photo
-//   const addPhoto = () => {
-//     setPhotos([...photos, { src: "https://placehold.co/600x400", width: 500, height: 500 }]);
-//     setKey(prevKey => prevKey + 1); // Increment key to force reload
-//   };
+    //   const addPhoto = () => {
+    //     setPhotos([...photos, { src: "https://placehold.co/600x400", width: 500, height: 500 }]);
+    //     setKey(prevKey => prevKey + 1); // Increment key to force reload
+    //   };
+
+    const getPhotos = async () => {
+        setIsLoading(true)
+        setHasError(false)
+        try {
+            const getUrl = curCursor ? baseUrl + "?sort=DESC&cursor=" + curCursor : baseUrl + "?sort=DESC"
+            const response = await fetch(getUrl);
+
+            if (response.status != 200) {
+                throw new Error('Api error');
+            }
+
+            let jsonData: PhotoResponse = await response.json();
+            setCurCursor(jsonData.next_cursor)
+            const metaDataPhotos = jsonData.items;
+
+            // Create a promise for each image to load
+            const loadImagePromises = metaDataPhotos.map((metaDataPhoto) => {
+                return new Promise<Photo>((resolve, reject) => {
+                    const imagePath = baseFilePath + metaDataPhoto.photoId + "-" + metaDataPhoto.sanitizedFilename;
+                    const img = new Image();
+                    img.src = imagePath;
+
+                    img.onload = () => resolve({ src: imagePath, width: img.width, height: img.height });
+                    img.onerror = reject;
+                });
+            });
+
+            const photos = await Promise.all(loadImagePromises);
+            setPhotos(photos);
+
+            // const tempPhotos: Photo[] = []
+            // metaDataPhotos.forEach(metaDataPhoto => {
+            //     const imagePath = baseFilePath + metaDataPhoto.photoId + "-" + metaDataPhoto.sanitizedFilename;
+            //     console.log(imagePath)
+            //     const img = new Image();
+            //     img.src = imagePath
+
+            //     img.onload = () => {
+            //         tempPhotos.push({ src: imagePath, width: img.width, height: img.height });
+            //         console.log(tempPhotos.length)
+            //         setPhotos(tempPhotos);
+            //     };
+            // });
+
+
+
+
+        } catch (error) {
+            console.error('Error fetching mock data:', error);
+            setHasError(true);
+        } finally {
+            window.scrollTo(0, 0);
+            setIsLoading(false);
+        }
+    };
 
 
     return (
@@ -133,13 +189,13 @@ export default function Page() {
                     </div>
                 </div>
 
-                
 
-                {/* <button onClick={addPhoto}>add photo</button> */}
+
+                <button onClick={getPhotos}>next page</button>
 
                 {/* Gallery */}
                 <div className="mx-2 my-4">
-                    <Gallery key={key} photos={photos} />
+                    <Gallery photos={photos} />
                 </div>
             </div>
 

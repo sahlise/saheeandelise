@@ -2,13 +2,22 @@
 
 import React from 'react';
 import Footer from '../../components/Footer';
+import { IoIosArrowBack } from 'react-icons/io';
+import { useRouter } from 'next/navigation';
 
 export default function Page() {
 
   const lastUpdated = "03/21/2024"
+  const router = useRouter();
 
   return (
     <div className="h-full ">
+      <div>
+        <div className="flex items-center mt-4 ml-4 md:text-lg text-weddingMaroon hover:underline hover:cursor-pointer"
+          onClick={() => { router.push('/wedding/photo/profile') }}>
+          <IoIosArrowBack /> Back to Profile
+        </div>
+      </div>
       <div className="flex flex-col justify-center items-center">
         <div className="m-4 md:w-3/4 text-justify">
           <div className="">Last updated: {lastUpdated}</div>

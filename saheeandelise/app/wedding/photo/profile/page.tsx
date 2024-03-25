@@ -5,12 +5,14 @@ import { saveNameToLocalStorage, getNameFromLocalStorage } from '../../utils/loc
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ProfileForm } from '../../models/ProfileForm';
 import Footer from '../../components/Footer';
+import { IoIosArrowBack } from 'react-icons/io';
 
 export default function App() {
   const router = useRouter()
 
   const [isSubmitLoading, setIsSubmitLoading] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [hasNameSaved, setHasNameSaved] = useState(false);
 
   const { register, reset, handleSubmit, formState: { errors } } = useForm<ProfileForm>();
   const onSubmit: SubmitHandler<ProfileForm> = async (data: ProfileForm) => {
@@ -28,12 +30,21 @@ export default function App() {
     const storedName = getNameFromLocalStorage();
     if (storedName) {
       reset(storedName);
+      setHasNameSaved(true)
+    } else {
+      setHasNameSaved(false)
     }
     setIsLoading(false);
   }, []);
 
   return (
     <div className="h-full">
+      <div className={`${hasNameSaved  ? 'visible': 'hidden'}`}>
+        <div className="flex items-center mt-4 ml-4 md:text-lg text-weddingMaroon hover:underline hover:cursor-pointer"
+          onClick={() => { router.push('/wedding/photo/gallery') }}>
+          <IoIosArrowBack /> Back to Gallery
+        </div>
+      </div>
       <form className="h-full" onSubmit={handleSubmit(onSubmit)}>
         <div className="w-full h-full flex flex-col items-center">
 
