@@ -18,7 +18,7 @@ export default function Page() {
                 Introduction
               </div>
               <div>
-                This privacy policy describes how we collect, use, and share personal information when you upload photos to our wedding website's photo sharing service. By using this service, you agree to the collection and use of information in accordance with this policy.
+                This privacy policy describes how we collect, use, and share personal information when you upload photos to our wedding website&apos;s photo sharing service. By using this service, you agree to the collection and use of information in accordance with this policy.
               </div>
             </li>
             <li className="my-2">
@@ -45,7 +45,7 @@ export default function Page() {
                 Third-Party Services
               </div>
               <div>
-                Our photo sharing service utilizes Amazon S3 for storage. Amazon's privacy policy applies to their handling of the data stored in their service. We are not responsible for the privacy practices of Amazon or any other third-party services.
+                Our photo sharing service utilizes Amazon S3 for storage. Amazon&apos;s privacy policy applies to their handling of the data stored in their service. We are not responsible for the privacy practices of Amazon or any other third-party services.
               </div>
             </li>
             <li className="my-2">
@@ -69,7 +69,7 @@ export default function Page() {
                 Changes to This Privacy Policy
               </div>
               <div>
-                We may update our privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page and updating the "Last updated" date at the top of the policy.
+                We may update our privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page and updating the &quot;Last updated&quot; date at the top of the policy.
               </div>
             </li>
             <li className="my-2">
@@ -83,7 +83,7 @@ export default function Page() {
           </ol>
 
           <div>
-            By uploading photos to our wedding website's photo sharing service, you acknowledge that you have read and understand this privacy policy and agree to be bound by its terms.
+            By uploading photos to our wedding website&apos;s photo sharing service, you acknowledge that you have read and understand this privacy policy and agree to be bound by its terms.
           </div>
         </div>
       </div>

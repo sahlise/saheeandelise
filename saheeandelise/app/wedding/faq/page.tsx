@@ -6,9 +6,9 @@ import Accoridon from '../components/Accordion';
 
 export default function Page() {
   return (
-    <div className="bg-white w-full md:h-full flex flex-col justify-center items-center">
+    <div className="bg-white w-full md:min-h-screen flex flex-col justify-center items-center">
       <h1 className="text-2xl md:text-4xl mt-3 text-weddingMaroon">Fequently Asked Questions</h1>
-      <div className="md:h-full w-3/4 md:w-1/2">
+      <div className="w-3/4 md:w-1/2">
         <Accoridon/>
       </div>
       <div className="w-full"><Footer /></div>
