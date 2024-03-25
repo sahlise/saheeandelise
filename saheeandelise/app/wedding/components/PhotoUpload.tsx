@@ -1,104 +1,146 @@
-import React, { useCallback } from 'react';
+'use client'
+import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
+import { MdOutlineAddPhotoAlternate } from 'react-icons/md';
+import { getNameFromLocalStorage } from '../utils/localStorageUtils';
+import ProgressBar from '@ramonak/react-progress-bar';
 
 const baseUrl = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/photos';
 
-
+type Photo = {
+    firstName: string,
+    lastName: string,
+    filename: string,
+    id: number,
+};
 
 const MyDropzone: React.FC = () => {
-  async function uploadPhoto(file: File, presignedUrl: string) {
-    // Use the Fetch API to upload the file to the presigned URL
-    const options = {
-      method: 'PUT', // Most presigned URLs for upload require PUT method
-      body: file, // The file to upload
-      headers: {
-        'Content-Type': file.type // Usually, this is needed but check with your cloud provider as it might be different
-      },
-    };
+    const [uploadProgress, setUploadProgress] = useState<Record<number, number>>({});
+    const [uploadingPhotos, setUploadingPhotos] = useState<Array<Photo>>([]);
 
-    try {
-      const response = await fetch(presignedUrl, options);
-      
-      
-      
-      if (response.status !== 200) {
-        throw new Error(`Failed to upload file: ${response.statusText}`);
-      }
+    const onFileDialogOpen = useCallback(() => {
+        // Clear the states when the file dialog opens
+        setUploadingPhotos([]);
+        setUploadProgress({});
+    }, []);
 
-     
+    async function uploadPhoto(file: File, presignedUrl: string, fileId: number) {
+        return new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open('PUT', presignedUrl, true);
+            xhr.setRequestHeader('Content-Type', file.type);
 
-      // Optionally, you can return some information here, such as the response status or a message
-      console.log('File uploaded successfully');
-    } catch (error) {
-      console.error('Error uploading file:', error);
-      alert(error);
-      throw error; // It's important to re-throw the error if you want to handle it in another part of your application
+            xhr.upload.onprogress = (event) => {
+                if (event.lengthComputable) {
+                    const percentComplete = event.loaded / event.total * 100;
+                    setUploadProgress(prevProgress => ({
+                        ...prevProgress,
+                        [fileId]: percentComplete,
+                    }));
+                }
+            };
+
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    console.log('File uploaded successfully');
+                    resolve(xhr.response);
+                } else {
+                    reject(`Failed to upload file: ${xhr.statusText}`);
+                }
+            };
+
+            xhr.onerror = () => {
+                reject('Error in upload');
+            };
+
+            xhr.send(file);
+        });
     }
-  }
 
-  const onDrop = useCallback(async (acceptedFiles: File[]) => {
-    // Make API call to get presigned URLs 
-    let testFirstName = 'Alice';
-    let testLastName = 'Bobson';
-    let photos = [];
-    let index = 0;
-    for (const file of acceptedFiles) {
-      photos.push({
-        firstName: testFirstName,
-        lastName: testLastName,
-        filename: file.name,
-        id: index
-      });
-      index++;
-    }
-    let data = {photos};
-    try {
+    const onDrop = useCallback(async (acceptedFiles: File[]) => {
+        let savedName = getNameFromLocalStorage();
+        let firstName = savedName ? savedName.firstName : "Unknown";
+        let lastName = savedName ? savedName.lastName : "Unknown";
+        let photos: Photo[] = [];
+        setUploadingPhotos([]);
+        setUploadProgress({})
 
-      const settings = {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      };
-      console.log(data)
-      const response = await fetch(baseUrl, settings);
+        acceptedFiles.forEach((file, index) => {
+            photos.push({
+                firstName: firstName,
+                lastName: lastName,
+                filename: file.name,
+                id: index,
+            });
+        });
 
-      //TODO take this out obvi
-      //await sleep(3000);
-      const responseBody = await response.json();
-      console.log(responseBody);
+        setUploadingPhotos(photos);
 
-      for (const responseElement of responseBody.message) {
-        uploadPhoto(acceptedFiles[responseElement.id], responseElement.preSignedUrl);
-      }
 
-      console.log(photos);
-      if (response.status != 200) {
-        throw new Error('Api error');
-      }
+        let data = { photos };
+        try {
+            const settings = {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            };
+            const response = await fetch(baseUrl, settings);
 
-    } catch (error) {
-      console.error('More details', error);
-      //
-    } finally {
-      //
-    }
-  }, []);
+            if (response.status !== 200) {
+                throw new Error('API error');
+            }
 
-  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop});
+            const responseBody = await response.json();
 
-  return (
-    <div {...getRootProps()} style={{border: '1px solid #eee', padding: '20px', width: '300px'}}>
-      <input {...getInputProps()} />
-      {
-        isDragActive ?
-          <p>Drop the files here ...</p> :
-          <p>Drag n drop some files here, or click to select files</p>
-      }
-    </div>
-  );
+            const uploadPromises = responseBody.message.map((responseElement: any) =>
+                uploadPhoto(acceptedFiles[responseElement.id], responseElement.preSignedUrl, responseElement.id)
+            );
+
+            await Promise.all(uploadPromises);
+
+        } catch (error) {
+            console.error('More details', error);
+        }
+    }, []);
+
+    const { getRootProps, getInputProps } = useDropzone({ 
+        onDrop,
+        onFileDialogOpen,
+    });
+
+    return (
+        <div className="h-full w-full">
+            {/* Photo upload section */}
+            <div className="flex flex-col justify-center items-center my-4">
+                <div className="w-3/4 md:w-1/2 p-3 border-3 border-gray-300 border-dashed rounded-xl" {...getRootProps()}>
+                    <input {...getInputProps()} />
+                    <div className="text-center">
+                        <div className="flex flex-col justify-center items-center text-3xl"><MdOutlineAddPhotoAlternate /></div>
+                        <div className="text-lg">Select Photos to Upload</div>
+                        <div className="text-sm">or Drag and Drop</div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="mx-4">
+                {uploadingPhotos.map((photo) => (
+                    <div key={photo.id} className="w-3/4 md:w-1/2">
+                        <div>Uploading {photo.filename}</div>
+                        <ProgressBar
+                            completed={uploadProgress[photo.id] || 0}
+                            bgColor="#570034"
+                            labelColor="#ffffff"
+                            maxCompleted={100}
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
+
+    );
 };
 
 export default MyDropzone;
