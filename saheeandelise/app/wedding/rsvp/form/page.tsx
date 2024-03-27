@@ -9,6 +9,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 import Image from 'next/image';
 import Footer from '../../components/Footer';
 import 'add-to-calendar-button';
+import { convertUtcToChicago } from '../../utils/dateUtils';
 
 const baseUrl = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/rsvp';
 //const baseUrl = '/api/rsvp'
@@ -68,20 +69,13 @@ export default function Page() {
 
         let jsonData = await response.json();
         reset(jsonData);
+        
         if (jsonData.lastModified) {
           const date = new Date(jsonData.lastModified);
-          const options: Intl.DateTimeFormatOptions = {
-            year: 'numeric',
-            month: 'numeric',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
-          };
-          const formatter = new Intl.DateTimeFormat('default', options);
           if (date.toUTCString() == new Date('2024-01-01T00:00:00Z').toUTCString()) {
             setLastModified('');
           } else {
-            setLastModified(`Last modified: ${formatter.format(date)}`);
+            setLastModified(`Last modified: ${convertUtcToChicago(jsonData.lastModified)}`);
           }
         }
 

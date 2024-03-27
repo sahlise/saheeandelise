@@ -243,13 +243,13 @@ export const guests: Group[] = [
   {
     "groupId": "vBwMtS",
     "groupName": "The Regan Family",
-    "groupAltNames": ["Lisa Regan", "Gina Regan"],
+    "groupAltNames": ["Lisa Regan", "Gena Regan"],
     "people": [
       {
         "name": "Lisa"
       },
       {
-        "name": "Gina"
+        "name": "Gena"
       }
     ]
   },

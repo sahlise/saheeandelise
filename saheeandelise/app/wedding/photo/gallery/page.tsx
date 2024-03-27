@@ -10,6 +10,8 @@ import { json } from 'stream/consumers';
 import { PhotoMetadata } from '../../models/PhotoMetadata';
 import { Photo } from '../../models/Photo';
 import { GiBranchArrow } from "react-icons/gi";
+import Dropdown from '../../components/Dropdown';
+import { convertUtcToChicago } from '../../utils/dateUtils';
 
 const baseUrl = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/photos';
 const baseFilePath = 'https://saheeandelise.com/wedding/photo-uploads/'
@@ -27,6 +29,8 @@ type PhotoResponse = {
 
 
 export default function Page() {
+    const DESCENDING = "DESC"
+
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
@@ -36,6 +40,8 @@ export default function Page() {
     const [name, setName] = useState<{ firstName: string; lastName: string } | null>(null);
     const [curPage, setCurPage] = useState(0)
     const [paginationMap, setPaginationMap] = useState<Map<number, string>>(new Map())
+    const [curSortDir, setCurSortDir] = useState(DESCENDING)
+
 
     //const paginationMap = new Map<number, string>()
     //let curPage = 0;
@@ -51,28 +57,36 @@ export default function Page() {
             router.push('/wedding/photo/profile')
         }
 
-        getPhotos(0)
+        getPhotos(0, curSortDir)
         setIsLoading(false);
     }, []);
 
 
     const getNextPage = () => {
-        getPhotos(curPage + 1)
+        getPhotos(curPage + 1, curSortDir)
         setCurPage((oldCount) => oldCount + 1)
     }
 
     const getPrevPage = () => {
-        getPhotos(curPage - 1)
+        getPhotos(curPage - 1, curSortDir)
         setCurPage((oldCount) => oldCount - 1)
     }
 
-    const getPhotos = async (currentPage: number) => {
+    const changeOrder = (newDirection: string) => {
+
+        setCurSortDir(newDirection)
+        //reset user to first page
+        setCurPage(0)
+        getPhotos(0, newDirection)
+    }
+
+    const getPhotos = async (currentPage: number, sortDir: string) => {
         setIsGalleryLoading(true);
         setHasError(false)
         try {
 
             const curCursor = paginationMap.get(currentPage);
-            const getUrl = curCursor ? baseUrl + "?sort=DESC&cursor=" + curCursor : baseUrl + "?sort=DESC"
+            const getUrl = curCursor ? baseUrl + "?sort=" + sortDir + "&cursor=" + curCursor : baseUrl + "?sort=" + sortDir
             const response = await fetch(getUrl);
 
             if (response.status != 200) {
@@ -93,7 +107,20 @@ export default function Page() {
                     const img = new Image();
                     img.src = imagePath;
 
-                    img.onload = () => resolve({ src: imagePath, width: img.width, height: img.height });
+                    let utcDateString = metaDataPhoto.timestamp;
+                    const timeStamp = convertUtcToChicago(utcDateString);
+                    console.log(metaDataPhoto.timestamp)
+
+                    const photoDescription = `Uploaded by: ${metaDataPhoto.firstName} ${metaDataPhoto.lastName}`
+
+                    img.onload = () => resolve(
+                        {
+                            src: imagePath,
+                            width: img.width,
+                            height: img.height,
+                            description: photoDescription + '\n' + timeStamp
+                        }
+                    );
                     img.onerror = reject;
                 });
             });
@@ -152,6 +179,13 @@ export default function Page() {
                                 </div>
 
                             </div>
+
+                            <div className="mt-4 flex flex-col justify-center items-center md:justify-start md:items-start">
+                                <div className="md:w-1/4">
+                                    <Dropdown updateSelection={changeOrder} />
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
@@ -171,7 +205,7 @@ export default function Page() {
                         <div className={`${!isGalleryLoading ? 'visible' : 'hidden'}`}>
                             {/* Gallery Buttons*/}
                             <div className="flex flex-col justify-center items-center">
-                                <div className="flex items-center justify-between w-3/4 md:w-11/12 mt-8">
+                                <div className="flex items-center justify-between w-3/4 md:w-11/12 mt-4">
                                     <button className={`${curPage <= 0 ? 'pointer-events-none text-gray-400' : 'text-weddingMaroon'} text-4xl `} onClick={getPrevPage} style={{ transform: 'rotate(-225deg)' }}><GiBranchArrow /></button>
                                     <div className="md:text-lg">Page {curPage + 1}</div>
                                     <button className={`${curCursor ? 'text-weddingMaroon' : 'pointer-events-none text-gray-400'} text-4xl `} onClick={getNextPage} style={{ transform: 'rotate(-45deg)' }}><GiBranchArrow /></button>

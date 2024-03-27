@@ -74,7 +74,7 @@ export default function Page(this: any) {
   return (
     <div className="bg-white">
       <div className="w-full flex flex-col justify-center items-center">
-        <div className="text-5xl m-5">RSVP</div>
+        <div className="text-5xl m-5 text-weddingMaroon">RSVP</div>
         <div className="text-xl">Search for your name.</div>
         <FindNameForm findName={searchForRsvp} />
         <div className="text-lg">Be sure to RSVP or make changes to your RSVP by May 8th!</div>

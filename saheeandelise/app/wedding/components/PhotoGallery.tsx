@@ -5,8 +5,10 @@ import "yet-another-react-lightbox/styles.css";
 import Download from "yet-another-react-lightbox/plugins/download";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Video from "yet-another-react-lightbox/plugins/video";
-import { PhotoMetadata } from "../models/PhotoMetadata";
+import Captions from "yet-another-react-lightbox/plugins/captions";
+import "yet-another-react-lightbox/plugins/captions.css";
 import { Photo } from "../models/Photo";
+import React from "react";
 
 
 
@@ -22,14 +24,14 @@ const Gallery: React.FC<GalleryProps> = ({ photos }) => {
 
 
     return <div>
-        <PhotoAlbum layout="masonry" photos={photos}  onClick={({ index: current }) => setIndex(current)}/>
+        <PhotoAlbum layout="rows" photos={photos}  onClick={({ index: current }) => setIndex(current)}/>
 
         <Lightbox
         index={index}
         slides={photos}
         open={index > -1}
         close={() => setIndex(-1)}
-        plugins={[Download, Zoom, Video]}
+        plugins={[Download, Zoom, Video, Captions]}
         zoom={{
             maxZoomPixelRatio: 1,
             zoomInMultiplier: 2,
