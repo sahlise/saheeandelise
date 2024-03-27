@@ -453,7 +453,7 @@ export default function Page() {
           {/* Table preferences */}
           <div className="border border-gray-300 rounded-lg p-4 w-full md:w-3/4 my-4">
             <div className="text-weddingMaroon text-2xl md:text-xl font-semibold">Table Preference</div>
-            <div className="">We would like to give guests the opportunity to choose who they sit by. We will do our best to align table preferences but it is not guarenteed.</div>
+            <div className="">We would like to give guests the opportunity to choose who they sit by. We will do our best to align table preferences but it is not guaranteed.</div>
             <div className="my-2">
               <TablePreferences updatePreferences={updateTablePreferences} currentGroupId={groupId} selectedGroupIds={getValues("tablePreference")} />
             </div>
