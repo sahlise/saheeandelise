@@ -171,14 +171,14 @@ export const guests: Group[] = [
   },
   {
     "groupId": "bxhsbp",
-    "groupName": "Kyle and Whitney",
+    "groupName": "Kyle Reese",
     "groupAltNames": ["Reese", "Kyle Reese"],
     "people": [
       {
         "name": "Kyle"
       },
       {
-        "name": "Whitney"
+        "name": "Kyle's Guest"
       }
     ]
   },
