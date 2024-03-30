@@ -7,11 +7,13 @@ import { getNameFromLocalStorage } from '../../utils/localStorageUtils';
 import Link from 'next/link';
 import Gallery from '../../components/PhotoGallery';
 import { json } from 'stream/consumers';
-import { PhotoMetadata } from '../../models/PhotoMetadata';
+import { PhotoMetadata } from '../../models/FileMetadata';
 import { Photo } from '../../models/Photo';
 import { GiBranchArrow } from "react-icons/gi";
 import Dropdown from '../../components/Dropdown';
 import { convertUtcToChicago } from '../../utils/dateUtils';
+import { isVideoFormat } from '../../utils/fileUtils';
+import { WeddingVideo } from '../../models/WeddingVideo';
 
 const baseUrl = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/photos';
 const baseFilePath = 'https://saheeandelise.com/wedding/photo-uploads/'
@@ -37,6 +39,7 @@ export default function Page() {
     const [isGalleryLoading, setIsGalleryLoading] = useState(true);
     const [curCursor, setCurCursor] = useState("");
     const [photos, setPhotos] = useState<Photo[]>([]);
+    const [videos, setVideos] = useState<WeddingVideo[]>([]);
     const [name, setName] = useState<{ firstName: string; lastName: string } | null>(null);
     const [curPage, setCurPage] = useState(0)
     const [paginationMap, setPaginationMap] = useState<Map<number, string>>(new Map())
@@ -98,41 +101,93 @@ export default function Page() {
             let tempMap = paginationMap.set(nextPage, jsonData.next_cursor)
             setPaginationMap(tempMap)
             setCurCursor(jsonData.next_cursor)
-            const metaDataPhotos = jsonData.items;
+            const metaDataFiles = jsonData.items;
+
+            //let's sort out the files into videos and images
+            const metaDataPhotos = metaDataFiles.filter(metaDataFile => !isVideoFormat(metaDataFile.sanitizedFilename));
+            const metaDataVideos = metaDataFiles.filter(metaDataFile => isVideoFormat(metaDataFile.sanitizedFilename));
 
             // Create a promise for each image to load
             const loadImagePromises = metaDataPhotos.map((metaDataPhoto) => {
                 return new Promise<Photo>((resolve, reject) => {
-                    const imagePath = baseFilePath + metaDataPhoto.photoId + "-" + metaDataPhoto.sanitizedFilename;
+                    const filePath = baseFilePath + metaDataPhoto.photoId + "-" + metaDataPhoto.sanitizedFilename;
+
+                    //we need to handle photos and videos in two different ways
+
                     const img = new Image();
-                    img.src = imagePath;
+                    img.src = filePath;
 
                     let utcDateString = metaDataPhoto.timestamp;
                     const timeStamp = convertUtcToChicago(utcDateString);
-                    console.log(metaDataPhoto.timestamp)
 
                     const photoDescription = `Uploaded by: ${metaDataPhoto.firstName} ${metaDataPhoto.lastName}`
 
                     img.onload = () => resolve(
                         {
-                            src: imagePath,
+                            src: filePath,
                             width: img.width,
                             height: img.height,
                             description: photoDescription + '\n' + timeStamp
                         }
                     );
-                    img.onerror = reject;
+                    img.onerror = () => {
+                        console.error('Error loading image', { filePath, metaDataPhoto });
+                        reject(new Error(`Failed to load image: ${filePath}`));
+                    };
+
+                });
+            });
+
+            // Create a promise for each image to load
+            const loadVideoPromises = metaDataVideos.map((metaDataVideo) => {
+                return new Promise<WeddingVideo>((resolve, reject) => {
+                    const uniqueTimestamp = new Date().getTime();
+                    const videoPath = `${baseFilePath}${metaDataVideo.photoId}-${metaDataVideo.sanitizedFilename}?v=${uniqueTimestamp}`;
+
+
+                    let utcDateString = metaDataVideo.timestamp;
+                    const timeStamp = convertUtcToChicago(utcDateString);
+
+                    const photoDescription = `Uploaded by: ${metaDataVideo.firstName} ${metaDataVideo.lastName}`
+
+                    const video = document.createElement('video');
+
+                    // It's important to set the video's preload attribute to 'metadata'
+                    // This tells the browser to fetch only the metadata (including dimensions) without downloading the entire video
+                    video.preload = 'metadata';
+                    video.src = videoPath;
+
+                    // Listen for the 'loadedmetadata' event, which indicates the video's metadata has been loaded
+                    video.onloadedmetadata = () => {
+                        resolve({
+                            type: 'video',
+                            width: video.videoWidth,
+                            height: video.videoHeight,
+                            src: videoPath,
+                            poster: "",
+                            sources: [{src: videoPath, type: "video/mp4"}],
+                            description: photoDescription + '\n' + timeStamp
+                        });
+                    };
+
+                    video.onerror = () => reject(new Error(`Failed to load video: ${videoPath}`));
+
+                    // It's a good idea to also load the first frame to ensure the video file is valid and playable
+                    video.load();
+
                 });
             });
 
             const photos = await Promise.all(loadImagePromises);
+            const videos = await Promise.all(loadVideoPromises);
             setPhotos(photos);
-
-
-
+            setVideos(videos)
 
         } catch (error) {
             console.error('Error fetching mock data:', error);
+            if (error instanceof Error) {
+                console.log(error.stack); // This shows you the stack trace
+            }
             setHasError(true);
         } finally {
             window.scrollTo(0, 0);
@@ -215,7 +270,7 @@ export default function Page() {
 
                             {/* Gallery Items*/}
                             <div className="mx-2 my-4">
-                                <Gallery photos={photos} />
+                                <Gallery photos={photos} videos={videos} />
                             </div>
                         </div>
 

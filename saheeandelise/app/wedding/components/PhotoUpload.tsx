@@ -130,7 +130,7 @@ const MyDropzone: React.FC = () => {
                     <div key={photo.id} className="w-3/4 md:w-1/2 my-4">
                         <div>Uploading {photo.filename}</div>
                         <ProgressBar
-                            completed={uploadProgress[photo.id] || 0}
+                            completed={Math.trunc( uploadProgress[photo.id] ) || 0}
                             bgColor="#570034"
                             labelColor="#ffffff"
                             maxCompleted={100}
