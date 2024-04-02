@@ -155,21 +155,42 @@ export default function Page() {
 
                     // It's important to set the video's preload attribute to 'metadata'
                     // This tells the browser to fetch only the metadata (including dimensions) without downloading the entire video
-                    video.preload = 'metadata';
+                    video.preload = 'auto';
                     video.src = videoPath;
+                    video.muted = true;
+                    video.style.display = 'none';
+
+                    document.body.appendChild(video)
+
 
                     // Listen for the 'loadedmetadata' event, which indicates the video's metadata has been loaded
                     video.onloadedmetadata = () => {
-                        resolve({
-                            type: 'video',
-                            width: video.videoWidth,
-                            height: video.videoHeight,
-                            src: videoPath,
-                            poster: "",
-                            sources: [{src: videoPath, type: "video/mp4"}],
-                            description: photoDescription + '\n' + timeStamp,
-                            timestamp: convertUtcStringToDate(utcDateString)
-                        });
+                        video.oncanplaythrough = () => {
+                            const canvas = document.createElement('canvas');
+                            canvas.width = video.videoWidth;
+                            canvas.height = video.videoHeight;
+                            const context = canvas.getContext('2d');
+                            context?.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+                            const poster = canvas.toDataURL();
+
+                            resolve({
+                                type: 'video',
+                                width: video.videoWidth,
+                                height: video.videoHeight,
+                                src: videoPath,
+                                poster: poster,
+                                sources: [{src: videoPath, type: "video/mp4"}],
+                                description: photoDescription + '\n' + timeStamp,
+                                timestamp: convertUtcStringToDate(utcDateString)
+                            });
+
+                            document.body.removeChild(video)
+                        }
+
+                        
+
+
+
                     };
 
                     video.onerror = () => reject(new Error(`Failed to load video: ${videoPath}`));
