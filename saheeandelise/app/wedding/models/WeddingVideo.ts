@@ -12,4 +12,5 @@ export type WeddingVideo = {
     description: string
     poster: string,
     sources: Source[],
+    timestamp: Date
 };

@@ -2,5 +2,6 @@ export type Photo = {
     src: string,
     width: number,
     height: number,
-    description: string
+    description: string,
+    timestamp: Date
 };

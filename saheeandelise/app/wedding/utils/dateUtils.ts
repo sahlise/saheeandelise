@@ -16,3 +16,12 @@ export const convertUtcToChicago = (utcDateString: string): string => {
       hour12: true
     }).format(date);
   }
+
+  export const convertUtcStringToDate = (utcDateString: string): Date => {
+    
+    if (!utcDateString.endsWith('Z')) {
+        utcDateString += 'Z';
+    }
+    
+    return new Date(utcDateString);
+  }

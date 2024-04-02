@@ -11,7 +11,7 @@ import { PhotoMetadata } from '../../models/FileMetadata';
 import { Photo } from '../../models/Photo';
 import { GiBranchArrow } from "react-icons/gi";
 import Dropdown from '../../components/Dropdown';
-import { convertUtcToChicago } from '../../utils/dateUtils';
+import { convertUtcStringToDate, convertUtcToChicago } from '../../utils/dateUtils';
 import { isVideoFormat } from '../../utils/fileUtils';
 import { WeddingVideo } from '../../models/WeddingVideo';
 
@@ -127,7 +127,8 @@ export default function Page() {
                             src: filePath,
                             width: img.width,
                             height: img.height,
-                            description: photoDescription + '\n' + timeStamp
+                            description: photoDescription + '\n' + timeStamp,
+                            timestamp: convertUtcStringToDate(utcDateString)
                         }
                     );
                     img.onerror = () => {
@@ -166,7 +167,8 @@ export default function Page() {
                             src: videoPath,
                             poster: "",
                             sources: [{src: videoPath, type: "video/mp4"}],
-                            description: photoDescription + '\n' + timeStamp
+                            description: photoDescription + '\n' + timeStamp,
+                            timestamp: convertUtcStringToDate(utcDateString)
                         });
                     };
 

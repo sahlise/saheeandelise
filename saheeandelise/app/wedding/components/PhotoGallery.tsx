@@ -23,11 +23,11 @@ const Gallery: React.FC<GalleryProps> = ({ photos, videos }) => {
 
 
     return <div>
-        <PhotoAlbum layout="rows" photos={[...photos, ...videos]}  onClick={({ index: current }) => setIndex(current)}/>
+        <PhotoAlbum layout="rows" photos={[...photos, ...videos].sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime())}  onClick={({ index: current }) => setIndex(current)}/>
 
         <Lightbox
         index={index}
-        slides={[...photos, ...videos]}
+        slides={[...photos, ...videos].sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime())}
         open={index > -1}
         close={() => setIndex(-1)}
         plugins={[Download, Zoom, Video, Captions]}
