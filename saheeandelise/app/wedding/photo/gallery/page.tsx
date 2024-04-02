@@ -158,14 +158,16 @@ export default function Page() {
                     video.preload = 'metadata';
                     video.src = videoPath;
 
+                    const firstFrame = "https://www.saheeandelise.com/wedding/photo-uploads/video_icon.png";
+
                     // Listen for the 'loadedmetadata' event, which indicates the video's metadata has been loaded
                     video.onloadedmetadata = () => {
                         resolve({
                             type: 'video',
                             width: video.videoWidth,
                             height: video.videoHeight,
-                            src: videoPath,
-                            poster: "",
+                            src: firstFrame,
+                            poster: firstFrame,
                             sources: [{src: videoPath, type: "video/mp4"}],
                             description: photoDescription + '\n' + timeStamp,
                             timestamp: convertUtcStringToDate(utcDateString)
