@@ -78,7 +78,7 @@ export default function Page() {
                 Local Storage of Personal Information
               </div>
               <div>
-                a. Use of Local Storage: In addition to the collection and use of information outlined above, our website utilizes local storage technology to enhance your experience. Specifically, when you enter your first and last name in the form provided, we store this information in your browser's local storage. This practice is designed to streamline your interaction with our photo sharing service, allowing us to use your name as metadata for the photos you upload. This metadata assists in organizing and displaying the photos more effectively on our wedding website.
+                a. Use of Local Storage: In addition to the collection and use of information outlined above, our website utilizes local storage technology to enhance your experience. Specifically, when you enter your first and last name in the form provided, we store this information in your browser&apos;s local storage. This practice is designed to streamline your interaction with our photo sharing service, allowing us to use your name as metadata for the photos you upload. This metadata assists in organizing and displaying the photos more effectively on our wedding website.
               </div>
               <div>
                 b. Purpose and Access: The information stored in local storage is strictly used for enhancing your user experience by personalizing the photo upload process and is not shared with third-party services, except as described in the &quot;Third-Party Services&quot; section of this policy. The stored data is accessible only through the use of our website and is not transmitted to us or any third parties.
@@ -102,7 +102,7 @@ export default function Page() {
                 Changes to This Privacy Policy
               </div>
               <div>
-                We may update our privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page and updating the "Last updated" date at the top of the policy.
+                We may update our privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page and updating the &quot;Last updated&quot; date at the top of the policy.
               </div>
             </li>
             <li className="my-2">
