@@ -36,8 +36,7 @@ export default function Page() {
             negativeButtonText={'No, take me to the gallery'}
             titleText={'Upload complete!'}
             bodyText={'Your photos/videos have been uploaded successfully! Do you want to upload more?'} 
-            openModal={showModal}>
-          </Modal>
+            openModal={showModal}/>
         </div>
 
 
