@@ -18,12 +18,6 @@ import { WeddingVideo } from '../../models/WeddingVideo';
 const baseUrl = 'https://vvtlljqgg3.execute-api.us-east-2.amazonaws.com/prod/photos';
 const baseFilePath = 'https://saheeandelise.com/wedding/photo-uploads/'
 
-// const initialPhotos = [
-//     { src: "https://placehold.co/600x400", width: 2400, height: 1600 },
-//     { src: "https://saheeandelise.com/wedding/photo-uploads/08ef41ab-9287-4ad1-8cf5-d05dc72fda03-background__1_.jpg", width: 1600, height: 2400 },
-//     //{ src: "https://saheeandelise.com/wedding/photo-uploads/9125b19f-fea1-47ca-8643-232ac558c981-73276556262__0AB332F6-079E-4BBE-92FC-058C60D9A685.MOV", width: 2400, height: 1600}
-//   ];
-
 type PhotoResponse = {
     items: PhotoMetadata[],
     next_cursor: string
@@ -107,6 +101,9 @@ export default function Page() {
             const metaDataPhotos = metaDataFiles.filter(metaDataFile => !isVideoFormat(metaDataFile.sanitizedFilename));
             const metaDataVideos = metaDataFiles.filter(metaDataFile => isVideoFormat(metaDataFile.sanitizedFilename));
 
+            //we will have a placeholder for any images/videos that are broken
+            const brokenFile = "https://www.saheeandelise.com/wedding/photo-uploads/broken-file.png";
+
             // Create a promise for each image to load
             const loadImagePromises = metaDataPhotos.map((metaDataPhoto) => {
                 return new Promise<Photo>((resolve, reject) => {
@@ -132,8 +129,16 @@ export default function Page() {
                         }
                     );
                     img.onerror = () => {
+                        resolve(
+                            {
+                                src: brokenFile,
+                                width: 700,
+                                height: 700,
+                                description: photoDescription + '\n' + timeStamp,
+                                timestamp: convertUtcStringToDate(utcDateString)
+                            }
+                        );
                         console.error('Error loading image', { filePath, metaDataPhoto });
-                        reject(new Error(`Failed to load image: ${filePath}`));
                     };
 
                 });
@@ -174,7 +179,20 @@ export default function Page() {
                         });
                     };
 
-                    video.onerror = () => reject(new Error(`Failed to load video: ${videoPath}`));
+                    video.onerror = () => {
+                        resolve({
+                            type: 'video',
+                            width: 700,
+                            height: 700,
+                            src: brokenFile,
+                            poster: brokenFile,
+                            sources: [{src: brokenFile, type: "video/mp4"}],
+                            description: photoDescription + '\n' + timeStamp,
+                            timestamp: convertUtcStringToDate(utcDateString)
+                        });
+
+                        console.error('Error loading video', { videoPath, metaDataVideo });
+                    }
 
                     // It's a good idea to also load the first frame to ensure the video file is valid and playable
                     video.load();
