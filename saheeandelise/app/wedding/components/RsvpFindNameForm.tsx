@@ -19,7 +19,7 @@ const FindNameForm: React.FC<FindNameFormProps> = ({ findName }) => {
 
     return (
         <form className="w-full flex flex-col justify-center items-center" onSubmit={handleSubmit(onSubmit)}>
-            <div className="w-1/2 m-2">
+            <div className="w-3/4 md:w-1/2 m-2">
                 <input
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     type="text" placeholder="e.g. Amber Smith"
@@ -29,7 +29,7 @@ const FindNameForm: React.FC<FindNameFormProps> = ({ findName }) => {
                 {errors.name?.type == 'pattern' && <div className="text-red-600">Invalid Character</div>}
             </div>
 
-            <div className="w-1/2  m-2">
+            <div className="w-3/4 md:w-1/2 m-2">
                 <button
                     className="
                     w-full py-2 px-4

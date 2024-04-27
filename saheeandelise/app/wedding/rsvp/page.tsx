@@ -77,7 +77,7 @@ export default function Page(this: any) {
         <div className="text-5xl m-5 text-weddingMaroon">RSVP</div>
         <div className="text-xl">Search for your name.</div>
         <FindNameForm findName={searchForRsvp} />
-        <div className="text-lg">Be sure to RSVP or make changes to your RSVP by May 8th!</div>
+        <div className="text-lg mx-4">Be sure to RSVP or make changes to your RSVP by May 8th!</div>
         <div className="">
           <div className="">
 
