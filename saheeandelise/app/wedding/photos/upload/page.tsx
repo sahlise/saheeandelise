@@ -17,23 +17,23 @@ export default function Page() {
       <div className="min-h-screen">
         <div>
           <div className="flex items-center mt-8 ml-4 md:text-lg text-weddingMaroon hover:underline hover:cursor-pointer"
-            onClick={() => { router.push('/wedding/photo/gallery') }}>
+            onClick={() => { router.push('/wedding/photos/gallery') }}>
             <IoIosArrowBack /> Back to Gallery
           </div>
         </div>
         <div className="flex flex-col justify-center items-center">
-          <h1 className="text-2xl md:text-4xl mt-3 text-weddingMaroon">Share Your Photos</h1>
+          <h1 className="text-2xl md:text-4xl mt-3 text-weddingMaroon">Share Your Photos/Videos</h1>
         </div>
 
         <div className={`${showModal ? 'visible' : 'hidden'}`}>
           <Modal
-            positiveButtonAction={function (): void { setShowModal(false); } }
-            positiveButtonText={'Yes, upload more'}
-            negativeButtonAction={function (): void {
-              router.push('/wedding/photo/gallery');
+            negativeButtonAction={function (): void { setShowModal(false); } }
+            negativeButtonText={'Upload more'}
+            positiveButtonAction={function (): void {
+              router.push('/wedding/photos/gallery');
               setShowModal(false);
             } }
-            negativeButtonText={'No, take me to the gallery'}
+            positiveButtonText={'Take me to the gallery'}
             titleText={'Upload complete!'}
             bodyText={'Your photos/videos have been uploaded successfully! Do you want to upload more?'} 
             openModal={showModal}/>

@@ -16,12 +16,12 @@ export default function App() {
 
   const { register, reset, handleSubmit, formState: { errors } } = useForm<ProfileForm>();
   const onSubmit: SubmitHandler<ProfileForm> = async (data: ProfileForm) => {
-    console.log(data);
+    
     setIsSubmitLoading(true);
-    saveNameToLocalStorage(data.firstName, data.lastName);
+    saveNameToLocalStorage(data.firstName.trim(), data.lastName.trim());
     setIsSubmitLoading(false);
     //route to gallery page
-    router.push('/wedding/photo/gallery')
+    router.push('/wedding/photos/gallery')
   }
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function App() {
     <div className="h-full">
       <div className={`${hasNameSaved  ? 'visible': 'hidden'}`}>
         <div className="flex items-center mt-4 ml-4 md:text-lg text-weddingMaroon hover:underline hover:cursor-pointer"
-          onClick={() => { router.push('/wedding/photo/gallery') }}>
+          onClick={() => { router.push('/wedding/photos/gallery') }}>
           <IoIosArrowBack /> Back to Gallery
         </div>
       </div>
@@ -65,11 +65,11 @@ export default function App() {
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 type="text" placeholder="John" id="firstName" maxLength={255}
-                {...register("firstName", { maxLength: 100, pattern: /^[A-Za-z]+(?:[ -]?[A-Za-z]+)*$/i, required: true })}
+                {...register("firstName", { maxLength: 100, pattern: /^[A-Za-z\s]+(?:[ -]?[A-Za-z\s]+)*$/i, required: true })}
               />
               {errors.firstName?.type == 'maxLength' && <div className="text-red-600">Too long!</div>}
               {errors.firstName?.type == 'pattern' && <div className="text-red-600">Invalid Character</div>}
-              {errors.lastName?.type == 'required' && <div className="text-red-600">First Name is required.</div>}
+              {errors.firstName?.type == 'required' && <div className="text-red-600">First Name is required.</div>}
             </div>
 
             <div className="my-4">
@@ -79,10 +79,10 @@ export default function App() {
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 type="text" placeholder="Henry" id="lastName" maxLength={255}
-                {...register("lastName", { maxLength: 100, pattern: /^[A-Za-z]+(?:[ -]?[A-Za-z]+)*$/i, required: true })}
+                {...register("lastName", { maxLength: 100, pattern: /^[A-Za-z\s]+(?:[ -]?[A-Za-z\s]+)*$/i, required: true })}
               />
-              {errors.firstName?.type == 'maxLength' && <div className="text-red-600">Too long!</div>}
-              {errors.firstName?.type == 'pattern' && <div className="text-red-600">Invalid Character</div>}
+              {errors.lastName?.type == 'maxLength' && <div className="text-red-600">Too long!</div>}
+              {errors.lastName?.type == 'pattern' && <div className="text-red-600">Invalid Character</div>}
               {errors.lastName?.type == 'required' && <div className="text-red-600">Last Name is required.</div>}
             </div>
 
@@ -102,7 +102,7 @@ export default function App() {
 
               <div className="py-2">
                 By clicking Continue, you agree to our
-                <a className="underline pl-1 text-weddingMaroon" href="/wedding/photo/privacy-policy">privacy policy.</a>
+                <a className="underline pl-1 text-weddingMaroon" href="/wedding/photos/privacy-policy">privacy policy.</a>
               </div>
 
 

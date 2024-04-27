@@ -137,7 +137,7 @@ const PhotoUpload: React.FC<PhotoUploadProps> = ( {uploadComplete} ) => {
                     <input {...getInputProps()} />
                     <div className="text-center">
                         <div className="flex flex-col justify-center items-center text-3xl"><MdOutlineAddPhotoAlternate /></div>
-                        <div className="text-lg">Select Photos to Upload</div>
+                        <div className="text-lg">Select Photos/Videos to Upload</div>
                     </div>
                 </div>
             </div>

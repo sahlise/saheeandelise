@@ -14,7 +14,7 @@ export default function Page() {
     <div className="h-full ">
       <div>
         <div className="flex items-center mt-4 ml-4 md:text-lg text-weddingMaroon hover:underline hover:cursor-pointer"
-          onClick={() => { router.push('/wedding/photo/profile') }}>
+          onClick={() => { router.push('/wedding/photos/profile') }}>
           <IoIosArrowBack /> Back to Profile
         </div>
       </div>

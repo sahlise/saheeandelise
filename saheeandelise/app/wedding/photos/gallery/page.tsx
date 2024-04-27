@@ -51,7 +51,7 @@ export default function Page() {
             setName(storedName)
         } else {
             //there is no name in storage, force user to go to profile first
-            router.push('/wedding/photo/profile')
+            router.push('/wedding/photos/profile')
         }
 
         getPhotos(0, curSortDir)
@@ -242,12 +242,12 @@ export default function Page() {
                                     {name &&
                                         <div className="flex flex-row items-center md:text-lg">
                                             <p className="">Hello {name.firstName} {name.lastName}!</p>
-                                            <a href="/wedding/photo/profile" className="underline px-2 text-weddingMaroon">Edit</a>
+                                            <a href="/wedding/photos/profile" className="underline px-2 text-weddingMaroon">Edit</a>
                                         </div>
                                     }
                                 </div>
                                 <div className="md:flex md:justify-end md:items-end w-full mt-4 md:mt-2">
-                                    <Link href="/wedding/photo/upload" passHref>
+                                    <Link href="/wedding/photos/upload" passHref>
                                         <div className="bg-weddingTan hover:opacity-75 py-2 px-4 rounded cursor-pointer flex justify-center items-center">
                                             Upload Photos
                                         </div>
